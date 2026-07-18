@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6865956D-64BD-4DF2-A316-74897E39820B}" SchemaVersion="97">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{6865956D-64BD-4DF2-A316-74897E39820B}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="TestBank" ID="{5925828D-6464-43AD-91AC-3AA041329BE3}">
+					<ObjectInclusionList>
+						<ObjectRef Name="GUI_halloween_2018_perk_afterburner" ID="{41B83D15-1962-4FBB-9A74-F6CA972239D1}" WorkUnitID="{BCC7BA69-0F66-4B12-A2E6-203AE4F7A6BE}" Origin="Manual" Filter="4"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

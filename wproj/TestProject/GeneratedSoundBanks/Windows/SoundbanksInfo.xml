@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\</ProjectRoot>
+		<SourceFilesRoot>Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="4204904655">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3291379323" Language="SFX" Hash="2109813574">
+			<ObjectPath>\SoundBanks\Default Work Unit\TestBank</ObjectPath>
+			<ShortName>TestBank</ShortName>
+			<Path>TestBank.bnk</Path>
+			<IncludedMemoryFiles>
+				<File Id="907192004" Language="SFX">
+					<ShortName>GUI_halloween_2018_perk_afterburner.wav</ShortName>
+					<Path>SFX\GUI_halloween_2018_perk_afterburner_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

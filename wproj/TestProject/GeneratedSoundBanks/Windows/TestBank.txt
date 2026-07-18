@@ -1,0 +1,3 @@
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	907192004	GUI_halloween_2018_perk_afterburner	Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\.cache\Windows\SFX\GUI_halloween_2018_perk_afterburner_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\GUI_halloween_2018_perk_afterburner		999658
+

@@ -1,0 +1,19 @@
+# Dữ liệu nặng, tái tạo được từ input gốc — KHÔNG commit
+pool/
+out_wwise/wav/
+out_wwise/render_pool/
+out_wwise/txtp/
+out_wwise/txtp_gd/
+input/
+*.wem
+*.wav
+*.pck
+*.bnk
+
+# Log runtime, không cần lịch sử git
+logs/
+*.log
+
+# Python cache
+__pycache__/
+*.pyc

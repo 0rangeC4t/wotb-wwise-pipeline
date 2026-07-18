@@ -1,0 +1,2 @@
+Audio File	Object Type	Object Path
+Z:\home\orange_meow\wotb-wwise-pipeline\out_wwise\wav\GUI_halloween_2018_perk_afterburner.wav	Sound SFX	\Actor-Mixer Hierarchy\Default Work Unit\GUI_halloween_2018_perk_afterburner
