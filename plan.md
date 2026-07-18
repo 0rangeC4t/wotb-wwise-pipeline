@@ -25,10 +25,9 @@ Nguồn dữ liệu là file ĐÃ COMPILE (`.bnk`/`.pck`), không phải project
 ```
 Phase 1 — Carved: 7861 | Unique: 5640 | Collision: 1963 ID (verify khớp tuyệt đối)
 Phase 2 — Manifest: 5798 | Orphans: 0
-Phase 3 — .txtp: 934 | Dry-run: 934/934 OK | Render .wav: 934/934 thành công
-          (verify 3 lớp: đếm file độc lập = 934, code ThreadPoolExecutor dùng
-          executor.map() không nuốt exception, nghe thật bằng tai xác nhận
-          âm thanh đúng — không chỉ tin log tự báo cáo)
+Phase 3 (CẬP NHẬT — baseline 934/934 cũ đã lỗi thời) — .txtp: 1856 | Dry-run: 1856/1856 OK
+          | Render .wav: đã verify mẫu qua mpv (nghe rải rác + toàn bộ crewvoice/*/),
+          all pass, không phát hiện file rè/im lặng/sai ngôn ngữ.
 ```
 
 **Bài học quan trọng về debug số liệu:** trong quá trình xác minh, có 1 lần báo cáo SAI (nói 1967 dòng, phân bố "1961×1 + 2×3") do so sánh nhầm dữ liệu giữa 2 lần chạy `run_full_carve.py` khác nhau (1 lần trước khi xóa lại `pool/`, 1 lần sau). Chỉ phát hiện được nhờ ép chạy lại toàn bộ 3 lệnh awk NGAY LIỀN NHAU không xen lệnh nào khác ở giữa, và đối chiếu tổng tính được với `wc -l` phải khớp tuyệt đối trước khi tin. **Nguyên tắc rút ra: khi verify số liệu nhiều bước, luôn chạy các lệnh đo liền mạch trong 1 lần, không tách rời qua nhiều lượt hỏi-đáp — dễ lẫn dữ liệu giữa các lần chạy khác nhau của hệ thống.**
@@ -156,6 +155,26 @@ Setup: `WINEPREFIX=$HOME/.wwise_wine`, Wwise 2019.2.15.7667 cài qua Audiokineti
 - **Kết luận: đây là lỗi bất đồng bộ metadata phổ biến của modpack cộng đồng** — tác giả mod thường đóng gói/gộp file `.bnk` nhưng không tái tạo đầy đủ `SoundbanksInfo.json` tương ứng. KHÔNG sửa linker.py để "đoán" ID từ tên file — làm vậy có nguy cơ link nhầm 2 asset khác nhau vô tình trùng tên (rủi ro cao hơn với modpack tổng hợp nhiều tác giả).
 - **Bài học cho agent**: KHÔNG giả định pipeline áp dụng cho data gốc sẽ cho tỷ lệ orphan tương tự với modpack — mỗi nguồn input cần điều tra orphan riêng bằng bằng chứng nhị phân thật (đọc HIRC, không chỉ text-match), vì lý do orphan có thể khác nhau hoàn toàn giữa các nguồn.
 
+### 13. Bug đã fix: `generate_txtp.py` copy `.bnk` sai path cho crewvoice → 864/1964 txtp MISSING_SOURCE
+- **Bug:** `generate_txtp.py` copy/symlink `.bnk` vào `render_pool/` theo cấu trúc thư mục
+  tương đối từ `input_dir` (vd `render_pool/arb/voiceover_crew.bnk`). Nhưng khi `wwiser`
+  parse bank ở path đó và ghi source path vào `.txtp`, nó ghi path KHÔNG có lang subdir
+  (`render_pool/voiceover_crew.bnk`) — path này không tồn tại trên disk.
+- **Hậu quả:** toàn bộ 864/1964 file `.txtp` liên quan voice (756 crewvoice theo lang +
+  36 unlocalized event + 72 `ingame_voice_notifications_VO_*`) bị `MISSING_SOURCE` khi
+  chạy `dryrun_validate.py`, dù file `.bnk` gốc và `.wem` trong `pool/` đều tồn tại đầy đủ.
+  Baseline Phase 3 cũ (934/934, chốt trước khi mở rộng crewvoice) không phản ánh bug này.
+- **Đã sửa:** thêm bước copy/symlink `.bnk` thêm 1 bản flat (không giữ subdir lang) trực
+  tiếp vào `render_pool/` gốc, dùng tên khớp đúng path mà `wwiser` ghi vào `.txtp` — giữ
+  nguyên bản nested cũ song song (không phá cấu trúc cho các bank không phải voice).
+- **Verify sau khi sửa:** chạy lại `generate_txtp.py` → `dryrun_validate.py`:
+  **1856/1856 OK, 0 MISSING_SOURCE** (số 1964 cũ giảm còn 1856 do loại trùng lặp
+  `-gd` không cần thiết khi path đã resolve đúng — cần agent tự verify lại nếu thấy
+  chênh lệch số lượng .txtp giữa các lần chạy, theo đúng nguyên tắc ở đầu file).
+- **Bài học:** giống Fact #1b — bug loại "path không khớp giữa bước ghi symlink và bước
+  wwiser ghi source path", không raise exception, chỉ âm thầm fail ở tầng dry-run validate.
+  Luôn đối chiếu lại baseline cũ khi thay đổi cấu trúc thư mục input/output, không giả định
+  số liệu cũ (934/934) còn đúng sau khi mở rộng phạm vi xử lý (thêm crewvoice đa ngôn ngữ).
 ```markdown
 - [ ] Wine Test 4: WAAPI server (chạy trong Wine) accept connection từ waapi-client
       Python native trên Linux qua localhost:<port>
