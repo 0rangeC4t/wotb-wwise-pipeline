@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="97">
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Triggers\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\TestProject.wproj" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Switches\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\States\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\SoundBanks\Default Work Unit.wwu" DateLow="1784072296" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Queries\Factory Queries.wwu" DateLow="1783486670" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Queries\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Presets\Factory Spatial Audio.wwu" DateLow="1783486670" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Presets\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Modulators\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1784072296" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Game Parameters\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Events\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Effects\Factory Effects.wwu" DateLow="1783486670" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Effects\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1783486670" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Conversion Settings\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1784072174" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Audio Devices\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Attenuations\Default Work Unit.wwu" DateLow="1783991589" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1784070851" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Triggers\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\TestProject.wproj" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\TestProject.orange_meow.wsettings" DateLow="1784420507" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Switches\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\States\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\SoundBanks\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Queries\Factory Queries.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Queries\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Presets\Factory Spatial Audio.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Presets\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Modulators\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Game Parameters\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Events\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Effects\Factory Effects.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Effects\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Conversion Settings\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Audio Devices\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Attenuations\Default Work Unit.wwu" DateLow="1784385674" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1784425267" DateHigh="0"/>
 </ValidationCache>

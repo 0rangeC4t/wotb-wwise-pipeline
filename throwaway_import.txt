@@ -1,0 +1,3 @@
+Audio File	Object Type	Object Path
+/home/orange_meow/wotb-wwise-pipeline/out_wwise/wav/play_wpn_small_1p {r}.wav	Sound SFX	\Actor-Mixer Hierarchy\Default Work Unit\Weapons_new\Wpn_arcade\02_Small\Close\blitz_wpn_ext_small_close_02
+/home/orange_meow/wotb-wwise-pipeline/out_wwise/wav/play_wpn_small_3p {r}.wav	Sound SFX	\Actor-Mixer Hierarchy\Default Work Unit\Weapons_new\Wpn_arcade\02_Small\Close\blitz_wpn_ext_small_close_02

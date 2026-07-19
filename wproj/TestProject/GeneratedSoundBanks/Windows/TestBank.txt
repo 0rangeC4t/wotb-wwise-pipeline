@@ -1,3 +1,4 @@
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	470047706	crewvoice_en_VO_ally_killed_by_player	Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\.cache\Windows\SFX\ingame_voice_notifications_VO_ally_killed_by_player {r} {l=en}_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\crewvoice_en_VO_ally_killed_by_player		111120
 	907192004	GUI_halloween_2018_perk_afterburner	Z:\home\orange_meow\wotb-wwise-pipeline\wproj\TestProject\.cache\Windows\SFX\GUI_halloween_2018_perk_afterburner_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\GUI_halloween_2018_perk_afterburner		999658
 

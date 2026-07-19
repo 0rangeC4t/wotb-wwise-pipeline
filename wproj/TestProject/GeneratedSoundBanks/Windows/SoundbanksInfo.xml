@@ -16,11 +16,15 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3291379323" Language="SFX" Hash="2109813574">
+		<SoundBank Id="3291379323" Language="SFX" Hash="1053023573">
 			<ObjectPath>\SoundBanks\Default Work Unit\TestBank</ObjectPath>
 			<ShortName>TestBank</ShortName>
 			<Path>TestBank.bnk</Path>
 			<IncludedMemoryFiles>
+				<File Id="470047706" Language="SFX">
+					<ShortName>ingame_voice_notifications_VO_ally_killed_by_player {r} {l=en}.wav</ShortName>
+					<Path>SFX\ingame_voice_notifications_VO_ally_killed_by_player {r} {l=en}_10C4C929.wem</Path>
+				</File>
 				<File Id="907192004" Language="SFX">
 					<ShortName>GUI_halloween_2018_perk_afterburner.wav</ShortName>
 					<Path>SFX\GUI_halloween_2018_perk_afterburner_10C4C929.wem</Path>

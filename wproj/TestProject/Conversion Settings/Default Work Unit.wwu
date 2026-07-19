@@ -7,31 +7,39 @@
 					<PropertyList>
 						<Property Name="Channels" Type="int32">
 							<ValueList>
+								<Value Platform="Android">4</Value>
 								<Value Platform="Windows">4</Value>
 							</ValueList>
 						</Property>
 						<Property Name="LRMix" Type="Real64">
 							<ValueList>
+								<Value Platform="Android">0</Value>
 								<Value Platform="Windows">0</Value>
 							</ValueList>
 						</Property>
 						<Property Name="MaxSampleRate" Type="int32">
 							<ValueList>
+								<Value Platform="Android">0</Value>
 								<Value Platform="Windows">0</Value>
 							</ValueList>
 						</Property>
 						<Property Name="MinSampleRate" Type="int32">
 							<ValueList>
+								<Value Platform="Android">0</Value>
 								<Value Platform="Windows">0</Value>
 							</ValueList>
 						</Property>
 						<Property Name="SampleRate" Type="int32">
 							<ValueList>
+								<Value Platform="Android">0</Value>
 								<Value Platform="Windows">0</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
 					<ConversionPluginInfoList>
+						<ConversionPluginInfo Platform="Android">
+							<ConversionPlugin Name="" ID="{58BA92F6-D876-492E-A5A2-BA77BAD1B677}" PluginName="PCM" CompanyID="0" PluginID="1"/>
+						</ConversionPluginInfo>
 						<ConversionPluginInfo Platform="Windows">
 							<ConversionPlugin Name="" ID="{C3952A80-221A-4CA9-89F4-E7A8B8BC43BD}" PluginName="PCM" CompanyID="0" PluginID="1"/>
 						</ConversionPluginInfo>
