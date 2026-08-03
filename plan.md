@@ -26,8 +26,12 @@ Nguồn dữ liệu là file ĐÃ COMPILE (`.bnk`/`.pck`), không phải project
 Phase 1 — Carved: 7861 | Unique: 5640 | Collision: 1963 ID (verify khớp tuyệt đối)
 Phase 2 — Manifest: 5798 | Orphans: 0
 Phase 3 (CẬP NHẬT — baseline 934/934 cũ đã lỗi thời) — .txtp: 1856 | Dry-run: 1856/1856 OK
-          | Render .wav: đã verify mẫu qua mpv (nghe rải rác + toàn bộ crewvoice/*/),
-          all pass, không phát hiện file rè/im lặng/sai ngôn ngữ.
+          | Render .wav: 1856/1856 render OK, verify tay bằng mpv (nghe rải rác + toàn bộ
+          crewvoice/*/), all pass, không phát hiện file rè/im lặng/sai ngôn ngữ.
+Phase 4 (ĐANG LÀM, ~45%) — import.txt: 4874 dòng (202 collision đã disambiguate) |
+          Bulk import: 4874/4874 object, 0 lỗi | gamesync_map.json: 1 State/18 Switch/
+          41 Game Parameter | CÒN TREO: 616 SID bị bỏ sót do bug map logic (Fact #16,
+          chưa fix), Music Hierarchy riêng (chưa làm), ShareSets (chưa làm)
 ```
 
 **Bài học quan trọng về debug số liệu:** trong quá trình xác minh, có 1 lần báo cáo SAI (nói 1967 dòng, phân bố "1961×1 + 2×3") do so sánh nhầm dữ liệu giữa 2 lần chạy `run_full_carve.py` khác nhau (1 lần trước khi xóa lại `pool/`, 1 lần sau). Chỉ phát hiện được nhờ ép chạy lại toàn bộ 3 lệnh awk NGAY LIỀN NHAU không xen lệnh nào khác ở giữa, và đối chiếu tổng tính được với `wc -l` phải khớp tuyệt đối trước khi tin. **Nguyên tắc rút ra: khi verify số liệu nhiều bước, luôn chạy các lệnh đo liền mạch trong 1 lần, không tách rời qua nhiều lượt hỏi-đáp — dễ lẫn dữ liệu giữa các lần chạy khác nhau của hệ thống.**
@@ -175,15 +179,78 @@ Setup: `WINEPREFIX=$HOME/.wwise_wine`, Wwise 2019.2.15.7667 cài qua Audiokineti
   wwiser ghi source path", không raise exception, chỉ âm thầm fail ở tầng dry-run validate.
   Luôn đối chiếu lại baseline cũ khi thay đổi cấu trúc thư mục input/output, không giả định
   số liệu cũ (934/934) còn đúng sau khi mở rộng phạm vi xử lý (thêm crewvoice đa ngôn ngữ).
-```markdown
-- [ ] Wine Test 4: WAAPI server (chạy trong Wine) accept connection từ waapi-client
-      Python native trên Linux qua localhost:<port>
-- [ ] Wine Test 4b: generate-soundbank thật với audio thật → xác nhận Vorbis
-      encoder không thiếu DLL (cần winetricks vcrun2019 trước)
-- [ ] Nội dung thật của apk.bnk (17 Music object) — vai trò trong game là gì
-- [ ] Xác nhận danh sách 52 bank ở WwiseSound/ đã đầy đủ (có bank nào bị bỏ sót
-      trong lần liệt kê ls không, đặc biệt các map chưa quét)
+
+### 14. Phase 4.4 — `wwise_builder.py` (import.txt + gamesync extraction) — LẦN ĐẦU CHẠY THẬT
+- **Bug 1 đã sửa:** `out_wwise/wav/*.wav` được đặt tên theo stem của file `.txtp`
+  (friendly/event name), KHÔNG theo `source_id` — trong khi `manifest.json` key theo
+  `source_id`. Không có match 1-1 qua tên file, phải tự parse lại nội dung từng `.txtp`
+  (tái dùng logic `parse_txtp_files` của `linker.py`, lọc dòng `#` theo Fact #9b) để dựng
+  bảng `source_id -> .wav`.
+- **Bug 2 đã sửa:** định nghĩa "ambiguous" ban đầu SAI — nhầm "1 txtp chứa nhiều source_id"
+  (bình thường, do Random/Sequence Container gọi nhiều .wem) thành case mơ hồ. Đã sửa lại:
+  ambiguous đúng nghĩa chỉ là "1 source_id xuất hiện ở NHIỀU file .txtp khác nhau" — khớp
+  đúng bản chất Fact #10 (shared asset hợp lệ giữa nhiều bank/context).
+  - Verify khớp tuyệt đối: 4874 resolved + 763 ambiguous = 5637 = tổng "unique source_id
+    non-comment" đã verify độc lập ở bước điều tra gap WEM khác.
+- **Bug 3 đã sửa — Object Path collision (202 group):** nhiều `source_id` khác nhau share
+  cùng `ShortName` gốc trong `SoundbanksInfo.json` (data thật upstream, KHÔNG phải lỗi
+  script — đã verify bằng cách đọc raw JSON cho nhiều cặp collision, ShortName giống hệt
+  nhau, chỉ khác `Id`). Test thực nghiệm xác nhận: **Wwise `tab-delimited-import` FAIL HOÀN
+  TOÀN (0 object, KHÔNG silent-overwrite, KHÔNG auto-rename) khi 2+ dòng share đúng 1 Object
+  Path** — đây là giới hạn thật của tool, không phải bug data/script.
+  - Fix: chỉ với 202 group bị collision, append `_<source_id>` vào cuối Object Path để
+    disambiguate. Log riêng vào `disambiguation_log.json` (original_path → list source_id +
+    new_path) — ghi rõ đây là artifact do tool-limitation workaround, KHÔNG phải naming gốc
+    của Wargaming, không được lẫn vào phần naming "chính hãng".
+  - Không tự suy diễn semantic (vd không đoán "mid/tail" cho súng dựa theo duration) khi
+    không có bằng chứng — giữ nguyên chỉ số `source_id` làm hậu tố, đơn giản và trung thực
+    với những gì đã biết.
+- **Bug 4 đã sửa — Wine path double-prefix:** `wwise_builder.py` ghi absolute Unix path
+  (`/home/orange_meow/...`) thẳng vào cột "Audio File" của `import.txt`. Khi WwiseConsole
+  chạy qua Wine với CWD = `Z:\home\orange_meow\...`, nó hiểu nhầm path Unix là path tương
+  đối rồi nối vào sau CWD → path bị lặp đôi (`Z:\home\...\home\...`) → 100% "File not found"
+  cho các dòng bị ảnh hưởng. Fix: convert path Unix sang `Z:\...` (Wine drive prefix chuẩn,
+  đúng convention đã dùng thủ công ở Test 4b) trước khi ghi vào `import.txt`.
+- **Kết quả cuối cùng sau khi sửa cả 4 bug — verify bằng GUID, không chỉ đếm XML element:**
+  ```
+  import.txt:      4874 dòng (202 group đã disambiguate)
+  Bulk import:      4874/4874 object tạo thành công — 0 warning, 0 error
+  Trial mode 200-item: KHÔNG chặn tab-delimited-import (chỉ áp dụng cho generate-soundbank
+                        cuối, đã verify thật bằng cách import thật 4874 dòng, không suy đoán)
+  ```
+- **Language mapping verify:** 20/21 ngôn ngữ khớp 1:1 hoàn hảo giữa manifest và object thật
+  trong project (qua tag `{l=xx}` trong tên audio file, KHÔNG qua field `<Language>` trong
+  `.wwu` — field đó luôn ghi cứng `SFX` cho mọi object import qua `tab-delimited-import`,
+  không phản ánh ngôn ngữ thật). `English(US)` ban đầu tưởng thiếu 100% — điều tra sâu xác
+  nhận đây là **bug của chính script verify** (so sai: tìm SID gốc trong tên object, trong
+  khi object dùng SID audio sau disambiguation) — không phải bug pipeline chính, đã đóng.
+
+### 15. `gamesync_map.json` — kết quả trích xuất
 ```
+State Group: 1 | Switch Group: 18 | Game Parameter: 41
+id_to_gamesync_refs: 647 source_id có gamesync reference
+449/1856 txtp có gamesync data (STATECHUNKS/GAMEVARS), 1407 không có (SFX đơn giản)
+```
+- Verify độc lập: `grep -l STATECHUNKS out_wwise/txtp/*.txtp | wc -l` = 16 file → khớp hợp
+  lý với việc chỉ ra đúng 1 State Group duy nhất (nhiều file cùng dùng 1 group global,
+  khác hẳn Switch/RTPC đa dạng theo từng object riêng lẻ).
+
+### 16. Điều tra gap 627 (`manifest.json` language=null nhưng KHÔNG có trong `import.txt`)
+Quy trình verify nhiều lớp, phát hiện và tự sửa 1 lỗi tính toán giữa chừng (số liệu ban đầu
+tự mâu thuẫn 69 vs 627 vs 621 — KHÔNG tin bất kỳ số nào cho tới khi recompute từ đầu và tự
+đối chiếu khớp: `A(2501) - B(1874) = 627 = tổng breakdown`). Kết quả cuối, đã khớp tuyệt đối:
+
+| Nhóm | Số lượng | Kết luận |
+|---|---|---|
+| Có wav+txtp+wem đầy đủ nhưng bị bỏ sót trong `import.txt` | 616 | **BUG THẬT trong `wwise_builder.py`** — cùng lớp lỗi với Bug 1/2 ở Fact #14 (map source_id→txtp/wav chưa xử lý hết trường hợp 1 txtp chứa nhiều SID). **CHƯA FIX, còn treo.** |
+| Convolution Reverb IR asset (`Plugins\Wwise Convolution Reverb\...`) | 3 | Đúng thiết kế — thuộc phạm vi **ShareSets** (Fact đầu file, "chưa từng đưa vào Phase 4 cụ thể"), không phải Sound thường, không cần fix `wwise_builder.py`. |
+| Bank sự kiện theo mùa không có trong input snapshot hiện tại (`event_twister_2020.bnk`) | 8 | **ĐẶC TÍNH, không phải bug.** Đây là bank sự kiện giới hạn thời gian (cùng loại `ability_halloween_2018/2019/2021.pck`, `tutor_2021_intro.pck`) — chỉ tồn tại trên client khi sự kiện đang active. `SoundbanksInfo.json` khai báo tích lũy mọi asset từng tồn tại qua các bản build, còn `input/WwiseSound/` chỉ là snapshot 1 thời điểm — lệch nhau là bình thường theo đúng Constraints ("input đến từ nhiều bản build khác nhau theo thời gian"). Verify: `find`/`grep` xác nhận file `.bnk` này không tồn tại trong input hiện có — không có cách khắc phục trừ khi thu thập thêm bank từ đúng thời điểm sự kiện. 8 SID: `240510984, 276557761, 301723069, 548319644, 705623800, 84099098, 850754624, 961118168`. |
+
+**Việc còn cần làm (bug thật, ưu tiên cao):** sửa `wwise_builder.py` để bắt đúng toàn bộ SID
+tham chiếu trong 1 `.txtp` (không chỉ 1 số trường hợp) khi build `import.txt` — dùng lại
+đúng cách tiếp cận `sid_to_txtps` đã verify đúng trong `gap_recount.py` (map trước theo
+source_id → danh sách txtp tham chiếu, rồi mới check has_wav qua từng txtp đó, KHÔNG đoán
+qua tên file). Sau khi fix, `import.txt` dự kiến tăng từ 4874 lên gần 5490 dòng (4874 + 616).
 
 ---
 
@@ -276,7 +343,7 @@ Toàn bộ 8 mục trong `Verified Facts` ở trên.
 
 **Môi trường:** Wine (`WINEPREFIX=$HOME/.wwise_wine`), Wwise 2019.2.15.7667 — đã xác nhận CLI headless hoạt động (Verified Facts #8).
 
-1. **Trước khi bắt đầu:** hoàn thành Wine Test 4 (còn treo ở trên) — nếu encoder build fail, quyết định hybrid fallback (build cuối trên máy Windows riêng).
+1. ~~Trước khi bắt đầu: hoàn thành Wine Test 4~~ — **ĐÃ XONG** (Fact #8, #14): Windows + Android build sạch, 0 error. Không cần hybrid fallback.
 2. `WwiseConsole.exe create-new-project` tạo `.wproj` rỗng.
 3. Đăng ký **22 Language** đúng theo `WwiseSound/SoundbanksInfo.json` gốc (bao gồm `gup` như 1 Language thật, KHÔNG dựng thêm Switch Group riêng cho CrewVoicePack — đây chính là cơ chế Language built-in).
 4. `wwise_builder.py` qua WAAPI dựng skeleton Actor-Mixer Hierarchy dựa trên `manifest.json` + HIRC XML.
@@ -285,7 +352,23 @@ Toàn bộ 8 mục trong `Verified Facts` ở trên.
 7. **Idempotent injection:** `inject_state.json` theo dõi ID nào đã inject. Script check state trước khi gọi WAAPI, skip nếu đã `done`.
 8. Batch WAAPI: giới hạn 500 object/payload (giả định, cần verify giới hạn thật ở Test 4).
 9. Checkpoint: `git commit` sau mỗi phase con.
-10. Compile cuối: `WwiseConsole.exe generate-soundbank`.
+10. Compile cuối: `WwiseConsole.exe generate-soundbank` — **BỎ QUA theo quyết định dự án**
+    (mục tiêu là học/xem cấu trúc, không release bank cuối, xem Fact #14).
+
+**Trạng thái Phase 4 hiện tại** (chi tiết đầy đủ ở Fact #14/#15/#16):
+```
+Bước 1 (Wine Test 4b)      ✅ DONE — Windows + Android build sạch, 0 error
+Bước 2 (create-new-project) ✅ DONE — TestProject.wproj
+Bước 3 (22 Language)        ✅ DONE — add thủ công qua UI
+Bước 4 (wwise_builder.py)   🔶 ĐANG LÀM — import.txt + gamesync_map.json đã sinh,
+                               còn 1 bug map logic (616 SID, xem Fact #16) cần fix
+Bước 5 (Music Hierarchy)    ❌ CHƯA LÀM
+Bước 6 (Bulk import)        ✅ DONE (cho 4874/4874 dòng hiện có) — 0 warning, 0 error
+Bước 7 (inject_state.json)  ❌ CHƯA LÀM
+Bước 8 (WAAPI batch limit)  ❌ CHƯA TEST
+Bước 9 (checkpoint git)     ✅ Đang làm đều
+Bước 10 (compile cuối)      ⏭️ BỎ QUA (quyết định dự án)
+```
 
 ---
 
@@ -308,7 +391,6 @@ Nếu dựng lại nội dung mod cộng đồng (như Dương Phạm), ghi rõ 
 - Sau mỗi phase: `git add -A && git commit -m "phase-N-complete"`.
 - `manifest.json` và `inject_state.json` là 2 file trạng thái sống còn — backup riêng, không để lẫn vào `.gitignore`.
 - Nếu lỗi giữa chừng ở Phase 4: KHÔNG xóa `.wproj`, chỉ cần script đọc lại `inject_state.json` và resume.
-
-- Sau mỗi phase: `git add -A && git commit -m "phase-N-complete"`.
-- `manifest.json` và `inject_state.json` là 2 file trạng thái sống còn — backup riêng, không để lẫn vào `.gitignore`.
-- Nếu lỗi giữa chừng ở Phase 4: KHÔNG xóa `.wproj`, chỉ cần script đọc lại `inject_state.json` và resume.
+- Data nặng tái tạo được (`pool/`, `out_wwise/wav/`, `out_wwise/txtp*/`, `input/`) nên nằm
+  trong `.gitignore` — chỉ track code + `manifest.json`/`inject_state.json`/log quan trọng
+  (đã áp dụng thật, xem lịch sử commit `phase-3-complete-1856-crewvoice-fix`).
