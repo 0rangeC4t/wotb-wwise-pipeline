@@ -25,3 +25,11 @@ wproj/*/.wsettings
 
 # Project throwaway, không cần lịch sử git
 wproj/ThrowawayProject/
+
+# Wwise project cache & generated output — tái tạo được khi mở project/build lại
+wproj/*/.cache/
+wproj/*/GeneratedSoundBanks/
+wproj/*/.wsettings
+
+# Project throwaway, không cần lịch sử git
+wproj/ThrowawayProject/
