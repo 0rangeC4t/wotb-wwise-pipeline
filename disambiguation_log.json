@@ -1,4 +1,18 @@
 {
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_02": [
+    {
+      "source_id": "846216",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_02_846216"
+    },
+    {
+      "source_id": "524024837",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_02_524024837"
+    },
+    {
+      "source_id": "747354731",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_02_747354731"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_02": [
     {
       "source_id": "5605922",
@@ -7,6 +21,130 @@
     {
       "source_id": "542955850",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_02_542955850"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_01": [
+    {
+      "source_id": "6786932",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_01_6786932"
+    },
+    {
+      "source_id": "542302086",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_01_542302086"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_03": [
+    {
+      "source_id": "8239227",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_03_8239227"
+    },
+    {
+      "source_id": "161554691",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_03_161554691"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed2": [
+    {
+      "source_id": "9620132",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed2_9620132"
+    },
+    {
+      "source_id": "312125701",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed2_312125701"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_01": [
+    {
+      "source_id": "10860670",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_01_10860670"
+    },
+    {
+      "source_id": "53143839",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_01_53143839"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_01": [
+    {
+      "source_id": "13569739",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_01_13569739"
+    },
+    {
+      "source_id": "969921530",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_01_969921530"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_03": [
+    {
+      "source_id": "14166998",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_03_14166998"
+    },
+    {
+      "source_id": "301880941",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_03_301880941"
+    },
+    {
+      "source_id": "816211630",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_03_816211630"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_02": [
+    {
+      "source_id": "14218913",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_02_14218913"
+    },
+    {
+      "source_id": "1034494895",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_02_1034494895"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_40_01": [
+    {
+      "source_id": "18638918",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_40_01_18638918"
+    },
+    {
+      "source_id": "871455844",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_40_01_871455844"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_04": [
+    {
+      "source_id": "18776714",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_04_18776714"
+    },
+    {
+      "source_id": "663234206",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_04_663234206"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_lowrpm_02": [
+    {
+      "source_id": "24264366",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_lowrpm_02_24264366"
+    },
+    {
+      "source_id": "447681460",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_lowrpm_02_447681460"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed4": [
+    {
+      "source_id": "24734954",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed4_24734954"
+    },
+    {
+      "source_id": "964510590",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed4_964510590"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_lowrpm_02": [
+    {
+      "source_id": "26372779",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_lowrpm_02_26372779"
+    },
+    {
+      "source_id": "42717648",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_lowrpm_02_42717648"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_03": [
@@ -19,6 +157,124 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_03_760831259"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_midrpm_02": [
+    {
+      "source_id": "31685037",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_midrpm_02_31685037"
+    },
+    {
+      "source_id": "360424480",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_midrpm_02_360424480"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_03": [
+    {
+      "source_id": "40659414",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_03_40659414"
+    },
+    {
+      "source_id": "704022772",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_03_704022772"
+    },
+    {
+      "source_id": "956417503",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_03_956417503"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_midrpm_03": [
+    {
+      "source_id": "43193883",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_midrpm_03_43193883"
+    },
+    {
+      "source_id": "245090599",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_midrpm_03_245090599"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_20kmh": [
+    {
+      "source_id": "46959786",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_20kmh_46959786"
+    },
+    {
+      "source_id": "913490206",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_20kmh_913490206"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_02": [
+    {
+      "source_id": "47169796",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_02_47169796"
+    },
+    {
+      "source_id": "801463452",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_02_801463452"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_01": [
+    {
+      "source_id": "49171831",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_01_49171831"
+    },
+    {
+      "source_id": "141357472",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_01_141357472"
+    },
+    {
+      "source_id": "285116457",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_01_285116457"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_midrpm_01": [
+    {
+      "source_id": "50688306",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_midrpm_01_50688306"
+    },
+    {
+      "source_id": "99344630",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_midrpm_01_99344630"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_40_01": [
+    {
+      "source_id": "52886295",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_40_01_52886295"
+    },
+    {
+      "source_id": "433853614",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_40_01_433853614"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_02": [
+    {
+      "source_id": "52924320",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_02_52924320"
+    },
+    {
+      "source_id": "612999722",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_02_612999722"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_10_01": [
+    {
+      "source_id": "65170711",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_10_01_65170711"
+    },
+    {
+      "source_id": "624554523",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_10_01_624554523"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_50_01": [
+    {
+      "source_id": "67694597",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_50_01_67694597"
+    },
+    {
+      "source_id": "108772762",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_50_01_108772762"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_04": [
     {
       "source_id": "67987816",
@@ -27,6 +283,26 @@
     {
       "source_id": "145794251",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_04_145794251"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_04": [
+    {
+      "source_id": "69460334",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_04_69460334"
+    },
+    {
+      "source_id": "1072561983",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_04_1072561983"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_turning": [
+    {
+      "source_id": "75208967",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_turning_75208967"
+    },
+    {
+      "source_id": "600753014",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_turning_600753014"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_05": [
@@ -49,6 +325,16 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_05_231423435"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_25kmh": [
+    {
+      "source_id": "78200314",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_25kmh_78200314"
+    },
+    {
+      "source_id": "715852224",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_25kmh_715852224"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\06_Huge\\Close\\blitz_wpn_ext_huge_close_03": [
     {
       "source_id": "78944964",
@@ -57,6 +343,16 @@
     {
       "source_id": "765749049",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\06_Huge\\Close\\blitz_wpn_ext_huge_close_03_765749049"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_01": [
+    {
+      "source_id": "86707346",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_01_86707346"
+    },
+    {
+      "source_id": "1003993695",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_01_1003993695"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_02": [
@@ -69,6 +365,16 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_02_591090633"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_02": [
+    {
+      "source_id": "94291038",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_02_94291038"
+    },
+    {
+      "source_id": "111684152",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_02_111684152"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_03": [
     {
       "source_id": "95717476",
@@ -79,6 +385,40 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_03_773497016"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\High_RPM_Loop_3s": [
+    {
+      "source_id": "100168943",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\High_RPM_Loop_3s_100168943"
+    },
+    {
+      "source_id": "396510579",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\High_RPM_Loop_3s_396510579"
+    },
+    {
+      "source_id": "534345349",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\High_RPM_Loop_3s_534345349"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_highrpm_01": [
+    {
+      "source_id": "108391700",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_highrpm_01_108391700"
+    },
+    {
+      "source_id": "449472622",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_highrpm_01_449472622"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_03": [
+    {
+      "source_id": "109824362",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_03_109824362"
+    },
+    {
+      "source_id": "163470198",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_03_163470198"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_03": [
     {
       "source_id": "110252762",
@@ -87,6 +427,16 @@
     {
       "source_id": "129958458",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_03_129958458"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_04": [
+    {
+      "source_id": "110794009",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_04_110794009"
+    },
+    {
+      "source_id": "811301544",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_04_811301544"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\01_Auto\\Close\\blitz_wpn_ext_auto_close_02": [
@@ -119,6 +469,16 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Plants\\tree_rustle_03_722635020"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_turning_02": [
+    {
+      "source_id": "123862650",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_turning_02_123862650"
+    },
+    {
+      "source_id": "711059939",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_turning_02_711059939"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_05": [
     {
       "source_id": "135202686",
@@ -127,6 +487,16 @@
     {
       "source_id": "759844751",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_05_759844751"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_60_01": [
+    {
+      "source_id": "143513576",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_60_01_143513576"
+    },
+    {
+      "source_id": "214146933",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_60_01_214146933"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_idle_03": [
@@ -139,6 +509,76 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_idle_03_511629513"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_02": [
+    {
+      "source_id": "147235386",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_02_147235386"
+    },
+    {
+      "source_id": "211843893",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_02_211843893"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_03": [
+    {
+      "source_id": "147572603",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_03_147572603"
+    },
+    {
+      "source_id": "313236388",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_03_313236388"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_04": [
+    {
+      "source_id": "152848108",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_04_152848108"
+    },
+    {
+      "source_id": "535818163",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_04_535818163"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_01": [
+    {
+      "source_id": "155325613",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_01_155325613"
+    },
+    {
+      "source_id": "737473973",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_metal_fall_01_737473973"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed6": [
+    {
+      "source_id": "156625265",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed6_156625265"
+    },
+    {
+      "source_id": "761513783",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed6_761513783"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_midrpm_01": [
+    {
+      "source_id": "156970833",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_midrpm_01_156970833"
+    },
+    {
+      "source_id": "654665499",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_midrpm_01_654665499"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_lowrpm_01": [
+    {
+      "source_id": "159623740",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_lowrpm_01_159623740"
+    },
+    {
+      "source_id": "964950720",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_lowrpm_01_964950720"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_idle_01": [
     {
       "source_id": "166383712",
@@ -147,6 +587,36 @@
     {
       "source_id": "485136502",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_idle_01_485136502"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_02": [
+    {
+      "source_id": "169924828",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_02_169924828"
+    },
+    {
+      "source_id": "838972416",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_stone_fall_02_838972416"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_02": [
+    {
+      "source_id": "175842908",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_02_175842908"
+    },
+    {
+      "source_id": "875046733",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_02_875046733"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_02": [
+    {
+      "source_id": "182911306",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_02_182911306"
+    },
+    {
+      "source_id": "381916399",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_02_381916399"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\05_Large\\Close\\blitz_wpn_ext_large_close_01": [
@@ -159,6 +629,30 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\05_Large\\Close\\blitz_wpn_ext_large_close_01_947046835"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_midrpm_02": [
+    {
+      "source_id": "192055076",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_midrpm_02_192055076"
+    },
+    {
+      "source_id": "1070224373",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_midrpm_02_1070224373"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_02": [
+    {
+      "source_id": "204371374",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_02_204371374"
+    },
+    {
+      "source_id": "263718715",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_02_263718715"
+    },
+    {
+      "source_id": "744139142",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_02_744139142"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\05_Large\\Close\\blitz_wpn_ext_large_close_03": [
     {
       "source_id": "208391921",
@@ -167,6 +661,76 @@
     {
       "source_id": "626946340",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\05_Large\\Close\\blitz_wpn_ext_large_close_03_626946340"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_05": [
+    {
+      "source_id": "208463466",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_05_208463466"
+    },
+    {
+      "source_id": "276844969",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_05_276844969"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_03": [
+    {
+      "source_id": "227250128",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_03_227250128"
+    },
+    {
+      "source_id": "321758426",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_03_321758426"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_02": [
+    {
+      "source_id": "227405730",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_02_227405730"
+    },
+    {
+      "source_id": "892558320",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_02_892558320"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_midrpm_02": [
+    {
+      "source_id": "236148414",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_midrpm_02_236148414"
+    },
+    {
+      "source_id": "424690161",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_midrpm_02_424690161"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_14": [
+    {
+      "source_id": "243033312",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_14_243033312"
+    },
+    {
+      "source_id": "420159890",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_14_420159890"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_04": [
+    {
+      "source_id": "247969416",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_04_247969416"
+    },
+    {
+      "source_id": "1062289154",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_04_1062289154"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_lowrpm_06": [
+    {
+      "source_id": "252038976",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_lowrpm_06_252038976"
+    },
+    {
+      "source_id": "602851328",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_lowrpm_06_602851328"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_04": [
@@ -179,6 +743,16 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_04_735889467"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_04": [
+    {
+      "source_id": "257538160",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_04_257538160"
+    },
+    {
+      "source_id": "1068180211",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_04_1068180211"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_02": [
     {
       "source_id": "259562310",
@@ -187,6 +761,26 @@
     {
       "source_id": "724124316",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_02_724124316"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_high_rpm_loop_02": [
+    {
+      "source_id": "270263910",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_high_rpm_loop_02_270263910"
+    },
+    {
+      "source_id": "634672674",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_high_rpm_loop_02_634672674"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_low_rpm_loop_03": [
+    {
+      "source_id": "275921704",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_low_rpm_loop_03_275921704"
+    },
+    {
+      "source_id": "463223292",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_low_rpm_loop_03_463223292"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Plants\\tree_rustle_01": [
@@ -209,6 +803,16 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\06_Huge\\Close\\blitz_wpn_ext_huge_close_02_303816317"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_highrpm_02": [
+    {
+      "source_id": "285778182",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_highrpm_02_285778182"
+    },
+    {
+      "source_id": "390507938",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_highrpm_02_390507938"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_03": [
     {
       "source_id": "290380688",
@@ -227,6 +831,56 @@
     {
       "source_id": "471485289",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_01_471485289"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_highrpm_03": [
+    {
+      "source_id": "297717795",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_highrpm_03_297717795"
+    },
+    {
+      "source_id": "579115239",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_highrpm_03_579115239"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed5": [
+    {
+      "source_id": "299344623",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed5_299344623"
+    },
+    {
+      "source_id": "782548332",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed5_782548332"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_02": [
+    {
+      "source_id": "301996119",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_02_301996119"
+    },
+    {
+      "source_id": "1060548456",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_02_1060548456"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_04": [
+    {
+      "source_id": "305018162",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_04_305018162"
+    },
+    {
+      "source_id": "859887488",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_04_859887488"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_04": [
+    {
+      "source_id": "307196391",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_04_307196391"
+    },
+    {
+      "source_id": "529150193",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_04_529150193"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Birds\\seagull_far_03": [
@@ -249,6 +903,50 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_idle_03_501076926"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_01": [
+    {
+      "source_id": "317686284",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_01_317686284"
+    },
+    {
+      "source_id": "484314635",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_01_484314635"
+    },
+    {
+      "source_id": "692133033",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_wood_fall_01_692133033"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_03": [
+    {
+      "source_id": "317745762",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_03_317745762"
+    },
+    {
+      "source_id": "501827389",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_highrpm_03_501827389"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_lowrpm_01": [
+    {
+      "source_id": "318798974",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_lowrpm_01_318798974"
+    },
+    {
+      "source_id": "406295331",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_lowrpm_01_406295331"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_02": [
+    {
+      "source_id": "328085326",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_02_328085326"
+    },
+    {
+      "source_id": "820762339",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_02_820762339"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Birds\\seagull_far_01": [
     {
       "source_id": "331415356",
@@ -259,6 +957,36 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Birds\\seagull_far_01_372767310"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_01": [
+    {
+      "source_id": "334433379",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_01_334433379"
+    },
+    {
+      "source_id": "977488592",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_01_977488592"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_highrpm_01": [
+    {
+      "source_id": "334914762",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_highrpm_01_334914762"
+    },
+    {
+      "source_id": "1038860312",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_highrpm_01_1038860312"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_highrpm_01": [
+    {
+      "source_id": "337416732",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_highrpm_01_337416732"
+    },
+    {
+      "source_id": "351774963",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_highrpm_01_351774963"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_04": [
     {
       "source_id": "340031873",
@@ -267,6 +995,34 @@
     {
       "source_id": "769039875",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_04_769039875"
+    },
+    {
+      "source_id": "908489869",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_04_908489869"
+    },
+    {
+      "source_id": "1072754511",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_04_1072754511"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_05": [
+    {
+      "source_id": "345113800",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_05_345113800"
+    },
+    {
+      "source_id": "795526669",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_05_795526669"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_03": [
+    {
+      "source_id": "345783601",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_03_345783601"
+    },
+    {
+      "source_id": "875218971",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_03_875218971"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_04": [
@@ -279,6 +1035,56 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_04_958242324"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_lowrpm_01": [
+    {
+      "source_id": "347581887",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_lowrpm_01_347581887"
+    },
+    {
+      "source_id": "438058164",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_lowrpm_01_438058164"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_02": [
+    {
+      "source_id": "347952814",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_02_347952814"
+    },
+    {
+      "source_id": "601990546",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_02_601990546"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_03": [
+    {
+      "source_id": "348718572",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_03_348718572"
+    },
+    {
+      "source_id": "552295709",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\st\\valen_midrpm_03_552295709"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_03": [
+    {
+      "source_id": "352008221",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_03_352008221"
+    },
+    {
+      "source_id": "583542956",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_snow_fall_03_583542956"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_midrpm_01": [
+    {
+      "source_id": "353384356",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_midrpm_01_353384356"
+    },
+    {
+      "source_id": "933431467",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_midrpm_01_933431467"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\01_Auto\\Close\\blitz_wpn_ext_auto_close_03": [
     {
       "source_id": "354026147",
@@ -287,6 +1093,26 @@
     {
       "source_id": "992248986",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\01_Auto\\Close\\blitz_wpn_ext_auto_close_03_992248986"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_mid_rpm_loop_01": [
+    {
+      "source_id": "357450976",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_mid_rpm_loop_01_357450976"
+    },
+    {
+      "source_id": "942343590",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_mid_rpm_loop_01_942343590"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_midrpm_03": [
+    {
+      "source_id": "367615625",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_midrpm_03_367615625"
+    },
+    {
+      "source_id": "1011548066",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_midrpm_03_1011548066"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_01": [
@@ -303,6 +1129,66 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\04_Main\\Close\\blitz_wpn_ext_main_close_01_963714766"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_02": [
+    {
+      "source_id": "369758079",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_02_369758079"
+    },
+    {
+      "source_id": "704091956",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_02_704091956"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\Mid_RPM_Loop_3s": [
+    {
+      "source_id": "376786177",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\Mid_RPM_Loop_3s_376786177"
+    },
+    {
+      "source_id": "781162003",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\Mid_RPM_Loop_3s_781162003"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_highrpm_03": [
+    {
+      "source_id": "388992958",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_highrpm_03_388992958"
+    },
+    {
+      "source_id": "402392542",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_highrpm_03_402392542"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_04": [
+    {
+      "source_id": "397470077",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_04_397470077"
+    },
+    {
+      "source_id": "921572230",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_04_921572230"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_midrpm_04": [
+    {
+      "source_id": "408575413",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_midrpm_04_408575413"
+    },
+    {
+      "source_id": "595270475",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_midrpm_04_595270475"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_01": [
+    {
+      "source_id": "410042550",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_01_410042550"
+    },
+    {
+      "source_id": "765685677",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_01_765685677"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_01": [
     {
       "source_id": "412354336",
@@ -311,6 +1197,60 @@
     {
       "source_id": "614266019",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_01_614266019"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_highrpm_01": [
+    {
+      "source_id": "418330932",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_highrpm_01_418330932"
+    },
+    {
+      "source_id": "592552137",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_highrpm_01_592552137"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_03": [
+    {
+      "source_id": "422123810",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_03_422123810"
+    },
+    {
+      "source_id": "918827731",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_03_918827731"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_05kmh": [
+    {
+      "source_id": "427249732",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_05kmh_427249732"
+    },
+    {
+      "source_id": "830455077",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_05kmh_830455077"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_lowrpm_01": [
+    {
+      "source_id": "436388606",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_lowrpm_01_436388606"
+    },
+    {
+      "source_id": "510020708",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_lowrpm_01_510020708"
+    },
+    {
+      "source_id": "916022214",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_lowrpm_01_916022214"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_06": [
+    {
+      "source_id": "440372584",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_06_440372584"
+    },
+    {
+      "source_id": "685863401",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_06_685863401"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_idle_02": [
@@ -333,6 +1273,26 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\02_Small\\Close\\blitz_wpn_ext_small_close_04_525723476"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_lowrpm_02": [
+    {
+      "source_id": "454199734",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_lowrpm_02_454199734"
+    },
+    {
+      "source_id": "659005896",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_lowrpm_02_659005896"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_70_01": [
+    {
+      "source_id": "457357806",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_70_01_457357806"
+    },
+    {
+      "source_id": "748599595",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_70_01_748599595"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\06_Huge\\Close\\blitz_wpn_ext_huge_close_01": [
     {
       "source_id": "461008938",
@@ -341,6 +1301,76 @@
     {
       "source_id": "858771809",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\06_Huge\\Close\\blitz_wpn_ext_huge_close_01_858771809"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_03": [
+    {
+      "source_id": "461958751",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_03_461958751"
+    },
+    {
+      "source_id": "592690223",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_03_592690223"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_01": [
+    {
+      "source_id": "474593524",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_01_474593524"
+    },
+    {
+      "source_id": "644667495",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_01_644667495"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_01": [
+    {
+      "source_id": "479392803",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_01_479392803"
+    },
+    {
+      "source_id": "781760194",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_midrpm_01_781760194"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_02": [
+    {
+      "source_id": "480991289",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_02_480991289"
+    },
+    {
+      "source_id": "1038735067",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_highrpm_02_1038735067"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_03": [
+    {
+      "source_id": "485049618",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_03_485049618"
+    },
+    {
+      "source_id": "620309740",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_03_620309740"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_04": [
+    {
+      "source_id": "487191907",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_04_487191907"
+    },
+    {
+      "source_id": "665532555",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_04_665532555"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_lowrpm_03": [
+    {
+      "source_id": "489380303",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_lowrpm_03_489380303"
+    },
+    {
+      "source_id": "950423189",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_lowrpm_03_950423189"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_01": [
@@ -367,6 +1397,56 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Birds\\seagull_far_02_988608808"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_01": [
+    {
+      "source_id": "498459623",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_01_498459623"
+    },
+    {
+      "source_id": "682618999",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_midrpm_01_682618999"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_01": [
+    {
+      "source_id": "499066375",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_01_499066375"
+    },
+    {
+      "source_id": "936935836",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_01_936935836"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_midrpm_01": [
+    {
+      "source_id": "500112989",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_midrpm_01_500112989"
+    },
+    {
+      "source_id": "529615698",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\tractor\\priest_midrpm_01_529615698"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_03": [
+    {
+      "source_id": "514190720",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_03_514190720"
+    },
+    {
+      "source_id": "622439287",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_midrpm_03_622439287"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_03": [
+    {
+      "source_id": "514627333",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_03_514627333"
+    },
+    {
+      "source_id": "1047158989",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_03_1047158989"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_idle_02": [
     {
       "source_id": "525933047",
@@ -375,6 +1455,56 @@
     {
       "source_id": "780904427",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_idle_02_780904427"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_05_01": [
+    {
+      "source_id": "529255701",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_05_01_529255701"
+    },
+    {
+      "source_id": "879924615",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_05_01_879924615"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_20_01": [
+    {
+      "source_id": "532508453",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_20_01_532508453"
+    },
+    {
+      "source_id": "602131344",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_20_01_602131344"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_07": [
+    {
+      "source_id": "544857826",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_07_544857826"
+    },
+    {
+      "source_id": "845563098",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_07_845563098"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_03": [
+    {
+      "source_id": "549509185",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_03_549509185"
+    },
+    {
+      "source_id": "924730264",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_lowrpm_03_924730264"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_midrpm_01": [
+    {
+      "source_id": "553644315",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_midrpm_01_553644315"
+    },
+    {
+      "source_id": "779247491",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_midrpm_01_779247491"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\01_Auto\\Close\\blitz_wpn_ext_auto_close_01": [
@@ -387,6 +1517,76 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\01_Auto\\Close\\blitz_wpn_ext_auto_close_01_1012699371"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_30_01": [
+    {
+      "source_id": "556502346",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_30_01_556502346"
+    },
+    {
+      "source_id": "648552373",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_30_01_648552373"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_01": [
+    {
+      "source_id": "559661997",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_01_559661997"
+    },
+    {
+      "source_id": "1001294849",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_highrpm_01_1001294849"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_lowrpm_01": [
+    {
+      "source_id": "561231887",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_lowrpm_01_561231887"
+    },
+    {
+      "source_id": "916556100",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_lowrpm_01_916556100"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed3": [
+    {
+      "source_id": "562538419",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed3_562538419"
+    },
+    {
+      "source_id": "893146176",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\bt7_speed3_893146176"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_05": [
+    {
+      "source_id": "564738563",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_05_564738563"
+    },
+    {
+      "source_id": "962677240",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_05_962677240"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_02": [
+    {
+      "source_id": "577166889",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_02_577166889"
+    },
+    {
+      "source_id": "840497868",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_water_fall_02_840497868"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_midrpm_01": [
+    {
+      "source_id": "578702396",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_midrpm_01_578702396"
+    },
+    {
+      "source_id": "866128080",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_midrpm_01_866128080"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_02": [
     {
       "source_id": "595395591",
@@ -395,6 +1595,66 @@
     {
       "source_id": "955724983",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\07_Huge_extra\\Close\\blitz_wpn_ext_huge_extra_close_02_955724983"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_02": [
+    {
+      "source_id": "603274202",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_02_603274202"
+    },
+    {
+      "source_id": "686740504",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_02_686740504"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_10_01": [
+    {
+      "source_id": "630890928",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_10_01_630890928"
+    },
+    {
+      "source_id": "1063853864",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_10_01_1063853864"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_02": [
+    {
+      "source_id": "631469317",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_02_631469317"
+    },
+    {
+      "source_id": "745171455",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_02_745171455"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_lowrpm_02": [
+    {
+      "source_id": "631850855",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_lowrpm_02_631850855"
+    },
+    {
+      "source_id": "772062170",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\ht\\pz4_lowrpm_02_772062170"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_04": [
+    {
+      "source_id": "632187763",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_04_632187763"
+    },
+    {
+      "source_id": "920674587",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_04_920674587"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_02": [
+    {
+      "source_id": "634839586",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_02_634839586"
+    },
+    {
+      "source_id": "969792995",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_02_969792995"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\lt\\sherman_idle_01": [
@@ -417,6 +1677,210 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\03_Mid\\Close\\blitz_wpn_ext_mid_close_05_976890085"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_highrpm_04": [
+    {
+      "source_id": "643930583",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_highrpm_04_643930583"
+    },
+    {
+      "source_id": "1019702428",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\ht\\kv85_highrpm_04_1019702428"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_01": [
+    {
+      "source_id": "655632725",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_01_655632725"
+    },
+    {
+      "source_id": "854092518",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_lowrpm_01_854092518"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_01": [
+    {
+      "source_id": "667850302",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_01_667850302"
+    },
+    {
+      "source_id": "900486551",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_highrpm_01_900486551"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_highrpm_03": [
+    {
+      "source_id": "673009321",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_highrpm_03_673009321"
+    },
+    {
+      "source_id": "850909220",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\other\\electric\\electric_highrpm_03_850909220"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\Low_RPM_Loop_3s": [
+    {
+      "source_id": "673925803",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\Low_RPM_Loop_3s_673925803"
+    },
+    {
+      "source_id": "819039661",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\Low_RPM_Loop_3s_819039661"
+    },
+    {
+      "source_id": "1038067979",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\st\\Low_RPM_Loop_3s_1038067979"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_highrpm_01": [
+    {
+      "source_id": "684418114",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_highrpm_01_684418114"
+    },
+    {
+      "source_id": "1035282915",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\tractor\\hetzer_highrpm_01_1035282915"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_20_01": [
+    {
+      "source_id": "687864914",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_20_01_687864914"
+    },
+    {
+      "source_id": "961338167",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t05_20_01_961338167"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_12": [
+    {
+      "source_id": "688298199",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_12_688298199"
+    },
+    {
+      "source_id": "757786039",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\lt\\m3a1_lowrpm_12_757786039"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_02": [
+    {
+      "source_id": "722177724",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_02_722177724"
+    },
+    {
+      "source_id": "994215852",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\st\\m4a1_midrpm_02_994215852"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_lowrpm_01": [
+    {
+      "source_id": "724788351",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_lowrpm_01_724788351"
+    },
+    {
+      "source_id": "765941925",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\tractor\\m5_lowrpm_01_765941925"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_03": [
+    {
+      "source_id": "730574816",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_03_730574816"
+    },
+    {
+      "source_id": "942697328",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_midrpm_03_942697328"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_01": [
+    {
+      "source_id": "734160033",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_01_734160033"
+    },
+    {
+      "source_id": "1050323496",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_sand_fall_01_1050323496"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_15kmh": [
+    {
+      "source_id": "754740808",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_15kmh_754740808"
+    },
+    {
+      "source_id": "772287887",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_15kmh_772287887"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_low_rpm_loop_01": [
+    {
+      "source_id": "762672366",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_low_rpm_loop_01_762672366"
+    },
+    {
+      "source_id": "862737239",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_low_rpm_loop_01_862737239"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_03": [
+    {
+      "source_id": "768818968",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_03_768818968"
+    },
+    {
+      "source_id": "826606143",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_03_826606143"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_10kmh": [
+    {
+      "source_id": "770619679",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_10kmh_770619679"
+    },
+    {
+      "source_id": "902080800",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t44_10kmh_902080800"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_highrpm_02": [
+    {
+      "source_id": "779132536",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_highrpm_02_779132536"
+    },
+    {
+      "source_id": "1008444153",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\lt\\bt7_highrpm_02_1008444153"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_50_01": [
+    {
+      "source_id": "783554480",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_50_01_783554480"
+    },
+    {
+      "source_id": "866568585",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_50_01_866568585"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_03": [
+    {
+      "source_id": "819876040",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_03_819876040"
+    },
+    {
+      "source_id": "864968846",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\uk\\ht\\m60a3_higrpm_03_864968846"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_30_01": [
+    {
+      "source_id": "822404999",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_30_01_822404999"
+    },
+    {
+      "source_id": "1069601408",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Tracks\\loops\\t08_30_01_1069601408"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Plants\\tree_rustle_02": [
     {
       "source_id": "834764235",
@@ -427,6 +1891,16 @@
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Ambient\\Generic_amb\\Nature\\Plants\\tree_rustle_02_934947729"
     }
   ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_01": [
+    {
+      "source_id": "856515512",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_01_856515512"
+    },
+    {
+      "source_id": "1071050700",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\ussr\\tractor\\t38_lowrpm_01_1071050700"
+    }
+  ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\05_Large\\Close\\blitz_wpn_ext_large_close_02": [
     {
       "source_id": "906663545",
@@ -435,6 +1909,46 @@
     {
       "source_id": "1048103548",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Weapons_new\\Wpn_arcade\\05_Large\\Close\\blitz_wpn_ext_large_close_02_1048103548"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_01": [
+    {
+      "source_id": "939347159",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_01_939347159"
+    },
+    {
+      "source_id": "1070204170",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hits\\surface_hits\\surface\\surface_hits_ground_fall_01_1070204170"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_lowrpm_02": [
+    {
+      "source_id": "944179630",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_lowrpm_02_944179630"
+    },
+    {
+      "source_id": "973488452",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\lt\\pz4_lowrpm_02_973488452"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_01": [
+    {
+      "source_id": "977676372",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_01_977676372"
+    },
+    {
+      "source_id": "1025577800",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\usa\\ht\\jackson_midrpm_01_1025577800"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_mid_rpm_loop_02": [
+    {
+      "source_id": "996032280",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_mid_rpm_loop_02_996032280"
+    },
+    {
+      "source_id": "1050525261",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Engines\\de\\st\\lt38_mid_rpm_loop_02_1050525261"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Hangar\\Garage_gear\\snowmobile\\dog_03": [
@@ -13337,6 +14851,136 @@
     {
       "source_id": "285321718",
       "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\UI\\Battle_Results\\result_ui_personal_medal_main_1_285321718"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Treefall_basic\\Treefall_creak_basic\\treefall_creak_02_basic": [
+    {
+      "source_id": "959589074",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Treefall_basic\\Treefall_creak_basic\\treefall_creak_02_basic_959589074"
+    },
+    {
+      "source_id": "948364935",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Treefall_basic\\Treefall_creak_basic\\treefall_creak_02_basic_948364935"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Treefall_basic\\Treefall_creak_basic\\treefall_creak_05_basic": [
+    {
+      "source_id": "307363149",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Treefall_basic\\Treefall_creak_basic\\treefall_creak_05_basic_307363149"
+    },
+    {
+      "source_id": "594315500",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Treefall_basic\\Treefall_creak_basic\\treefall_creak_05_basic_594315500"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_04": [
+    {
+      "source_id": "24913929",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_04_24913929"
+    },
+    {
+      "source_id": "550806486",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_04_550806486"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_02": [
+    {
+      "source_id": "269961737",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_02_269961737"
+    },
+    {
+      "source_id": "148136378",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_02_148136378"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_01": [
+    {
+      "source_id": "867418889",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_01_867418889"
+    },
+    {
+      "source_id": "686394092",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_01_686394092"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_03": [
+    {
+      "source_id": "890363524",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_03_890363524"
+    },
+    {
+      "source_id": "127412821",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_03_127412821"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_05": [
+    {
+      "source_id": "973599633",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_05_973599633"
+    },
+    {
+      "source_id": "534396114",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Stone\\stone_crash_mid_05_534396114"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_04_basic": [
+    {
+      "source_id": "403388529",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_04_basic_403388529"
+    },
+    {
+      "source_id": "996261529",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_04_basic_996261529"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_03_basic": [
+    {
+      "source_id": "417553648",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_03_basic_417553648"
+    },
+    {
+      "source_id": "849790146",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_03_basic_849790146"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_01_basic": [
+    {
+      "source_id": "420712506",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_01_basic_420712506"
+    },
+    {
+      "source_id": "644229376",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_01_basic_644229376"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_06_basic": [
+    {
+      "source_id": "578627257",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_06_basic_578627257"
+    },
+    {
+      "source_id": "523604715",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_06_basic_523604715"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_02_basic": [
+    {
+      "source_id": "718713398",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_02_basic_718713398"
+    },
+    {
+      "source_id": "394624024",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_02_basic_394624024"
+    }
+  ],
+  "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_05_basic": [
+    {
+      "source_id": "747298318",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_05_basic_747298318"
+    },
+    {
+      "source_id": "68198902",
+      "new_path": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects_basic\\Boards_basic\\toilet_05_basic_68198902"
     }
   ],
   "\\Actor-Mixer Hierarchy\\Default Work Unit\\Objects\\Fence\\Wood_fence_common\\wood_fence_common_03": [

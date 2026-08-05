@@ -1,0 +1,277 @@
+19 out_wwise/txtp/hangar_rudniki_amb_loudspeaker {r}.txtp
+17 out_wwise/txtp/play_hit_sml_ap_prc_hvy_1p {r}.txtp
+17 out_wwise/txtp/play_hit_sml_ap_prc_crt_1p {r}.txtp
+16 out_wwise/txtp/play_hit_sml_ap_prc_1p {r}.txtp
+14 out_wwise/txtp/play_hit_lrg_ap_prc_crt_1p {r}.txtp
+12 out_wwise/txtp/play_hng_pl_wind_ghust.txtp
+12 out_wwise/txtp/play_hit_sml_ap_no_prc_1p {r}.txtp
+12 out_wwise/txtp/play_hit_lrg_he_prc_crt_1p {r}.txtp
+12 out_wwise/txtp/play_hit_lrg_hc_prc_crt_1p {r}.txtp
+12 out_wwise/txtp/play_hit_hg_he_prc_crt_1p {r}.txtp
+12 out_wwise/txtp/play_hit_hg_hc_prc_crt_1p {r}.txtp
+12 out_wwise/txtp/play_hit_hg_ap_prc_crt_1p {r}.txtp
+11 out_wwise/txtp/play_hit_sml_he_prc_hvy_1p {r}.txtp
+11 out_wwise/txtp/play_hit_sml_he_prc_crt_1p {r}.txtp
+11 out_wwise/txtp/play_hit_sml_hc_prc_hvy_1p {r}.txtp
+11 out_wwise/txtp/play_hit_sml_hc_prc_crt_1p {r}.txtp
+10 out_wwise/txtp/play_hit_sml_he_prc_1p {r}.txtp
+10 out_wwise/txtp/play_hit_sml_he_no_prc_1p {r}.txtp
+10 out_wwise/txtp/play_hit_sml_hc_prc_1p {r}.txtp
+10 out_wwise/txtp/play_hit_sml_hc_no_prc_1p {r}.txtp
+10 out_wwise/txtp/play_hit_sml_ap_rcht_1p {r}.txtp
+10 out_wwise/txtp/play_hit_med_he_no_prc_1p {r}.txtp
+10 out_wwise/txtp/play_hit_med_hc_no_prc_1p {r}.txtp
+10 out_wwise/txtp/play_hit_med_ap_rcht_1p {r}.txtp
+10 out_wwise/txtp/play_hit_med_ap_no_prc_1p {r}.txtp
+10 out_wwise/txtp/play_hit_lrg_ap_rcht_1p {r}.txtp
+10 out_wwise/txtp/play_amb_exotic_birds.txtp
+10 out_wwise/txtp/objects_structures_well {r}.txtp
+10 out_wwise/txtp/ambient_karelia_birds_karelia.txtp
+9 out_wwise/txtp/play_hng_pl_birds_02.txtp
+9 out_wwise/txtp/play_hng_pl_birds_01.txtp
+9 out_wwise/txtp/play_hit_med_he_prc_hvy_1p {r}.txtp
+9 out_wwise/txtp/play_hit_med_he_prc_crt_1p {r}.txtp
+9 out_wwise/txtp/play_hit_med_hc_prc_hvy_1p {r}.txtp
+9 out_wwise/txtp/play_hit_med_hc_prc_crt_1p {r}.txtp
+9 out_wwise/txtp/play_hit_med_ap_prc_hvy_1p {r}.txtp
+9 out_wwise/txtp/play_hit_med_ap_prc_crt_1p {r}.txtp
+9 out_wwise/txtp/play_hit_lrg_ap_prc_hvy_1p {r}.txtp
+9 out_wwise/txtp/objects_fence_fence_stone {r}.txtp
+9 out_wwise/txtp/ambient_karelia_cannonade.txtp
+8 out_wwise/txtp/play_hng_gg_amb_snowmobile_touch {r}.txtp
+8 out_wwise/txtp/play_hit_sml_ap_prc_3p {r}.txtp
+8 out_wwise/txtp/play_hit_med_he_prc_1p {r}.txtp
+8 out_wwise/txtp/play_hit_med_hc_prc_1p {r}.txtp
+8 out_wwise/txtp/play_hit_med_ap_prc_1p {r}.txtp
+8 out_wwise/txtp/play_hit_lrg_ap_prc_1p {r}.txtp
+8 out_wwise/txtp/play_hit_lrg_ap_no_prc_1p {r}.txtp
+8 out_wwise/txtp/play_hgr_util_room {m}.txtp
+8 out_wwise/txtp/play_hgr_amb_ammo_box {m}.txtp
+8 out_wwise/txtp/play_amb_birds_jungle.txtp
+8 out_wwise/txtp/play_amb_16_holland_artillery_expl {r}.txtp
+8 out_wwise/txtp/objects_fence_fence_metal {r}.txtp
+8 out_wwise/txtp/ambient_savanna_sand_shot.txtp
+8 out_wwise/txtp/ambient_milbase_milbase_seagull.txtp
+7 out_wwise/txtp/play_hit_lrg_he_prc_hvy_1p {r}.txtp
+7 out_wwise/txtp/play_hit_lrg_hc_prc_hvy_1p {r}.txtp
+7 out_wwise/txtp/play_hit_hg_he_prc_hvy_1p {r}.txtp
+7 out_wwise/txtp/play_hit_hg_hc_prc_hvy_1p {r}.txtp
+7 out_wwise/txtp/play_hit_hg_ap_rcht_1p {r}.txtp
+7 out_wwise/txtp/play_hit_hg_ap_prc_hvy_1p {r}.txtp
+7 out_wwise/txtp/play_hit_hg_ap_no_prc_1p {r}.txtp
+7 out_wwise/txtp/play_hgr_obj_cntr_gitch.txtp
+7 out_wwise/txtp/play_hgr_amb_bird.txtp
+7 out_wwise/txtp/ambient_map_rock_frog.txtp
+7 out_wwise/txtp/ambient_malinovka_crow.txtp
+6 out_wwise/txtp/tank_physics_collision_collision_hit [SWITCH_int_collision_hit=hit_light] {r}.txtp
+6 out_wwise/txtp/play_hng_pl_workers.txtp
+6 out_wwise/txtp/play_hng_pl_trees.txtp
+6 out_wwise/txtp/play_hit_lrg_he_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_lrg_he_no_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_lrg_hc_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_lrg_hc_no_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_hg_he_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_hg_he_no_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_hg_hc_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_hg_hc_no_prc_1p {r}.txtp
+6 out_wwise/txtp/play_hit_hg_ap_prc_1p {r}.txtp
+6 out_wwise/txtp/play_amb_obj_wind_bells.txtp
+6 out_wwise/txtp/play_amb_obj_cave_drops.txtp
+6 out_wwise/txtp/play_amb_electric_sparks_small {r}.txtp
+6 out_wwise/txtp/objects_wood_wood_canopy {r} {d}.txtp
+6 out_wwise/txtp/objects_wood_wood_barn {r} {d}.txtp
+6 out_wwise/txtp/objects_wood_wc {r}.txtp
+6 out_wwise/txtp/objects_wood_pole_laying {r}.txtp
+6 out_wwise/txtp/objects_wood_boards {r} {d}.txtp
+6 out_wwise/txtp/objects_ordeal_objects_ordeal_woodpillar_down {r} {d}.txtp
+6 out_wwise/txtp/objects_ordeal_objects_ordeal_treefall_down {r} {d}.txtp
+6 out_wwise/txtp/objects_ordeal_objects_ordeal_treefall_creak {r} {d}.txtp
+6 out_wwise/txtp/objects_ordeal_objects_ordeal_boards {r}.txtp
+6 out_wwise/txtp/objects_fence_fence_wire {r}.txtp
+6 out_wwise/txtp/objects_falling_woodpillar_down {r}.txtp
+6 out_wwise/txtp/objects_falling_treefall_down {r}.txtp
+6 out_wwise/txtp/objects_falling_treefall_creak {r}.txtp
+6 out_wwise/txtp/ambient_mountain_gas_station.txtp
+6 out_wwise/txtp/ambient_milbase_ship_metal_stress.txtp
+5 out_wwise/txtp/tank_physics_collision_collision_hit [SWITCH_int_collision_hit=hit_heavy] {r}.txtp
+5 out_wwise/txtp/play_obj_fence_metal_02 {r}.txtp
+5 out_wwise/txtp/play_hit_sml_he_prc_3p {r}.txtp
+5 out_wwise/txtp/play_hit_sml_he_no_prc_3p {r}.txtp
+5 out_wwise/txtp/play_hit_sml_hc_prc_3p {r}.txtp
+5 out_wwise/txtp/play_hit_sml_hc_no_prc_3p {r}.txtp
+5 out_wwise/txtp/play_hit_med_he_no_prc_3p {r}.txtp
+5 out_wwise/txtp/play_hit_med_ap_rcht_3p {r}.txtp
+5 out_wwise/txtp/play_hit_med_ap_no_prc_3p {r}.txtp
+5 out_wwise/txtp/objects_wood_wood_box {r} {d}.txtp
+5 out_wwise/txtp/objects_stone_stone_crash {r} {d}.txtp
+5 out_wwise/txtp/objects_stone_stone_bricks {r}.txtp
+5 out_wwise/txtp/objects_ordeal_objects_ordeal_wood_box {r}.txtp
+5 out_wwise/txtp/objects_fence_fence_pole {r}.txtp
+5 out_wwise/txtp/hangar_rudniki_amb_planes.txtp
+5 out_wwise/txtp/ambient_mountain_hammer_workshop.txtp
+5 out_wwise/txtp/ambient_mountain_aircraft_far.txtp
+5 out_wwise/txtp/ambient_milbase_milbase_birds.txtp
+5 out_wwise/txtp/ambient_medvedkovo_magpie.txtp
+5 out_wwise/txtp/ambient_medvedkovo_crow.txtp
+5 out_wwise/txtp/ambient_karelia_frog.txtp
+5 out_wwise/txtp/ambient_canyon_canyon_eagles.txtp
+4 out_wwise/txtp/play_tut_2021_ui_hang_progress_object {r}.txtp
+4 out_wwise/txtp/play_obj_strct_metal_callbox {r}.txtp
+4 out_wwise/txtp/play_obj_stone_plate {r}.txtp
+4 out_wwise/txtp/play_hng_pl_voices.txtp
+4 out_wwise/txtp/play_hlwn_2022_abl_berserk_on {r} {m}.txtp
+4 out_wwise/txtp/play_hit_sml_ap_rcht_3p {r}.txtp
+4 out_wwise/txtp/play_hit_sml_ap_no_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hit_med_he_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hit_med_hc_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hit_med_hc_no_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hit_med_ap_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hit_lrg_ap_rcht_3p {r}.txtp
+4 out_wwise/txtp/play_hit_lrg_ap_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hit_lrg_ap_no_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hit_hg_ap_rcht_3p {r}.txtp
+4 out_wwise/txtp/play_hit_hg_ap_no_prc_3p {r}.txtp
+4 out_wwise/txtp/play_hgr_obj_rec_on {m}.txtp
+4 out_wwise/txtp/play_hgr_amb_street {m}.txtp
+4 out_wwise/txtp/play_amb_16_holland_artillery_trail {r}.txtp
+4 out_wwise/txtp/objects_wood_table {r} {d}.txtp
+4 out_wwise/txtp/objects_wood_doghouse {r}.txtp
+4 out_wwise/txtp/objects_wood_chair {r} {d}.txtp
+4 out_wwise/txtp/objects_wood_cart {r}.txtp
+4 out_wwise/txtp/objects_structures_metal_barn {r} {d}.txtp
+4 out_wwise/txtp/objects_structures_car_corps {r} {d}.txtp
+4 out_wwise/txtp/objects_ordeal_objects_ordeal_metal_lamppost_down {r} {d}.txtp
+4 out_wwise/txtp/objects_ordeal_objects_ordeal_metal_barn {r}.txtp
+4 out_wwise/txtp/objects_ordeal_objects_ordeal_car_corps {r}.txtp
+4 out_wwise/txtp/objects_linen_linen {r}.txtp
+4 out_wwise/txtp/objects_fence_fence_light_wood {r}.txtp
+4 out_wwise/txtp/objects_falling_metal_lamppost_down {r}.txtp
+4 out_wwise/txtp/objects_falling_metal_lamppost_creak {r}.txtp
+4 out_wwise/txtp/objects_falling_lamppost_down {r}.txtp
+4 out_wwise/txtp/objects_falling_lamppost_creak {r}.txtp
+4 out_wwise/txtp/ambient_savanna_voc.txtp
+4 out_wwise/txtp/ambient_savanna_insects.txtp
+4 out_wwise/txtp/ambient_savanna_far_insects.txtp
+4 out_wwise/txtp/ambient_savanna_drums.txtp
+4 out_wwise/txtp/ambient_rudniki_crickets.txtp
+4 out_wwise/txtp/ambient_rudniki_birds.txtp
+4 out_wwise/txtp/ambient_port_horse.txtp
+4 out_wwise/txtp/ambient_milbase_crickets.txtp
+4 out_wwise/txtp/ambient_malinovka_bell.txtp
+4 out_wwise/txtp/ambient_karelia_crickets.txtp
+4 out_wwise/txtp/ambient_italy_sand_debris.txtp
+4 out_wwise/txtp/GUI_notifications_FX_gun_reloaded {r}.txtp
+4 out_wwise/txtp/GUI_buttons_hint {r}.txtp
+3 out_wwise/txtp/tank_physics_collision_water_hit [SWITCH_int_collision_hit=hit_light] {r}.txtp
+3 out_wwise/txtp/tank_physics_collision_water_hit [SWITCH_int_collision_hit=hit_heavy] {r}.txtp
+3 out_wwise/txtp/play_ui_gift_open {r}.txtp
+3 out_wwise/txtp/play_tut_2021_ui_battle_hints_on {r}.txtp
+3 out_wwise/txtp/play_hng_pl_insects.txtp
+3 out_wwise/txtp/play_hlwn_2021_abl_shield_on {r}.txtp
+3 out_wwise/txtp/play_hit_sml_he_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_sml_hc_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_med_he_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_med_hc_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_lrg_he_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_lrg_he_no_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_lrg_he_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_lrg_hc_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_lrg_hc_no_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_lrg_hc_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_hg_he_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_hg_he_no_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_hg_he_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_hg_hc_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_hg_hc_no_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hit_hg_hc_mdl_dstr_3p {r}.txtp
+3 out_wwise/txtp/play_hit_hg_ap_prc_3p {r}.txtp
+3 out_wwise/txtp/play_hgr_obj_manhole_opn {r}.txtp
+3 out_wwise/txtp/play_hgr_obj_manhole_cls {r}.txtp
+3 out_wwise/txtp/play_hgr_amb_sparks.txtp
+3 out_wwise/txtp/play_hgr_amb_dog_idle.txtp
+3 out_wwise/txtp/play_hgr_amb_dog_bark {r}.txtp
+3 out_wwise/txtp/play_amb_temple.txtp
+3 out_wwise/txtp/play_amb_electric_sparks_big {r}.txtp
+3 out_wwise/txtp/play_amb_16_holland_airship_expl_small {r}.txtp
+3 out_wwise/txtp/objects_wood_bench {r} {d}.txtp
+3 out_wwise/txtp/objects_stone_stone_statue {r} {d}.txtp
+3 out_wwise/txtp/objects_stone_stone_building {r}.txtp
+3 out_wwise/txtp/objects_ordeal_objects_ordeal_woodpillar_creak {r} {d}.txtp
+3 out_wwise/txtp/objects_ordeal_objects_ordeal_tent_crash {r} {d}.txtp
+3 out_wwise/txtp/objects_ordeal_objects_ordeal_metal_barrel {r} {d}.txtp
+3 out_wwise/txtp/objects_metal_metal_barrel {r}.txtp
+3 out_wwise/txtp/objects_linen_tent_crash {r} {d}.txtp
+3 out_wwise/txtp/objects_linen_tent {r} {d}.txtp
+3 out_wwise/txtp/objects_linen_canopy {r}.txtp
+3 out_wwise/txtp/objects_fence_fence_wood {r} {d}.txtp
+3 out_wwise/txtp/objects_fence_fence_wattle {r}.txtp
+3 out_wwise/txtp/objects_fence_fence_beam {r}.txtp
+3 out_wwise/txtp/objects_falling_woodpillar_creak {r}.txtp
+3 out_wwise/txtp/objects_falling_cactus_creak {r}.txtp
+3 out_wwise/txtp/hangar_rudniki_amb_rustle_trees.txtp
+3 out_wwise/txtp/ambient_water_river_weak {d}.txtp
+3 out_wwise/txtp/ambient_water_river_strong.txtp
+3 out_wwise/txtp/ambient_savanna_wind_hil.txtp
+3 out_wwise/txtp/ambient_rudniki_ship_shot {r}.txtp
+3 out_wwise/txtp/ambient_rudniki_explosion_small {r}.txtp
+3 out_wwise/txtp/ambient_port_ship_horn_far.txtp
+3 out_wwise/txtp/ambient_pliego_spane_gitar.txtp
+3 out_wwise/txtp/ambient_pliego_river_weak_pliego.txtp
+3 out_wwise/txtp/ambient_pliego_crickets.txtp
+3 out_wwise/txtp/ambient_pliego_castanets.txtp
+3 out_wwise/txtp/ambient_plant_rustle_tree_rustle.txtp
+3 out_wwise/txtp/ambient_plant_rustle_coniferous_rustle.txtp
+3 out_wwise/txtp/ambient_neptune_zenitka_shot {r}.txtp
+3 out_wwise/txtp/ambient_neptune_artillery.txtp
+3 out_wwise/txtp/ambient_neptune_airflack.txtp
+3 out_wwise/txtp/ambient_milbase_squeak_duck.txtp
+3 out_wwise/txtp/ambient_milbase_ship_gun_fire {r}.txtp
+3 out_wwise/txtp/ambient_map_rock_birds_exotic.txtp
+3 out_wwise/txtp/ambient_karelia_trees.txtp
+3 out_wwise/txtp/ambient_bell_bell_small.txtp
+2 out_wwise/txtp/tank_physics_tank_repair_track_functional {r}.txtp
+2 out_wwise/txtp/play_ui_result_skip_scr_team {r} {d}.txtp
+2 out_wwise/txtp/play_ui_result_achiev_medal_main {r}.txtp
+2 out_wwise/txtp/play_ui_rank_prgrs_rank_up {r}.txtp
+2 out_wwise/txtp/play_ui_gift {r}.txtp
+2 out_wwise/txtp/play_ui_btn_server_select {r}.txtp
+2 out_wwise/txtp/play_tut_2021_ui_hang_progress_bar {r}.txtp
+2 out_wwise/txtp/play_tut_2021_ui_battle_win_whoosh_on.txtp
+2 out_wwise/txtp/play_tut_2021_login_music_stinger.txtp
+2 out_wwise/txtp/play_tut_2021_eng_ussr_st.txtp
+2 out_wwise/txtp/play_tut_2021_eng_us_st.txtp
+2 out_wwise/txtp/play_tut_2021_eng_de_ht.txtp
+2 out_wwise/txtp/play_mov_armor_oth28_sturmfeur {r}.txtp
+2 out_wwise/txtp/play_hlwn_2021_abl_shield_off {r}.txtp
+2 out_wwise/txtp/play_hlwn_2021_abl_heal_aura_on.txtp
+2 out_wwise/txtp/play_hlwn_2021_abl_graviton_passive {r}.txtp
+2 out_wwise/txtp/play_hlwn_2021_abl_graviton {r}.txtp
+2 out_wwise/txtp/play_hlwn_2021_abl_boss_repulsion {r}.txtp
+2 out_wwise/txtp/play_hlwn_2021_abl_boss_annihilator {r}.txtp
+2 out_wwise/txtp/play_hit_sml_he_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_sml_hc_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_sml_ap_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_med_he_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_med_hc_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_med_ap_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_lrg_he_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_lrg_hc_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_lrg_ap_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_hg_he_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_hg_hc_mdl_dstr_1p.txtp
+2 out_wwise/txtp/play_hit_hg_ap_mdl_dstr_1p.txtp
+2 out_wwise/txtp/objects_wood_rotten_tree {r}.txtp
+2 out_wwise/txtp/objects_wood_door {r}.txtp
+2 out_wwise/txtp/objects_structures_coil_wire {r}.txtp
+2 out_wwise/txtp/objects_special_haystack {r}.txtp
+2 out_wwise/txtp/objects_metal_metal_cistern {r}.txtp
+2 out_wwise/txtp/objects_falling_cactus_down {r}.txtp
+2 out_wwise/txtp/ambient_port_dog.txtp
+2 out_wwise/txtp/ambient_mountain_eagle.txtp
+2 out_wwise/txtp/ambient_mountain_big_barrel_stress.txtp
+2 out_wwise/txtp/ambient_milbase_ship_horn_far.txtp
+2 out_wwise/txtp/ambient_map_rock_birds_jungle.txtp
+2 out_wwise/txtp/ambient_desert_train_train_horn.txtp
+2 out_wwise/txtp/ambient_bell_bell_big.txtp
+2 out_wwise/txtp/GUI_notifications_FX_sight_convergence {r}.txtp
+2 out_wwise/txtp/GUI_notifications_FX_repair {r}.txtp

@@ -1,0 +1,120 @@
+
+==================================================
+Analyzing apk_music.json
+==================================================
+Stats: Tracks=7, Segments=7, RanSeq=3, Switches=0
+
+--- TRACKS & SOURCES ---
+Track ID 374737966: Parent Segment ID = 737701375, Source IDs = []
+Track ID 387347864: Parent Segment ID = 950042432, Source IDs = []
+Track ID 514718034: Parent Segment ID = 1037442491, Source IDs = []
+Track ID 558864082: Parent Segment ID = 201235529, Source IDs = []
+Track ID 686286511: Parent Segment ID = 308239515, Source IDs = []
+Track ID 921557064: Parent Segment ID = 37419850, Source IDs = []
+Track ID 960691355: Parent Segment ID = 519451801, Source IDs = []
+
+--- SEGMENTS ---
+Segment ID 1037442491: Parent Container = 543160948, Children Tracks = ['514718034'], Duration = 30720.0
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=1539036744, Pos=30720.0ms, Name=''
+Segment ID 201235529: Parent Container = 359976450, Children Tracks = ['558864082'], Duration = 7680.0
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=1539036744, Pos=7680.0ms, Name=''
+Segment ID 308239515: Parent Container = 359976450, Children Tracks = ['686286511'], Duration = 7680.04535147392
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=1539036744, Pos=7680.04535147392ms, Name=''
+Segment ID 37419850: Parent Container = 359976450, Children Tracks = ['921557064'], Duration = 7680.0
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=1539036744, Pos=7680.0ms, Name=''
+Segment ID 519451801: Parent Container = 517021411, Children Tracks = ['960691355'], Duration = 20000.0
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=1539036744, Pos=20000.0ms, Name=''
+Segment ID 737701375: Parent Container = 543160948, Children Tracks = ['374737966'], Duration = 30720.0
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=1539036744, Pos=30720.0ms, Name=''
+Segment ID 950042432: Parent Container = 543160948, Children Tracks = ['387347864'], Duration = 30720.0
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=1539036744, Pos=30720.0ms, Name=''
+
+--- RANSEQ CONTAINERS ---
+RanSeq ID 359976450: Parent Container = 0, Children = ['37419850', '201235529', '308239515'], Playlist Segments = ['201235529', '37419850', '308239515']
+RanSeq ID 517021411: Parent Container = 0, Children = ['519451801'], Playlist Segments = ['519451801']
+RanSeq ID 543160948: Parent Container = 0, Children = ['737701375', '950042432', '1037442491'], Playlist Segments = ['950042432', '737701375', '1037442491']
+
+--- SWITCH CONTAINERS ---
+
+==================================================
+Analyzing music_hangar_music.json
+==================================================
+Stats: Tracks=45, Segments=4, RanSeq=1, Switches=1
+
+--- TRACKS & SOURCES ---
+Track ID 1021808380: Parent Segment ID = 860825692, Source IDs = []
+Track ID 1041720602: Parent Segment ID = 860825692, Source IDs = []
+Track ID 1042107536: Parent Segment ID = 195645763, Source IDs = []
+Track ID 1048285044: Parent Segment ID = 797778272, Source IDs = []
+Track ID 1052856934: Parent Segment ID = 797778272, Source IDs = []
+Track ID 1065353250: Parent Segment ID = 797778272, Source IDs = []
+Track ID 116844110: Parent Segment ID = 860825692, Source IDs = []
+Track ID 129179080: Parent Segment ID = 626154474, Source IDs = []
+Track ID 1361127: Parent Segment ID = 195645763, Source IDs = []
+Track ID 152231358: Parent Segment ID = 626154474, Source IDs = []
+Track ID 157732931: Parent Segment ID = 626154474, Source IDs = []
+Track ID 167833654: Parent Segment ID = 797778272, Source IDs = []
+Track ID 170128469: Parent Segment ID = 860825692, Source IDs = []
+Track ID 174646855: Parent Segment ID = 797778272, Source IDs = []
+Track ID 176782469: Parent Segment ID = 195645763, Source IDs = []
+Track ID 192231012: Parent Segment ID = 195645763, Source IDs = []
+Track ID 211642220: Parent Segment ID = 860825692, Source IDs = []
+Track ID 212283298: Parent Segment ID = 797778272, Source IDs = []
+Track ID 260813276: Parent Segment ID = 195645763, Source IDs = []
+Track ID 27889698: Parent Segment ID = 626154474, Source IDs = []
+Track ID 37384268: Parent Segment ID = 195645763, Source IDs = []
+Track ID 386420989: Parent Segment ID = 860825692, Source IDs = []
+Track ID 413517410: Parent Segment ID = 626154474, Source IDs = []
+Track ID 437480029: Parent Segment ID = 797778272, Source IDs = []
+Track ID 45731404: Parent Segment ID = 797778272, Source IDs = []
+Track ID 4707570: Parent Segment ID = 195645763, Source IDs = []
+Track ID 533030997: Parent Segment ID = 626154474, Source IDs = []
+Track ID 561154981: Parent Segment ID = 860825692, Source IDs = []
+Track ID 575463144: Parent Segment ID = 797778272, Source IDs = []
+Track ID 607608978: Parent Segment ID = 860825692, Source IDs = []
+Track ID 681658988: Parent Segment ID = 860825692, Source IDs = []
+Track ID 72237546: Parent Segment ID = 626154474, Source IDs = []
+Track ID 729573324: Parent Segment ID = 195645763, Source IDs = []
+Track ID 749415209: Parent Segment ID = 797778272, Source IDs = []
+Track ID 764360876: Parent Segment ID = 860825692, Source IDs = []
+Track ID 893886562: Parent Segment ID = 626154474, Source IDs = []
+Track ID 925048849: Parent Segment ID = 860825692, Source IDs = []
+Track ID 927864271: Parent Segment ID = 195645763, Source IDs = []
+Track ID 936180386: Parent Segment ID = 195645763, Source IDs = []
+Track ID 938562671: Parent Segment ID = 626154474, Source IDs = []
+Track ID 976160990: Parent Segment ID = 626154474, Source IDs = []
+Track ID 977369172: Parent Segment ID = 195645763, Source IDs = []
+Track ID 983541840: Parent Segment ID = 195645763, Source IDs = []
+Track ID 988979913: Parent Segment ID = 626154474, Source IDs = []
+Track ID 999362184: Parent Segment ID = 797778272, Source IDs = []
+
+--- SEGMENTS ---
+Segment ID 195645763: Parent Container = 1054648317, Children Tracks = ['1361127', '4707570', '37384268', '176782469', '192231012', '260813276', '729573324', '927864271', '936180386', '977369172', '983541840', '1042107536'], Duration = 31035.290348023253
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=3495945697, Pos=15652.1739130435ms, Name=''
+  Marker: ID=1539036744, Pos=23478.2608695652ms, Name=''
+Segment ID 626154474: Parent Container = 1054648317, Children Tracks = ['27889698', '72237546', '129179080', '152231358', '157732931', '413517410', '533030997', '893886562', '938562671', '976160990', '988979913'], Duration = 22253.02308487956
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=0, Pos=7826.08695652174ms, Name=''
+  Marker: ID=1539036744, Pos=15652.1739130435ms, Name=''
+Segment ID 797778272: Parent Container = 1054648317, Children Tracks = ['45731404', '167833654', '174646855', '212283298', '437480029', '575463144', '749415209', '999362184', '1048285044', '1052856934', '1065353250'], Duration = 26172.91396780616
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=0, Pos=7826.08695652174ms, Name=''
+  Marker: ID=1539036744, Pos=19565.2173913043ms, Name=''
+Segment ID 860825692: Parent Container = 1054648317, Children Tracks = ['116844110', '170128469', '211642220', '386420989', '561154981', '607608978', '681658988', '764360876', '925048849', '1021808380', '1041720602'], Duration = 31035.290348023253
+  Marker: ID=43573010, Pos=0.0ms, Name=''
+  Marker: ID=3495945697, Pos=15652.1739130435ms, Name=''
+  Marker: ID=1539036744, Pos=23478.2608695652ms, Name=''
+
+--- RANSEQ CONTAINERS ---
+RanSeq ID 1054648317: Parent Container = 109552928, Children = ['195645763', '626154474', '797778272', '860825692'], Playlist Segments = ['860825692', '195645763', '797778272', '626154474', '195645763', '860825692']
+
+--- SWITCH CONTAINERS ---
+Switch ID 109552928: Parent Container = 0, GroupID = None (Type None), DefaultState = None, Children = ['1054648317']

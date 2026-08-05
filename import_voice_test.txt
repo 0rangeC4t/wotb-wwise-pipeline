@@ -1,2 +1,0 @@
-Audio File	Object Type	Object Path
-Z:\home\orange_meow\wotb-wwise-pipeline\out_wwise\wav\crewvoice\en\ingame_voice_notifications_VO_ally_killed_by_player {r} {l=en}.wav	Sound Voice	\Actor-Mixer Hierarchy\Default Work Unit\crewvoice_en_VO_ally_killed_by_player

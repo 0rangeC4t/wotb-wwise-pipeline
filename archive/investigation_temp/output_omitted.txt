@@ -1,0 +1,89 @@
+=== ANALYSIS 1: Why the 616 (True, True, True) were omitted ===
+Total True/True/True SIDs: 616
+SIDs in multiple .txtp files (ambiguous): 614
+SIDs in single .txtp file (unambiguous):  2
+Samples of unambiguous but omitted SIDs:
+  SID=946257764 -> TXTP=/mnt/data/wotb-wwise-pipeline/out_wwise/txtp/ambient_port_ship_bell.txtp
+  SID=1047248455 -> TXTP=/mnt/data/wotb-wwise-pipeline/out_wwise/txtp/ambient_port_horse.txtp
+
+=== ANALYSIS 2: The Remaining 11 SIDs ===
+
+--- 8 Fully Missing (False/False/False) ---
+  SID=240510984
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_02.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_02.wav
+  SID=276557761
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_03.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_03.wav
+  SID=301723069
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Main_amb\dron_01_mast.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Main_amb\dron_01_mast.wav
+  SID=548319644
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_01.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_01.wav
+  SID=705623800
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_01_02.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_01_02.wav
+  SID=84099098
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_02.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_02.wav
+  SID=850754624
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_01.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_01.wav
+  SID=961118168
+    friendly_name: Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_04.wav
+    object_path  : Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_04.wav
+
+--- 3 Wem-only (False/False/True) ---
+  SID=1051637609
+    friendly_name: AK_Factory_IR\Rooms\AK Hamburg Karl Schneider Halle.wav
+    object_path  : AK_Factory_IR\Rooms\AK Hamburg Karl Schneider Halle.wav
+  SID=229441249
+    friendly_name: Ambient\Maps_amb\Map_17_karelia\wind_gust_02.wav
+    object_path  : Ambient\Maps_amb\Map_17_karelia\wind_gust_02.wav
+  SID=243849520
+    friendly_name: IR_85-107mm_tank_interior.wav
+    object_path  : IR_85-107mm_tank_interior.wav
+
+Searching original SoundbanksInfo.json for metadata...
+
+Original SoundbanksInfo.json lookup results for the 11 SIDs:
+  SID=229441249 -> {'Type': 'StreamedFile', 'Language': 'SFX', 'ShortName': 'Ambient\\Maps_amb\\Map_17_karelia\\wind_gust_02.wav'}
+
+Searching raw SoundbanksInfo structure for 3 wem-only SIDs:
+  SID=1051637609 paths in json: ['SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[1].IncludedMemoryFiles[8].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[2].IncludedMemoryFiles[7].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[3].IncludedMemoryFiles[5].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[4].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[5].IncludedMemoryFiles[3].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[6].IncludedMemoryFiles[3].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[7].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[8].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[9].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[10].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[11].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[12].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[13].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[14].IncludedMemoryFiles[3].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[15].IncludedMemoryFiles[2].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[16].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[17].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[18].IncludedMemoryFiles[7].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[19].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[20].IncludedMemoryFiles[3].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[21].IncludedMemoryFiles[3].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[22].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[23].IncludedMemoryFiles[4].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[45].IncludedEvents[24].IncludedMemoryFiles[6].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[57].IncludedEvents[22].IncludedMemoryFiles[2].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[57].IncludedEvents[39].IncludedMemoryFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[57].IncludedEvents[40].IncludedMemoryFiles[1].Id']
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+    Value context: 1051637609
+  SID=229441249 paths in json: ['SoundBanksInfo.SoundBanksInfo.StreamedFiles[413].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[1].IncludedEvents[23].ReferencedStreamedFiles[1].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[1].IncludedEvents[23].IncludedMemoryFiles[1].Id']
+    Value context: 229441249
+    Value context: 229441249
+    Value context: 229441249
+  SID=243849520 paths in json: ['SoundBanksInfo.SoundBanksInfo.SoundBanks[3].IncludedMemoryFiles[0].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[13].IncludedMemoryFiles[0].Id', 'SoundBanksInfo.SoundBanksInfo.SoundBanks[44].ExcludedMemoryFiles[0].Id']
+    Value context: 243849520
+    Value context: 243849520
+    Value context: 243849520

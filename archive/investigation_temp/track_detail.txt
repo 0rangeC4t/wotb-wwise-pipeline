@@ -1,0 +1,65 @@
+=== CAkMusicTrack Detail ===
+ID: 921557064
+Field: eHircType = 11 (0x0B [Music Track])
+Field: dwSectionSize = 114 (0x72)
+Field: ulID = 921557064 ()
+Object: MusicTrackInitialValues
+  Field: uFlags = 0 (0x00)
+  Field: numSources = 1 ()
+  List: pSource (count=1)
+    Object: AkBankSourceData
+      Field: ulPluginID = 262145 (0x00040001 [VORBIS])
+      Field: StreamType = 1 (0x01 [PrefetchStreaming])
+      Object: AkMediaInformation
+        Field: sourceID = 255291834 ()
+        Field: uInMemoryMediaSize = 4143 (0x102F)
+        Field: uSourceBits = 0 (0x00)
+  Field: numPlaylistItem = 1 ()
+  List: pPlaylist (count=1)
+    Object: AkTrackSrcInfo
+      Field: trackID = 0 ()
+      Field: sourceID = 255291834 ()
+      Field: eventID = 0 ()
+      Field: fPlayAt = 0.0 ()
+      Field: fBeginTrimOffset = 0.0 ()
+      Field: fEndTrimOffset = 0.0 ()
+      Field: fSrcDuration = 7680.0 ()
+  Field: numSubTrack = 1 ()
+  Field: numClipAutomationItem = 0 ()
+  List: pItems (count=0)
+  Object: NodeBaseParams
+    Object: NodeInitialFxParams
+      Field: bIsOverrideParentFX = 0 (0x00)
+      Field: uNumFx = 0 ()
+    Field: bOverrideAttachmentParams = 0 (0x00)
+    Field: OverrideBusId = 0 ()
+    Field: DirectParentID = 37419850 ()
+    Field: byBitVector = 0 (0x00)
+    Object: NodeInitialParams
+      Object: AkPropBundle<AkPropValue,unsigned char>
+        Field: cProps = 0 ()
+        List: pProps (count=0)
+      Object: AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+        Field: cProps = 0 ()
+        List: pProps (count=0)
+    Object: PositioningParams
+      Field: uBitsPositioning = 0 (0x00)
+    Object: AuxParams
+      Field: byBitVector = 0 (0x00)
+      Field: reflectionsAuxBus = 0 ()
+    Object: AdvSettingsParams
+      Field: byBitVector = 0 (0x00)
+      Field: eVirtualQueueBehavior = 1 (0x01 [FromElapsedTime])
+      Field: u16MaxNumInstance = 0 ()
+      Field: eBelowThresholdBehavior = 0 (0x00 [ContinueToPlay])
+      Field: byBitVector = 0 (0x00)
+    Object: StateChunk
+      Field: ulNumStateProps = 0 ()
+      List: stateProps (count=0)
+      Field: ulNumStateGroups = 0 ()
+      List: pStateChunks (count=0)
+    Object: InitialRTPC
+      Field: ulNumRTPC = 0 ()
+      List: pRTPCMgr (count=0)
+  Field: eTrackType = 0 (0x00 [Normal])
+  Field: iLookAheadTime = 100 ()

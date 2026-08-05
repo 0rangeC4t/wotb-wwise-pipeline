@@ -252,6 +252,93 @@ tham chiếu trong 1 `.txtp` (không chỉ 1 số trường hợp) khi build `im
 source_id → danh sách txtp tham chiếu, rồi mới check has_wav qua từng txtp đó, KHÔNG đoán
 qua tên file). Sau khi fix, `import.txt` dự kiến tăng từ 4874 lên gần 5490 dòng (4874 + 616).
 
+**CẬP NHẬT sau khi fix thật:** `import.txt` tăng từ 4874 lên 5637 dòng (+763, không phải +616
+như dự kiến). Ban đầu nghi ngờ 147/763 thuộc 1 nhóm bug khác chưa rõ nguồn gốc — **đã điều
+tra dứt điểm và loại bỏ nghi ngờ này:**
+- So sánh thô theo `object_path` nguyên chuỗi cho kết quả nhiễu: 893 "thêm mới" + 130 "mất" —
+  do naming convention mới (Fact #17) thêm hậu tố `_<SID>` vào object path để disambiguate
+  các object trùng tên lá (vd nhiều `electric_highrpm_01` ở nhiều switch/RPM khác nhau).
+- Sau khi chuẩn hoá đúng cách (bóc hết các lớp hậu tố `_<số>` liên tiếp ở cuối path, dùng
+  regex `(_\d+)+$`): **0 object bị mất thật** (xác nhận không có regression từ cả 2 lần fix
+  Fact #16 và #17), và **263 object path mới / 455 dòng import mới — 100% thuộc nhóm
+  `language=null`**, khớp hoàn toàn phạm vi bug gốc mô tả ở Fact #16. Không tồn tại nhóm 147
+  SID bí ẩn nào khác — kết luận "147 dòng thuộc lớp bug khác" trước đó (do agent tự báo cáo,
+  chưa verify) là SAI, đã bác bỏ bằng dữ liệu thật.
+Spot-check 5/616 SID bằng grep trực tiếp: PASS cả 5. **Fact #16 chính thức ĐÓNG, không còn
+việc treo.**
+
+### 17. Random Container render collision (Phase 3) — 277 txtp/1400 SID bị map sai audio
+Phát hiện khi điều tra tiếp Fact #16: nhiều SID khác nhau trong `import.txt` trỏ chung 1 file
+`.wav` output, nhưng khác `object_path` (khác object HIRC thật) — nghi ngờ map sai, không phải
+shared asset hợp lệ kiểu Fact #10.
+- **Root cause (đã verify qua đọc trực tiếp `.txtp`):** khi 1 `CAkEvent` trigger 1
+  `CAkRanSeqCntr` (Random Container, `eMode: 0x00 [Random]`) có ≥2 `CAkSound` con, `wwiser`
+  gộp toàn bộ playlist của container vào **1 file `.txtp`/`.wav` duy nhất** (dùng cú pháp
+  `group = -R4>- #@loop` để mô phỏng hành vi random lúc preview). Mỗi `CAkSound` con thực ra
+  trỏ 1 Source ID/`.wem` gốc khác nhau (verify case mẫu `ambient_savanna_voc.txtp`: 4 object
+  `voc_01-04`, 4 Source ID khác nhau `493300003/987311257/299516382/742533491`, 4 file `.wem`
+  gốc khác nhau — nhưng cả 4 đều bị gộp chung 1 file wav render).
+- **Hậu quả:** `wwise_builder.py` map từng object con riêng biệt vào `import.txt`, nhưng tất
+  cả đều trỏ chung 1 file wav gộp (thường là bản render của source cuối cùng) → 3/4 SID (theo
+  case mẫu) đang bị gán nhầm audio của object khác.
+- **Phân biệt QUAN TRỌNG với `CAkLayerCntr` (Blend/Layer Container):** container này CŨNG có
+  nhiều `CAkSound` con, nhưng các source phát ĐỒNG THỜI (blend/crossfade theo RTPC, vd nhiều
+  lớp sample động cơ theo dải RPM) — gộp thành 1 file render là ĐÚNG THIẾT KẾ, KHÔNG PHẢI bug.
+  Quét 799 file `.txtp` có group syntax + ≥2 `CAkSound`, phân loại bằng script: 521 file/7659
+  SID là `CAkLayerCntr` (an toàn, không cần xử lý) — chỉ 277 file/1400 SID là `CAkRanSeqCntr`
+  Random thật (bug, cần fix). 1 file/4 SID còn lại thuộc loại khác, chưa phân loại, quy mô
+  không đáng kể.
+- **Danh sách 277 file bug thật:** lưu tại `random_bug_files.txt`, đã spot-check bằng mắt top
+  20 — toàn bộ đều đúng pattern kỳ vọng (biến thể ngẫu nhiên tiếng trúng đạn, tiếng gió, tiếng
+  ambient loudspeaker — kiểu asset cố ý dùng Random Container để tránh lặp âm thanh).
+- **CHƯA FIX, còn treo.** Hướng fix đề xuất: decode riêng từng Source ID trực tiếp từ
+  `pool/<SID>.wem` qua `vgmstream-cli` (không qua group syntax của `.txtp`) cho các trường hợp
+  `CAkRanSeqCntr[Random]` — bỏ qua bước gộp 1-file-per-event hiện tại chỉ với nhóm này.
+- **Ảnh hưởng tới trạng thái Phase 4 bước 4:** KHÔNG được coi `wwise_builder.py`/`import.txt`
+  là hoàn thiện (✅ DONE) cho tới khi xử lý xong nhóm 1400 SID này — dữ liệu nguồn (Phase 3
+  output) đang sai, không phải lỗi ở bước map của Phase 4.
+
+**CẬP NHẬT — Bước 1 (decode riêng per-SID) đã HOÀN THÀNH và verify:**
+- Script `scripts/fix_random_container_render.py` quét lại xác nhận đúng 277 file / 1032 SID
+  unique (1391 tổng số tham chiếu SID, một số SID lặp lại ở nhiều txtp khác nhau — vd
+  `play_ui_result_achiev_medal_main` và `play_ui_result_skip_scr_team` cùng dùng SID
+  `294225240`/`764583590`, hợp lý vì đây là shared random pool giữa 2 event).
+- Đã decode **1032/1032 SID thành công, 0 lỗi** trực tiếp từ `pool/<SID>.wem` qua
+  `vgmstream-cli`, output đặt tên `out_wwise/wav/<SID>.wav` (naming theo SID thuần, KHÔNG theo
+  tên event như convention cũ).
+- Verify: (1) case mẫu `ambient_savanna_voc` — cả 4 SID (`voc_01-04`) nay có 4 file `.wav`
+  riêng biệt, khác MD5 hoàn toàn, không còn gộp chung 1 file. (2) Spot-check 5 SID ngẫu nhiên
+  — cả 5 đều là RIFF WAVE PCM 16-bit hợp lệ, kích thước/sample rate khác nhau hợp lý (không
+  file rỗng, không lỗi decode).
+- Lưu ý: log ghi "Scanned 1100 .txtp files" (không phải 1856 tổng) — script chỉ scan
+  `out_wwise/txtp/*.txtp` không đệ quy vào thư mục con. Đã xác nhận trước đó `crewvoice/` có
+  0 bug loại này nên không ảnh hưởng kết quả hiện tại, nhưng cần nhớ nếu sau này phát sinh
+  thư mục con `.txtp` khác ngoài `crewvoice/`.
+- **CÒN THIẾU — Bước 2 (chưa làm):** `wwise_builder.py` CHƯA được sửa để dùng các file
+  `<SID>.wav` mới này. Hiện tại với 1032 SID thuộc 277 txtp này, `wwise_builder.py` vẫn đang
+  map theo logic cũ (SID → txtp stem → wav theo tên event, tức vẫn trỏ vào file gộp sai như
+  trước khi fix). Cần thêm logic: với SID thuộc nhóm Random Container đã biết (danh sách
+  `random_bug_files.txt`), ưu tiên tìm `out_wwise/wav/<SID>.wav` trước, chỉ fallback về logic
+  cũ (theo txtp stem) nếu không có file riêng theo SID.
+- **Việc chạy fix bị Antigravity free tier khoá quota giữa chừng** (167h, ~7 ngày) ngay sau
+  khi bước 1 hoàn tất — không ảnh hưởng kết quả bước 1 (đã chạy xong trước khi khoá), nhưng
+  bước 2 cần chuyển sang công cụ khác (Cline+Gemini) thay vì đợi Antigravity mở lại.
+
+**CẬP NHẬT — Bước 2 (sửa `wwise_builder.py`) đã HOÀN THÀNH và verify. Fact #17 ĐÓNG.**
+- `wwise_builder.py` nay ưu tiên tra `out_wwise/wav/<SID>.wav` cho SID thuộc tập 1032 affected
+  (load từ `random_bug_files.txt`/log, có fallback quét lại nếu file log thiếu), fallback về
+  logic cũ (txtp-stem) cho mọi SID khác — không đổi hành vi với case `CAkLayerCntr`/đơn nguồn.
+- Verify qua 3 lớp độc lập, khớp nhau:
+  1. Line count `import.txt` không đổi: 5638 dòng trước/sau (không mất/thêm SID nào).
+  2. Spot-check tay 9 SID cụ thể (4 SID case `ambient_savanna_voc` + 5 SID khác từ tập
+     affected) — tất cả trỏ đúng `<SID>.wav` riêng. 5 SID ngoài tập affected (Layer
+     Container/đơn nguồn) — mapping giữ nguyên như cũ, không regression.
+  3. **Đếm hàng loạt bằng `grep -cE 'wav\\[0-9]+\.wav' import.txt` → ra đúng 1032**, khớp
+     100% với tổng SID affected đã decode ở bước 1 — xác nhận toàn bộ tập, không chỉ mẫu nhỏ.
+- Trạng thái Phase 4 bước 4 (`wwise_builder.py`): nay có thể coi ✅ DONE thật sự, với điều
+  kiện 147 dòng dư chưa truy nguồn gốc ở Fact #16 (763 vs 616 kỳ vọng) vẫn còn là việc treo
+  riêng, không liên quan tới Fact #17.
+
 ---
 
 ## Assumptions Log — PHÂN BIỆT RÕ ĐÃ VERIFY vs CHƯA
@@ -360,15 +447,44 @@ Toàn bộ 8 mục trong `Verified Facts` ở trên.
 Bước 1 (Wine Test 4b)      ✅ DONE — Windows + Android build sạch, 0 error
 Bước 2 (create-new-project) ✅ DONE — TestProject.wproj
 Bước 3 (22 Language)        ✅ DONE — add thủ công qua UI
-Bước 4 (wwise_builder.py)   🔶 ĐANG LÀM — import.txt + gamesync_map.json đã sinh,
-                               còn 1 bug map logic (616 SID, xem Fact #16) cần fix
-Bước 5 (Music Hierarchy)    ❌ CHƯA LÀM
+Bước 4 (wwise_builder.py)   ✅ DONE — import.txt sạch (5637 dòng), Fact #16 + #17 đã fix
+                               và verify dứt điểm (3 lớp bằng chứng, 0 regression)
+Bước 5 (Music Hierarchy)    🔶 ĐANG LÀM — investigation report xong (verify khớp 51+17
+                               object), dry-run script xong (bug parse Duration đã fix,
+                               verify sạch). Build thật apk.bnk lần 1: object đúng cấu
+                               trúc (17) nhưng RỖNG — audio "Empty Source" (sai path) +
+                               14/14 cue "Property cannot be set" (sai method). Đang sửa,
+                               xem Fact #18.
 Bước 6 (Bulk import)        ✅ DONE (cho 4874/4874 dòng hiện có) — 0 warning, 0 error
+                               (LƯU Ý: có thể cần bulk-import lại phần dòng mới thêm sau
+                               2 lần fix Fact #16/#17, chưa xác nhận việc này)
 Bước 7 (inject_state.json)  ❌ CHƯA LÀM
 Bước 8 (WAAPI batch limit)  ❌ CHƯA TEST
 Bước 9 (checkpoint git)     ✅ Đang làm đều
 Bước 10 (compile cuối)      ⏭️ BỎ QUA (quyết định dự án)
 ```
+
+### 18. Vận hành thực tế Phase 4 — 2 cạm bẫy tốn quota nếu không biết trước
+- **WAAPI server KHÔNG tự chạy nền** — mỗi phiên làm việc mới (agent mới/máy khởi động lại)
+  phải tự khởi động Wwise Authoring qua Wine kèm bật WAAPI server TRƯỚC khi gọi bất kỳ lệnh
+  `ak.wwise.core.*` nào, nếu không mọi lệnh sẽ lỗi kết nối ngay từ đầu. **plan.md hiện CHƯA
+  lưu lệnh chính xác để khởi động** (Fact #8 chỉ xác nhận `waapi-server` là 1 operation hợp
+  lệ của `WwiseConsole.exe`, chưa ghi cú pháp đầy đủ + cách chạy song song với Wine). CẦN BỔ
+  SUNG lệnh chính xác vào đây ngay khi tìm ra, để agent sau không phải dò lại từ đầu (tốn
+  quota, từng xảy ra thật ở phiên build `apk.bnk` lần 1).
+- **Nguồn audio cho Interactive Music KHÔNG nằm ở `out_wwise/wav/` như asset thường** — 7
+  source của `apk.bnk` (và nhiều khả năng cả `music_hangar.bnk`) chưa từng qua Phase 3 render
+  (không có `.txtp`/wav thường), vẫn ở dạng `.wem` thô trong `pool/<SID>.wem`. Đã tự decode
+  bằng `vgmstream-cli` ra thư mục MỚI `out_wwise/wav_music/<SID>.wav` (không phải
+  `out_wwise/wav/`). Bất kỳ script build Music Hierarchy nào PHẢI tra đúng thư mục này cho
+  các Source ID thuộc Segment/Track, không dùng logic SID→wav cũ của `wwise_builder.py` (vốn
+  chỉ tra `out_wwise/wav/`).
+- **Property đúng cho Entry/Exit Cue của MusicSegment là `TimeMs` (Type Real64)** — xác nhận
+  qua đọc trực tiếp file `.wwu` XML thật của project (không phải qua tài liệu SDK đoán). Lần
+  build đầu dùng sai cách gọi `ak.wwise.core.object.setProperty` (không rõ tên property đúng
+  hay sai cơ chế hoàn toàn — CHƯA xác nhận, có giả thuyết là Wwise cần cue nhúng sẵn trong
+  wav lúc import chứ không set rời sau khi tạo object) → 14/14 lần set cue thất bại, cần điều
+  tra tiếp trước khi build lại `apk.bnk`.
 
 ---
 
@@ -386,7 +502,14 @@ Nếu dựng lại nội dung mod cộng đồng (như Dương Phạm), ghi rõ 
 
 ---
 
-## Checkpoint Strategy (áp dụng toàn bộ Phase 1-5)
+## Checkpoint Strategy (áp dụng toàn bộ Phase 1-4)
+
+**Lưu ý phạm vi dự án (đã quyết định, cập nhật vào đây để tránh nhầm lẫn cho agent sau này):**
+Từng có 1 "Phase 5" riêng dành cho xử lý đặc thù modpack Dương Phạm (DP) — đã LOẠI BỎ khỏi
+scope, vì mục tiêu dự án là xây pipeline tổng quát cho MỌI project World of Tanks Blitz
+(không riêng 1 mod cụ thể). Phần liên quan DP mod (Fact #12, ghi chú credit ở trên) vẫn giữ
+lại trong tài liệu vì mang tính minh hoạ/kiểm thử khả năng tổng quát của pipeline (--input/
+--output tham số hoá được, không hardcode), KHÔNG phải 1 phase cần hoàn thành riêng.
 
 - Sau mỗi phase: `git add -A && git commit -m "phase-N-complete"`.
 - `manifest.json` và `inject_state.json` là 2 file trạng thái sống còn — backup riêng, không để lẫn vào `.gitignore`.

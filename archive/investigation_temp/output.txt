@@ -1,0 +1,701 @@
+========================================================================
+STEP 1: Count A — manifest entries with language=null
+========================================================================
+Total manifest entries   : 5798
+Entries with language=null: A = 2501
+
+========================================================================
+STEP 2: Parse import.txt — build full Object-Path set + SID-suffix set
+========================================================================
+import.txt rows (data):           4874
+Unique SID suffixes in col-2:     3244
+Disambiguation log SID count:     3244
+
+========================================================================
+STEP 3: For each null-lang SID — is it in import.txt?
+========================================================================
+A (null-lang in manifest)        : 2501
+B (found in import.txt, any check): 1874
+Missing = A - B                  : 627
+
+Check-type distribution for in_import (how each was found):
+  {'normal_path'}                                     1767
+  {'disambig_path', 'sid_suffix'}                      107
+
+========================================================================
+STEP 4: Categorize each of the 627 missing SIDs
+========================================================================
+  Total WEMs in render_pool: 5641
+Scanning and parsing all .txtp files recursively...
+  Total .txtp files scanned:        1856
+  Total txtp files with valid wav:  1856
+  Total unique SIDs found in txtps: 5637
+
+Checking each missing SID...
+
+========================================================================
+RESULTS: Category breakdown of 627 missing SIDs
+========================================================================
+has_wav      has_txtp     has_wem         count
+------------------------------------------------------------------------
+False        False        False               8
+    SID=240510984 fn=Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_02.wav
+    SID=276557761 fn=Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_03.wav
+    SID=301723069 fn=Hangar\Hangar_1_0\AMB\Simple\Main_amb\dron_01_mast.wav
+    ... (5 more)
+False        False        True                3
+    SID=1051637609 fn=AK_Factory_IR\Rooms\AK Hamburg Karl Schneider Halle.wav
+    SID=229441249 fn=Ambient\Maps_amb\Map_17_karelia\wind_gust_02.wav
+    SID=243849520 fn=IR_85-107mm_tank_interior.wav
+True         True         True              616
+    SID=1003074414 fn=Engines\uk\st\valen_accel_05.wav
+    SID=1003314581 fn=Explosions\expl_tanks\expl_mid_start_02.wav
+    SID=1003993695 fn=Hits\surface_hits\surface\surface_hits_stone_fall_01.wav
+    ... (613 more)
+------------------------------------------------------------------------
+Sum of all category counts: 627
+
+========================================================================
+RECONCILIATION CHECK
+========================================================================
+A (null-lang in manifest)  = 2501
+B (found in import.txt)    = 1874
+A - B (expected missing)   = 627
+Sum of category counts     = 627
+
+OK: all three numbers agree. A - B = 627 = sum of categories.
+
+========================================================================
+FULL MISSING SID LIST (627 entries)
+========================================================================
+SID            has_wav      has_txtp     has_wem       fn
+------------------------------------------------------------------------
+1003074414     True         True         True          Engines\uk\st\valen_accel_05.wav
+1003314581     True         True         True          Explosions\expl_tanks\expl_mid_start_02.wav
+1003993695     True         True         True          Hits\surface_hits\surface\surface_hits_stone_fall_01.wav
+1004387009     True         True         True          Explosions\expl_tanks\expl_mid_start_09.wav
+1005514075     True         True         True          Hits_new\HE\pierce\huge\blitz_hit_int_he_pierce_huge_02.wav
+1010246952     True         True         True          Hits_new\HE\pierce\medium\blitz_hit_int_he_pierce_medium_03.
+1010816382     True         True         True          Hits_new\AP\pierce\large\blitz_hit_int_ap_pierce_large_04.wa
+1013656101     True         True         True          Explosions\expl_tanks\expl_close_02.wav
+1013686190     True         True         True          Engines\uk\ht\m60a3_deccel_05.wav
+1015370846     True         True         True          Engines\other\electric\electric_accel_02.wav
+1016971224     True         True         True          Music\Music_Resultscreen\Victory.wav
+102024499      True         True         True          Weapon\10_shot_tailings\shot_tail_large_01.wav
+1021595794     True         True         True          Engines\ussr\st\accel_short_05.wav
+1024511455     True         True         True          Hits_new\AP\pierce\medium\blitz_hit_int_ap_pierce_medium_01.
+1024583652     True         True         True          Explosions\expl_tanks\expl_mid_tail_01.wav
+1027520769     True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_04.wav
+1028152694     True         True         True          Engines\uk\st\valen_accel_03.wav
+1029765977     True         True         True          Objects_basic\Treefall_basic\Treefall_creak_basic\treefall_c
+1030149139     True         True         True          Objects_basic\Lamppost_metal_down_basic\metal_lamppost_down_
+103217806      True         True         True          Engines\damaged\engine_damaged_04.wav
+103267859      True         True         True          Engines\uk\lt\m3a1_accel_07.wav
+1032729903     True         True         True          Hits_new\HC\pierce\medium\blitz_hit_int_hc_pierce_medium_02.
+1032979789     True         True         True          Engines\usa\ht\jackson_accel_03.wav
+1034288471     True         True         True          Objects_basic\Metal_barrel_basic\metal_barrel_02_basic.wav
+1035282915     True         True         True          Engines\de\tractor\hetzer_highrpm_01.wav
+1038805054     True         True         True          Hits_new\Crit_layers\blitz_hit_huge_crit_layer_01.wav
+1040317605     True         True         True          Explosions\expl_tanks\expl_mid_start_06.wav
+104199653      True         True         True          Engines\furious\basic_pack\accel_short_02_basic.wav
+1042418274     True         True         True          Engines\de\ht\pz4_lowrpm_01.wav
+1043501567     True         True         True          Hits_new\Crit_layers\blitz_hit_huge_crit_layer_03.wav
+1046134010     True         True         True          Engines\de\tractor\hetzer_deccel_05.wav
+1047016887     True         True         True          Objects_basic\Wood_box_basic\wood_box_mid_05_basic.wav
+1047248455     True         True         True          Ambient\Maps_amb\Map_14_port\Horse_01.WAV
+1047809732     True         True         True          Engines\ussr\tractor\t38_accel_03.wav
+1047834942     True         True         True          Engines\de\tractor\hetzer_accel_02.wav
+1047975490     True         True         True          Engines\furious\basic_pack\accel_short_05_basic.wav
+1049301122     True         True         True          Engines\ussr\lt\bt7_accel_03.wav
+1050323496     True         True         True          Hits\surface_hits\surface\surface_hits_sand_fall_01.wav
+1050406565     True         True         True          Tracks\loops\t05_start_02_basic.wav
+1050525261     True         True         True          Engines\de\st\lt38_mid_rpm_loop_02.wav
+1051637609     False        False        True          AK_Factory_IR\Rooms\AK Hamburg Karl Schneider Halle.wav
+1054888135     True         True         True          Engines\ussr\ht\kv85_deccel_02.wav
+1055588226     True         True         True          Engines\usa\ht\jackson_deccel_03.wav
+1058430502     True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_03.wa
+1060232643     True         True         True          Tracks\transmission\dev_05.wav
+1060403794     True         True         True          Engines\ussr\st\accel_short_12.wav
+1062478867     True         True         True          Engines\uk\st\valen_accel_01.wav
+1065776809     True         True         True          Objects_basic\Wood_box_basic\wood_box_mid_04_basic.wav
+1066305745     True         True         True          Hits_new\HE\pierce\large\blitz_hit_int_he_pierce_large_02.wa
+1068741089     True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_medium_soft.wav
+1068800913     True         True         True          Hits_new\AP\pierce\large\blitz_hits_ext_pierce_large_03.wav
+1068974227     True         True         True          Hits_new\HE\pierce\small\blitz_hit_ext_he_pierce_small_01.wa
+1069734525     True         True         True          Engines\ussr\lt\bt7_deccel_02.wav
+1070204170     True         True         True          Hits\surface_hits\surface\surface_hits_ground_fall_01.wav
+1071479182     True         True         True          Hits_new\HC\pierce\medium\blitz_hit_ext_hc_pierce_medium_03.
+1071786624     True         True         True          Hits_new\HC\pierce\huge\blitz_hit_int_hc_pierce_huge_03.wav
+1071988507     True         True         True          Explosions\expl_tanks\expl_close_03.wav
+1072717556     True         True         True          Engines\de\tractor\hetzer_deccel_04.wav
+1072754511     True         True         True          Engines\ussr\tractor\t38_highrpm_04.wav
+108391700      True         True         True          Engines\de\lt\pz4_highrpm_01.wav
+108449262      True         True         True          Engines\de\tractor\hetzer_deccel_03.wav
+109824362      True         True         True          Hits\surface_hits\surface\surface_hits_stone_fall_03.wav
+111900330      True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_small_soft.wav
+113948967      True         True         True          Engines\uk\ht\m60a3_deccel_06.wav
+123775117      True         True         True          Objects_basic\Metal_construction_basic\metal_construction_02
+123862650      True         True         True          Engines\de\st\lt38_turning_02.wav
+125445905      True         True         True          UI\Battle_Results\result_chart_list.wav
+126908226      True         True         True          Hits_new\HC\pierce\huge\blitz_hit_int_hc_pierce_huge_02.wav
+128967047      True         True         True          Engines\usa\tractor\priest_deccel_01.wav
+12978062       True         True         True          Objects_basic\Treefall_basic\Treefall_creak_basic\treefall_c
+130338517      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_down_basic\pole_f
+130945023      True         True         True          Objects_basic\Wood_box_basic\wood_box_mid_01_basic.wav
+135199201      True         True         True          Engines\usa\st\m4a1_deccel_01.wav
+135311325      True         True         True          Explosions\expl_tanks\expl_mid_tail_02.wav
+139512335      True         True         True          Hits_new\HC\pierce\huge\blitz_hit_ext_hc_pierce_huge_03.wav
+140697941      True         True         True          Engines\ussr\tractor\t38_accel_01.wav
+142855725      True         True         True          Explosions\expl_tanks\expl_close_06.wav
+147235386      True         True         True          Hits\surface_hits\surface\surface_hits_metal_fall_02.wav
+147262666      True         True         True          Objects\Fence\Fence_beam\fence_beam_001.wav
+147572603      True         True         True          Hits\surface_hits\surface\surface_hits_metal_fall_03.wav
+155325613      True         True         True          Hits\surface_hits\surface\surface_hits_metal_fall_01.wav
+155396008      True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_medium_hard.wav
+156650441      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_creak_basic\pole_
+158208812      True         True         True          Explosions\expl_tanks\expl_far_start_02.wav
+158877726      True         True         True          Engines\uk\ht\m60a3_deccel_01.wav
+158931826      True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_01.wa
+159818054      True         True         True          Hits_new\Crit_layers\blitz_hit_huge_crit_layer_02.wav
+160229258      True         True         True          Engines\uk\lt\m3a1_accel_05.wav
+16034489       True         True         True          Engines\uk\lt\m3a1_deccel_05.wav
+163470198      True         True         True          Hits\surface_hits\surface\surface_hits_stone_fall_03.wav
+165932919      True         True         True          Engines\uk\st\valen_deccel_08.wav
+16740825       True         True         True          Tracks\surfaces\tanks_treads_surfaces_water_moving_basic.wav
+169924828      True         True         True          Hits\surface_hits\surface\surface_hits_stone_fall_02.wav
+171406785      True         True         True          Hits_new\Crit_layers\blitz_hit_huge_crit_layer_05.wav
+171482729      True         True         True          Hits_new\HE\pierce\huge\blitz_hit_ext_he_pierce_huge_01.wav
+174926055      True         True         True          Engines\uk\tractor\m5_deccel_05.wav
+17772983       True         True         True          Engines\ussr\st\basic_pack\accel_short_04_basic.wav
+17904285       True         True         True          Engines\ussr\ht\kv85_accel_06.wav
+180561993      True         True         True          Ambient\Maps_amb\Map_21_mountain\wind_gust_01.wav
+182506497      True         True         True          Engines\ussr\ht\kv85_lowrpm_02.wav
+183563209      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_down_basic\pole_f
+184604470      True         True         True          Objects_basic\Metal_barrel_basic\metal_barrel_01_basic.wav
+184645835      True         True         True          Engines\usa\tractor\priest_accel_04.wav
+191252972      True         True         True          Hits_new\AP\pierce\medium\blitz_hit_int_ap_pierce_medium_03.
+191306195      True         True         True          Hits_new\HE\pierce\small\blitz_hit_ext_he_pierce_small_03.wa
+193064180      True         True         True          Hits\surface_hits\hits\surface_hits_large_soft_01.wav
+196744476      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_10.wav
+19845850       True         True         True          Objects_basic\Treefall_basic\Treefall_creak_basic\treefall_c
+200259897      True         True         True          Hits_new\HE\pierce\small\blitz_hit_ext_he_pierce_small_04.wa
+202112588      True         True         True          Ambient\Maps_amb\Map_33_neptune\combat_atmosphere.wav
+204430833      True         True         True          Engines\de\tractor\hetzer_lowrpm_02.wav
+205696376      True         True         True          Engines\other\electric\electric_accel_01.wav
+210397049      True         True         True          Hits_new\AP\pierce\medium\blitz_hit_ext_ap_pierce_medium_01.
+211462489      True         True         True          Explosions\expl_tanks\expl_close_01.wav
+211843893      True         True         True          Hits\surface_hits\surface\surface_hits_metal_fall_02.wav
+212595493      True         True         True          Engines\ussr\ht\kv85_accel_01.wav
+215267219      True         True         True          Explosions\expl_tanks\expl_far_start_03.wav
+216014255      True         True         True          Engines\damaged\engine_damaged_02_basic.wav
+220671764      True         True         True          Objects_basic\Metal_construction_basic\metal_construction_03
+222779655      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_creak_basic\pole_
+224038393      True         True         True          Engines\uk\lt\m3a1_deccel_04.wav
+224344310      True         True         True          Explosions\expl_tanks\expl_close_er_01.wav
+226381254      True         True         True          Hits_new\AP\pierce\huge\blitz_hit_int_huge_pierced_02.wav
+227250128      True         True         True          Hits\surface_hits\surface\surface_hits_sand_fall_03.wav
+229441249      False        False        True          Ambient\Maps_amb\Map_17_karelia\wind_gust_02.wav
+229486073      True         True         True          Ambient\Generic_amb\Nature\Birds\seagull_01.wav
+231213711      True         True         True          Engines\furious\basic_pack\accel_short_06_basic.wav
+234298196      True         True         True          UI\Battle_Results\result_chart_list_end.wav
+234642155      True         True         True          Engines\uk\lt\m3a1_accel_03.wav
+239327573      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_down_basic\pole_f
+240510984      False        False        False         Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_02.wav
+241022580      True         True         True          Engines\other\electric\electric_dessel_02.wav
+243696986      True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_small_hard.wav
+243849520      False        False        True          IR_85-107mm_tank_interior.wav
+243854063      True         True         True          Hits_new\HC\pierce\medium\blitz_hit_ext_hc_pierce_medium_01.
+245000121      True         True         True          Hits_new\HE\pierce\huge\blitz_hit_ext_he_pierce_huge_03.wav
+245875821      True         True         True          Engines\uk\lt\m3a1_deccel_03.wav
+246006292      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+247527457      True         True         True          Engines\uk\st\valen_accel_06.wav
+248712131      True         True         True          Engines\ussr\ht\kv85_accel_03.wav
+251890585      True         True         True          Hits\surface_hits\hits\surface_hits_main_soft_01.wav
+256813673      True         True         True          Hits_new\HC\pierce\large\blitz_hit_ext_hc_pierce_large_02.wa
+258064554      True         True         True          Hits\surface_hits\hits\surface_hits_main_hard_02.wav
+258245364      True         True         True          Engines\usa\ht\jackson_accel_04.wav
+261482713      True         True         True          Engines\damaged\engine_damaged_01_basic.wav
+262800423      True         True         True          Engines\ussr\st\basic_pack\accel_short_13_basic.wav
+264535576      True         True         True          Objects\Wood\Pole_laying\pole_laying_05.wav
+267007714      True         True         True          Engines\usa\ht\jackson_accel_05.wav
+270688788      True         True         True          Explosions\expl_tanks\expl_close_06_distorted.wav
+27502022       True         True         True          Engines\de\ht\pz4_deccel_04.wav
+276298600      True         True         True          Objects\Fence\Wood_wattle_fence\wattle_fence_01.wav
+276557761      False        False        False         Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_03.wav
+2778679        True         True         True          Engines\uk\st\valen_deccel_02.wav
+277881751      True         True         True          Engines\usa\lt\sherman_accel_short_04.wav
+281016960      True         True         True          Engines\damaged\engine_damaged_04_basic.wav
+281356590      True         True         True          Engines\ussr\st\basic_pack\accel_short_09_basic.wav
+281404802      True         True         True          Engines\ussr\ht\kv85_accel_05.wav
+281698299      True         True         True          UI_basic\Chat\chat_allies.wav
+282258356      True         True         True          Tracks\transmission\dev_09.wav
+284979666      True         True         True          Engines\de\ht\pz4_accel_07.wav
+285247800      True         True         True          Engines\de\lt\pz4_accel_short_02.wav
+285778182      True         True         True          Engines\de\ht\pz4_highrpm_02.wav
+286967185      True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_large_hard.wav
+289653598      True         True         True          Engines\uk\st\valen_lowrpm_02.wav
+290889734      True         True         True          Objects_basic\Treefall_basic\Treefall_down_basic\treefall_do
+293853976      True         True         True          Hits_new\HE\pierce\large\blitz_hit_int_he_pierce_large_01.wa
+293954533      True         True         True          Objects\Buildings\Stone\Stone_building_mid\stone_building_mi
+294225240      True         True         True          UI\Battle_Results\result_skip_scr_team_2.wav
+294596924      True         True         True          Engines\usa\ht\jackson_deccel_01.wav
+297525533      True         True         True          Engines\ussr\st\basic_pack\accel_short_07_basic.wav
+298883959      True         True         True          Hits_new\HC\pierce\huge\blitz_hit_ext_hc_pierce_huge_02.wav
+299424461      True         True         True          Engines\uk\lt\m3a1_deccel_20.wav
+301186667      True         True         True          Weapon\10_shot_tailings\shot_tail_large_02.wav
+301723069      False        False        False         Hangar\Hangar_1_0\AMB\Simple\Main_amb\dron_01_mast.wav
+302484771      True         True         True          Engines\uk\lt\m3a1_deccel_19.wav
+304990545      True         True         True          Objects\Wood\Pole_laying\pole_laying_03.wav
+306313522      True         True         True          Hits_new\HC\pierce\small\blitz_hit_ext_hc_pierce_small_04.wa
+307265660      True         True         True          Hits_new\HC\pierce\medium\blitz_hit_int_hc_pierce_medium_01.
+307440521      True         True         True          Engines\ussr\tractor\t38_deccel_03.wav
+311268105      True         True         True          Engines\usa\lt\sherman_accel_short_01.wav
+312503864      True         True         True          Objects_basic\Car_corps_basic\car_corps_01_basic.wav
+312535614      True         True         True          Engines\sniper_mode_fx\sniper_mode_high_tone.wav
+313236388      True         True         True          Hits\surface_hits\surface\surface_hits_metal_fall_03.wav
+315600188      True         True         True          Ambient\Generic_amb\Nature\Birds\seagull_03.wav
+31685037       True         True         True          Engines\de\lt\pz4_midrpm_02.wav
+318230439      True         True         True          Tracks\surfaces\ht\tanks_treads_heavy_tank_moving_fast_hard_
+319153687      True         True         True          Engines\uk\ht\m60a3_accel_05.wav
+320756107      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_09.wav
+32110707       True         True         True          Engines\uk\st\valen_deccel_01.wav
+321428169      True         True         True          Objects_basic\Lamppost_metal_down_basic\metal_lamppost_down_
+321429477      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+321758426      True         True         True          Hits\surface_hits\surface\surface_hits_sand_fall_03.wav
+322370113      True         True         True          Objects\Fence\Wood_fence_light\fence_light_wood_04.wav
+325632822      True         True         True          Objects\Wood\Pole_laying\pole_laying_02.wav
+328705284      True         True         True          Engines\de\tractor\hetzer_idle_01.wav
+329691017      True         True         True          Tracks\roughness\roughness_heavy_tank.wav
+331132672      True         True         True          Tracks\surfaces\tanks_treads_surfaces_water_moving.wav
+331663515      True         True         True          Hits\surface_hits\hits\surface_hits_large_soft_02.wav
+331916806      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_01.wav
+333809434      True         True         True          Engines\ussr\lt\bt7_deccel_01.wav
+33394695       True         True         True          Hits_new\HC\pierce\small\blitz_hit_int_hc_pierce_small_03.wa
+337031675      True         True         True          Hits_new\HE\pierce\small\blitz_hit_ext_he_pierce_small_05.wa
+337911248      True         True         True          Engines\de\lt\pz4_deccel_short_01.wav
+340842136      True         True         True          Explosions\expl_tanks\expl_far_tail_01.wav
+341744264      True         True         True          Hits_new\HC\pierce\small\blitz_hit_ext_hc_pierce_small_03.wa
+341912806      True         True         True          Objects_basic\Treefall_basic\Treefall_down_basic\treefall_do
+342637565      True         True         True          Engines\ussr\st\accel_short_04.wav
+343479062      True         True         True          Ambient\Generic_amb\Water\river_02.wav
+345704749      True         True         True          Engines\uk\st\valen_deccel_07.wav
+347815928      True         True         True          Engines\ussr\tractor\t38_deccel_02.wav
+347952814      True         True         True          Hits\surface_hits\surface\surface_hits_snow_fall_02.wav
+348204102      True         True         True          Hits\surface_hits\hits\surface_hits_large_hard_01.wav
+350753229      True         True         True          Hits\surface_hits\hits\surface_hits_huge_hard_01.wav
+351533936      True         True         True          Objects\Buildings\Stone\Stone_building_mid\stone_building_mi
+352008221      True         True         True          Hits\surface_hits\surface\surface_hits_snow_fall_03.wav
+353384356      True         True         True          Engines\de\tractor\hetzer_midrpm_01.wav
+358786877      True         True         True          Engines\usa\tractor\priest_deccel_02.wav
+359834651      True         True         True          Objects_basic\Treefall_basic\Treefall_down_basic\treefall_do
+360424480      True         True         True          Engines\de\lt\pz4_midrpm_02.wav
+360440224      True         True         True          Hits_new\HC\pierce\small\blitz_hit_int_hc_pierce_small_04.wa
+366665067      True         True         True          Hits_new\AP\pierce\large\blitz_hit_int_ap_pierce_large_02.wa
+367736229      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_11.wav
+367976116      True         True         True          Hits\surface_hits\hits\surface_hits_small_hard_01.wav
+368381616      True         True         True          Tracks\transmission\dev_06_basic.wav
+369758079      True         True         True          Hits\surface_hits\surface\surface_hits_sand_fall_02.wav
+370866462      True         True         True          Explosions\expl_tanks\expl_mid_start_03.wav
+371121272      True         True         True          Weapon\10_shot_tailings\shot_tail_large_03.wav
+373382607      True         True         True          Hits_new\HE\pierce\small\blitz_hit_int_he_pierce_small_03.wa
+375063659      True         True         True          Objects_basic\Tent_basic\tent_01_basic.wav
+381122987      True         True         True          Hits_new\HE\pierce\small\blitz_hit_int_he_pierce_small_02.wa
+385150699      True         True         True          Engines\usa\tractor\priest_deccel_03.wav
+386034103      True         True         True          Engines\de\tractor\hetzer_accel_01.wav
+38726296       True         True         True          Engines\ussr\st\accel_short_07.wav
+390507938      True         True         True          Engines\de\ht\pz4_highrpm_02.wav
+390730672      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_creak_basic\pole_
+391299017      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+391757542      True         True         True          Hits\surface_hits\hits\surface_hits_small_soft_01.wav
+400904933      True         True         True          UI\Battle_Results\result_achiev_score_end.wav
+401106174      True         True         True          Engines\de\st\lt38_start.wav
+402877348      True         True         True          Engines\furious\basic_pack\accel_short_11_basic.wav
+405702088      True         True         True          Objects_basic\Treefall_basic\Treefall_down_basic\treefall_do
+406657615      True         True         True          UI\Battle_Results\result_ui_skip_medal.wav
+407753211      True         True         True          Weapon\11_tow_set\gun_tow_02.wav
+408491558      True         True         True          Hits_new\HC\pierce\medium\blitz_hit_ext_hc_pierce_medium_02.
+408575413      True         True         True          Engines\de\ht\pz4_midrpm_04.wav
+41459536       True         True         True          Explosions\expl_tanks\expl_far_start_05.wav
+4151511        True         True         True          Weapon\10_shot_tailings\shot_tail_large_06.wav
+415884611      True         True         True          Engines\furious\basic_pack\accel_short_10_basic.wav
+418542388      True         True         True          Engines\ussr\st\basic_pack\accel_short_02_basic.wav
+419157082      True         True         True          Engines\usa\tractor\priest_accel_03.wav
+419168782      True         True         True          Explosions\expl_tanks\expl_mid_tail_09.wav
+42161993       True         True         True          Engines\ussr\st\basic_pack\accel_short_11_basic.wav
+423615879      True         True         True          Hits_new\HC\pierce\huge\blitz_hit_ext_hc_pierce_huge_01.wav
+426816282      True         True         True          Hits\surface_hits\hits\surface_hits_huge_soft_02.wav
+428983711      True         True         True          Hits_new\HE\pierce\huge\blitz_hit_ext_he_pierce_huge_02.wav
+433988053      True         True         True          Engines\de\ht\pz4_deccel_05.wav
+435963335      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_down_basic\pole_f
+438602914      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+442106649      True         True         True          Objects_basic\Treefall_basic\Treefall_down_basic\treefall_do
+448946013      True         True         True          Hits_new\HE\pierce\small\blitz_hit_int_he_pierce_small_05.wa
+449472622      True         True         True          Engines\de\lt\pz4_highrpm_01.wav
+451309304      True         True         True          Hits\surface_hits\hits\surface_hits_main_hard_01.wav
+453829573      True         True         True          Ambient\Combat_atmosphere\Weapons\Oneshot\oneshot_02.wav
+459654759      True         True         True          Hits_new\HC\pierce\small\blitz_hit_int_hc_pierce_small_01.wa
+4615743        True         True         True          Engines\ussr\st\basic_pack\accel_short_06_basic.wav
+461958751      True         True         True          Hits\surface_hits\surface\surface_hits_ground_fall_03.wav
+463134717      True         True         True          Engines\uk\lt\m3a1_accel_14.wav
+466744989      True         True         True          Engines\ussr\tractor\t38_accel_02.wav
+467367561      True         True         True          Tracks\transmission\dev_08_basic.wav
+467722916      True         True         True          Explosions\expl_tanks\expl_close_05_distorted.wav
+472719280      True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_huge_soft.wav
+473565289      True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_down_basic\pole_f
+475102156      True         True         True          Engines\uk\ht\m60a3_accel_02.wav
+48223346       True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_02.wa
+485034169      True         True         True          Engines\usa\ht\jackson_accel_01.wav
+487493420      True         True         True          Hits_new\AP\pierce\large\blitz_hits_ext_pierce_large_04.wav
+487911656      True         True         True          Engines\uk\ht\m60a3_lowrpm_02.wav
+488537356      True         True         True          Objects_basic\Tent_basic\tent_03_basic.wav
+488836567      True         True         True          Hits_new\AP\pierce\medium\blitz_hit_int_ap_pierce_medium_04.
+489380303      True         True         True          Engines\de\tractor\hetzer_lowrpm_03.wav
+491829907      True         True         True          Explosions\expl_tanks\expl_close_03_distorted.wav
+492088764      True         True         True          Engines\uk\lt\m3a1_accel_12.wav
+493945057      True         True         True          Engines\ussr\st\accel_short_13.wav
+495174345      True         True         True          Hits_new\HC\pierce\small\blitz_hit_ext_hc_pierce_small_02.wa
+496068250      True         True         True          Hits_new\HC\pierce\small\blitz_hit_ext_hc_pierce_small_01.wa
+498187241      True         True         True          Engines\ussr\st\accel_short_10.wav
+498945953      True         True         True          Hits_new\HE\pierce\large\blitz_hit_ext_he_pierce_large_03.wa
+499433887      True         True         True          Tracks\roughness\rougness_inside_medium_tank.wav
+500651405      True         True         True          Engines\ussr\ht\kv85_deccel_04.wav
+502190200      True         True         True          Objects_basic\Metal_construction_basic\metal_construction_01
+502778764      True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_03.wa
+503195098      True         True         True          Hits_new\HE\pierce\medium\blitz_hit_ext_he_pierce_medium_03.
+50442526       True         True         True          Hits_new\HE\pierce\huge\blitz_hit_int_he_pierce_huge_01.wav
+506287273      True         True         True          Tracks\loops\t05_start_03_basic.wav
+50688306       True         True         True          Engines\de\lt\pz4_midrpm_01.wav
+507098862      True         True         True          Engines\usa\st\m4a1_deccel_04.wav
+507965225      True         True         True          Weapon\11_tow_set\gun_tow_01.wav
+508026452      True         True         True          Hits_new\AP\pierce\medium\blitz_hit_int_ap_pierce_medium_02.
+510835495      True         True         True          Weapon\10_shot_tailings\shot_tail_large_04.wav
+51160409       True         True         True          Objects_basic\Treefall_basic\Treefall_creak_basic\treefall_c
+513352825      True         True         True          Tracks\roughness\rougness_inside_heavy_tank.wav
+515487314      True         True         True          Hits_new\AP\pierce\large\blitz_hits_ext_pierce_large_02.wav
+516118561      True         True         True          Engines\de\lt\pz4_idle_02.wav
+516991048      True         True         True          Ambient\Generic_amb\Water\river_03.wav
+520324516      True         True         True          Objects_basic\Car_corps_basic\car_corps_02_basic.wav
+520806235      True         True         True          Objects_basic\Tent_basic\tent_02_basic.wav
+522343691      True         True         True          Explosions\expl_tanks\expl_far_tail_02.wav
+523220234      True         True         True          Weapon\10_shot_tailings\shot_tail_large_05.wav
+524515552      True         True         True          Explosions\expl_tanks\expl_far_start_04.wav
+525655044      True         True         True          Hits\surface_hits\hits\surface_hits_small_hard_02.wav
+526565711      True         True         True          Ambient\Maps_amb\Map_18_canal\waterfal_loop_01.wav
+527186156      True         True         True          Engines\ussr\lt\t38_deccel_01_lt.wav
+530108961      True         True         True          Engines\uk\tractor\m5_deccel_04.wav
+53095165       True         True         True          Engines\other\electric\electric_dessel_01.wav
+531169508      True         True         True          Tracks\transmission\dev_06.wav
+532239962      True         True         True          Engines\de\tractor\hetzer_accel_03.wav
+532361166      True         True         True          Engines\de\st\lt38_stop.wav
+533332128      True         True         True          UI_basic\Battle_UI\Base_Capture\capture_tick_04.wav
+53429822       True         True         True          Engines\usa\tractor\priest_deccel_04.wav
+538441094      True         True         True          Engines\uk\lt\m3a1_deccel_01.wav
+542302086      True         True         True          Hits\surface_hits\surface\surface_hits_snow_fall_01.wav
+542481034      True         True         True          Engines\furious\basic_pack\accel_short_03_basic.wav
+542593004      True         True         True          Engines\usa\st\m4a1_accel_04.wav
+542868628      True         True         True          Engines\ussr\lt\bt7_deccel_03.wav
+543188008      True         True         True          Hits\surface_hits\hits\surface_hits_huge_hard_02.wav
+54359815       True         True         True          Objects\Fence\Wood_fence_light\fence_light_wood_01.wav
+543718962      True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_04.wa
+544969057      True         True         True          Engines\ussr\ht\kv85_deccel_01.wav
+548319644      False        False        False         Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_01.wav
+548329146      True         True         True          Hits_new\HE\pierce\small\blitz_hit_ext_he_pierce_small_02.wa
+54923916       True         True         True          Engines\ussr\ht\kv85_deccel_03.wav
+549278707      True         True         True          Hits\surface_hits\hits\surface_hits_small_soft_02.wav
+552963681      True         True         True          Engines\de\tractor\hetzer_accel_04.wav
+557051102      True         True         True          Engines\uk\tractor\m5_accel_01.wav
+562032313      True         True         True          Explosions\expl_tanks\expl_close_02_distorted.wav
+562100963      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_12.wav
+564473327      True         True         True          UI_basic\Chat\chat_squad.wav
+56530589       True         True         True          Engines\usa\st\m4a1_accel_01.wav
+567026733      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_03.wav
+567952527      True         True         True          Engines\ussr\st\basic_pack\accel_short_03_basic.wav
+572943975      True         True         True          Explosions\expl_tanks\expl_close_er_02.wav
+574814248      True         True         True          Tracks\roughness\rougness_inside_light_tank.wav
+575881218      True         True         True          Engines\de\ht\pz4_deccel_01.wav
+57588210       True         True         True          Hits_new\HC\pierce\large\blitz_hit_int_hc_pierce_large_03.wa
+577166889      True         True         True          Hits\surface_hits\surface\surface_hits_water_fall_02.wav
+579387637      True         True         True          Engines\usa\st\m4a1_accel_05.wav
+580282760      True         True         True          Explosions\expl_tanks\expl_mid_start_05.wav
+582234234      True         True         True          Explosions\expl_tanks\expl_close_04.wav
+582304498      True         True         True          Explosions\expl_tanks\expl_mid_tail_07.wav
+58237490       True         True         True          Explosions\expl_tanks\expl_mid_tail_08.wav
+583542956      True         True         True          Hits\surface_hits\surface\surface_hits_snow_fall_03.wav
+584115747      True         True         True          Engines\uk\lt\m3a1_accel_06.wav
+585357224      True         True         True          Engines\usa\lt\sherman_low_rpm_loop_04.wav
+585505708      True         True         True          Hits_new\AP\pierce\huge\blitz_hit_ext_huge_pierced_01.wav
+587604435      True         True         True          Explosions\expl_tanks\expl_close_05.wav
+591795883      True         True         True          UI_basic\Tutorial_2021\Tutorial_2021_UI_QHi\tut_ui_hang_achi
+592199082      True         True         True          UI_basic\Battle_UI\Base_Capture\capture_tick_02.wav
+592462699      True         True         True          Hits_new\AP\pierce\large\blitz_hit_int_ap_pierce_large_01.wa
+592690223      True         True         True          Hits\surface_hits\surface\surface_hits_ground_fall_03.wav
+593989852      True         True         True          Explosions\expl_tanks\expl_far_tail_04.wav
+594101244      True         True         True          Engines\usa\tractor\priest_accel_01.wav
+59421532       True         True         True          Objects_basic\Treefall_basic\Treefall_down_basic\treefall_do
+594924819      True         True         True          Objects\Fence\Wood_wattle_fence\wattle_fence_03.wav
+595270475      True         True         True          Engines\de\ht\pz4_midrpm_04.wav
+597154646      True         True         True          Engines\uk\ht\m60a3_deccel_04.wav
+597445593      True         True         True          Engines\de\lt\pz4_start.wav
+600753014      True         True         True          Engines\de\st\lt38_turning.wav
+601990546      True         True         True          Hits\surface_hits\surface\surface_hits_snow_fall_02.wav
+60436895       True         True         True          Weapon\11_tow_set\gun_tow_inside_01.wav
+60495820       True         True         True          Objects\Fence\Wood_fence_light\fence_light_wood_03.wav
+605803908      True         True         True          Engines\de\st\lt38_accel_short_04.wav
+610223727      True         True         True          Hits_new\Crit_alarm\blitz_hit_crit_crt_alarm_09.wav
+61091693       True         True         True          Tracks\roughness\roughness_light_tank.wav
+612846220      True         True         True          UI_basic\Buttons\ok_02.wav
+614225716      True         True         True          Engines\de\tractor\hetzer_deccel_02.wav
+616531096      True         True         True          Explosions\expl_tanks\expl_mid_start_01.wav
+617002419      True         True         True          Objects_basic\Wood_box_basic\wood_box_mid_03_basic.wav
+618084508      True         True         True          Explosions\expl_tanks\expl_far_tail_03.wav
+620270114      True         True         True          Engines\de\lt\pz4_deccel_short_02.wav
+622761062      True         True         True          Objects_basic\Car_corps_basic\car_corps_04_basic.wav
+626088357      True         True         True          Engines\damaged\engine_damaged_03.wav
+627319065      True         True         True          Hits\surface_hits\hits\surface_hits_main_soft_02.wav
+62893389       True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_02.wav
+628933967      True         True         True          Engines\damaged\engine_damaged_01.wav
+629273921      True         True         True          Objects\Fence\Wood_fence_light\fence_light_wood_02.wav
+631850855      True         True         True          Engines\de\ht\pz4_lowrpm_02.wav
+634050353      True         True         True          Weapon\11_tow_set\gun_tow_inside_02.wav
+634839586      True         True         True          Hits\surface_hits\surface\surface_hits_ground_fall_02.wav
+636137063      True         True         True          Engines\ussr\st\basic_pack\accel_short_14_basic.wav
+637765783      True         True         True          Engines\usa\lt\sherman_deccel_long_04.wav
+64264079       True         True         True          Engines\usa\ht\jackson_accel_02.wav
+643908210      True         True         True          Explosions\expl_tanks\expl_close_er_02_distorted.wav
+644684987      True         True         True          Engines\uk\lt\m3a1_deccel_11.wav
+64476841       True         True         True          Ambient\Generic_amb\Water\river_01.wav
+645324887      True         True         True          Hits_new\HE\pierce\small\blitz_hit_int_he_pierce_small_04.wa
+647846034      True         True         True          Engines\ussr\lt\bt7_accel_02.wav
+652434026      True         True         True          Engines\uk\ht\m60a3_accel_04.wav
+652732495      True         True         True          Hits_new\HE\pierce\medium\blitz_hit_ext_he_pierce_medium_01.
+65786320       True         True         True          Explosions\expl_tanks\expl_far_start_01.wav
+65812641       True         True         True          Engines\ussr\ht\kv85_accel_02.wav
+658958586      True         True         True          Engines\ussr\st\accel_short_01.wav
+660463131      True         True         True          Engines\usa\st\m4a1_deccel_02.wav
+660492525      True         True         True          Hits_new\Crit_layers\blitz_hit_huge_crit_layer_04.wav
+665300614      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_08.wav
+666489172      True         True         True          Engines\ussr\st\Deccel_from_Mid_to_Low_one_shot.wav
+673907178      True         True         True          Tracks\surfaces\lt\tanks_tanks_treads_light_tank_moving_norm
+675632246      True         True         True          Hits_new\AP\pierce\medium\blitz_hit_ext_ap_pierce_medium_02.
+677360672      True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_large_soft.wav
+6786932        True         True         True          Hits\surface_hits\surface\surface_hits_snow_fall_01.wav
+678865162      True         True         True          Objects_basic\Metal_barrel_basic\metal_barrel_03_basic.wav
+680945491      True         True         True          UI_basic\Chat\chat_all.wav
+682559495      True         True         True          Explosions\expl_tanks\expl_close_er_03_distorted.wav
+682828351      True         True         True          Engines\usa\tractor\priest_deccel_05.wav
+684418114      True         True         True          Engines\de\tractor\hetzer_highrpm_01.wav
+685895720      True         True         True          Engines\uk\ht\m60a3_deccel_02.wav
+686682466      True         True         True          Engines\ussr\lt\t38_deccel_03_lt.wav
+687155148      True         True         True          Hits_new\AP\pierce\huge\blitz_hit_int_huge_pierced_03.wav
+697575442      True         True         True          Engines\ussr\st\accel_short_11.wav
+699733644      True         True         True          Hits_new\HC\pierce\medium\blitz_hit_ext_hc_pierce_medium_04.
+702063787      True         True         True          Explosions\expl_tanks\expl_mid_tail_06.wav
+703776464      True         True         True          Engines\uk\lt\m3a1_deccel_07.wav
+704091956      True         True         True          Hits\surface_hits\surface\surface_hits_sand_fall_02.wav
+704285192      True         True         True          UI_basic\Battle_UI\Base_Capture\capture_tick_01.wav
+705309103      True         True         True          Engines\de\tractor\hetzer_start_02.wav
+705604406      True         True         True          Objects\Fence\Fence_beam\fence_beam_003.wav
+705623800      False        False        False         Hangar\Hangar_1_0\AMB\Simple\Hammer\hammer_01_02.wav
+709684473      True         True         True          Tracks\surfaces\lt\tanks_tanks_treads_light_tank_moving_fast
+709902781      True         True         True          Engines\ussr\tractor\t38_deccel_01.wav
+710160017      True         True         True          Engines\ussr\st\accel_short_03.wav
+711059939      True         True         True          Engines\de\st\lt38_turning_02.wav
+713766275      True         True         True          Hits_new\HE\pierce\medium\blitz_hit_int_he_pierce_medium_04.
+720731973      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+721364382      True         True         True          Hits_new\HE\pierce\medium\blitz_hit_int_he_pierce_medium_02.
+721704431      True         True         True          Engines\furious\basic_pack\accel_short_07_basic.wav
+722130988      True         True         True          Engines\ussr\st\basic_pack\accel_short_05_basic.wav
+723789671      True         True         True          Engines\uk\st\valen_accel_04.wav
+723992310      True         True         True          Engines\uk\lt\m3a1_accel_04.wav
+725845171      True         True         True          Engines\uk\lt\m3a1_accel_15.wav
+727052420      True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_02.wa
+729759073      True         True         True          Hits_new\HE\pierce\large\blitz_hit_int_he_pierce_large_03.wa
+731329698      True         True         True          Engines\uk\lt\m3a1_deccel_02.wav
+731732932      True         True         True          Hangar\Hangar_2_0\hgr_amb_tape_recorder_off.wav
+732634274      True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_07.wa
+7337217        True         True         True          Engines\de\st\lt38_deccel_short_01.wav
+734160033      True         True         True          Hits\surface_hits\surface\surface_hits_sand_fall_01.wav
+737473973      True         True         True          Hits\surface_hits\surface\surface_hits_metal_fall_01.wav
+737663256      True         True         True          Engines\de\ht\pz4_accel_03.wav
+737947375      True         True         True          Engines\de\st\lt38_idle_loop_01.wav
+740032540      True         True         True          Tracks\transmission\dev_07_basic.wav
+741022313      True         True         True          Engines\uk\tractor\m5_deccel_01.wav
+743619053      True         True         True          Engines\de\lt\pz4_stop.wav
+745629569      True         True         True          Engines\damaged\engine_damaged_03_basic.wav
+746986742      True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_05.wa
+748398055      True         True         True          Tracks\transmission\dev_05_basic.wav
+75208967       True         True         True          Engines\de\st\lt38_turning.wav
+752659412      True         True         True          Engines\de\ht\pz4_idle_04.wav
+753279394      True         True         True          Objects_basic\Lamppost_metal_down_basic\metal_lamppost_down_
+753288193      True         True         True          Engines\usa\st\m4a1_deccel_03.wav
+756300603      True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_08.wa
+756797529      True         True         True          Tracks\surfaces\ht\tanks_treads_heavy_tank_moving_slow_hard_
+757939698      True         True         True          Hits_new\HC\pierce\medium\blitz_hit_int_hc_pierce_medium_04.
+758850436      True         True         True          Tracks\loops\t05_start_01_basic.wav
+760348499      True         True         True          Explosions\expl_tanks\expl_far_start_06.wav
+761447902      True         True         True          Engines\usa\st\m4a1_accel_03.wav
+762672366      True         True         True          Engines\de\st\lt38_low_rpm_loop_01.wav
+764349607      True         True         True          Hits_new\HC\pierce\huge\blitz_hit_int_hc_pierce_huge_01.wav
+764583590      True         True         True          UI\Battle_Results\result_skip_scr_team_1.wav
+766826961      True         True         True          Objects_basic\Lamppost_metal_down_basic\metal_lamppost_down_
+772062170      True         True         True          Engines\de\ht\pz4_lowrpm_02.wav
+773304082      True         True         True          Engines\de\ht\pz4_deccel_03.wav
+773929659      True         True         True          Hits_new\HC\pierce\large\blitz_hit_int_hc_pierce_large_01.wa
+774389507      True         True         True          Engines\ussr\lt\bt7_accel_01.wav
+775486136      True         True         True          UI\Battle_Results\ResultScreen_back_ambient.wav
+77760154       True         True         True          Hits\surface_hits\hits\surface_hits_huge_soft_01.wav
+777936473      True         True         True          Engines\furious\basic_pack\accel_short_13_basic.wav
+778855852      True         True         True          Tracks\transmission\dev_08.wav
+779245946      True         True         True          Engines\uk\lt\m3a1_deccel_12.wav
+779883469      True         True         True          Engines\de\tractor\hetzer_stop_01.wav
+780226638      True         True         True          Engines\uk\lt\m3a1_deccel_10.wav
+780832335      True         True         True          Engines\de\ht\pz4_accel_04.wav
+78161718       True         True         True          UI\Tank Rank\rank_fire_whoosh_01.wav
+783553422      True         True         True          Explosions\expl_tanks\expl_far_tail_06.wav
+783952517      True         True         True          Engines\uk\ht\m60a3_deccel_03.wav
+786166881      True         True         True          Engines\uk\ht\m60a3_accel_03.wav
+787542320      True         True         True          Hits_new\AP\pierce\huge\blitz_hit_ext_huge_pierced_02.wav
+789948435      True         True         True          Engines\uk\st\valen_accel_08.wav
+79021904       True         True         True          Hits_new\HC\pierce\large\blitz_hit_ext_hc_pierce_large_01.wa
+790775790      True         True         True          Engines\furious\basic_pack\accel_short_04_basic.wav
+792859602      True         True         True          Engines\usa\ht\jackson_deccel_02.wav
+799295666      True         True         True          Tracks\surfaces\lt\tanks_tanks_treads_light_tank_moving_slow
+801627646      True         True         True          UI_basic\Battle_UI\Base_Capture\capture_tick_03.wav
+802504324      True         True         True          Engines\ussr\lt\t38_deccel_02_lt.wav
+802786861      True         True         True          Hits_new\AP\pierce\large\blitz_hit_int_ap_pierce_large_03.wa
+80914471       True         True         True          Engines\uk\lt\m3a1_accel_01.wav
+810688685      True         True         True          Hits_new\HE\pierce\medium\blitz_hit_ext_he_pierce_medium_04.
+810833888      True         True         True          Engines\uk\st\valen_deccel_06.wav
+810978867      True         True         True          Explosions\expl_tanks\expl_mid_tail_04.wav
+811881206      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+812688417      True         True         True          Hits_new\AP\pierce\huge\blitz_hit_ext_huge_pierced_03.wav
+814222800      True         True         True          Engines\ussr\ht\kv85_accel_04.wav
+814457422      True         True         True          Hits_new\HC\pierce\small\blitz_hit_int_hc_pierce_small_05.wa
+816285002      True         True         True          Hits_new\HE\pierce\medium\blitz_hit_int_he_pierce_medium_01.
+820318207      True         True         True          Hits_new\HE\pierce\medium\blitz_hit_ext_he_pierce_medium_02.
+821331843      True         True         True          Objects\Wood\Pole_laying\pole_laying_04.wav
+822291647      True         True         True          Hits_new\HC\pierce\small\blitz_hit_ext_hc_pierce_small_05.wa
+823093996      True         True         True          Explosions\expl_tanks\expl_mid_start_04.wav
+823189660      True         True         True          Engines\uk\ht\m60a3_deccel_07.wav
+826894977      True         True         True          Hits_new\Crit_alarm\blitz_hit_crit_hvy_alarm_09_eq.wav
+828439345      True         True         True          Ambient\Generic_amb\Nature\Birds\seagull_02.wav
+831638816      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+832609029      True         True         True          Engines\uk\lt\m3a1_accel_13.wav
+833596719      True         True         True          Tracks\surfaces\mt\tanks_tanks_treads_medium_tank_moving_nor
+836056168      True         True         True          Engines\uk\ht\m60a3_accel_06.wav
+838972416      True         True         True          Hits\surface_hits\surface\surface_hits_stone_fall_02.wav
+840497868      True         True         True          Hits\surface_hits\surface\surface_hits_water_fall_02.wav
+840771360      True         True         True          Engines\uk\st\valen_deccel_04.wav
+84099098       False        False        False         Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_02.wav
+845163468      True         True         True          Explosions\expl_tanks\expl_mid_tail_05.wav
+845176427      True         True         True          Engines\ussr\st\basic_pack\accel_short_01_basic.wav
+84962573       True         True         True          Tracks\roughness\engine_sub_basic.wav
+849742658      True         True         True          Tracks\transmission\dev_03_basic.wav
+850754624      False        False        False         Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_01.wav
+850861056      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_05.wav
+86041432       True         True         True          Hits_new\HE\pierce\large\blitz_hit_ext_he_pierce_large_02.wa
+862737239      True         True         True          Engines\de\st\lt38_low_rpm_loop_01.wav
+862974354      True         True         True          Hits_new\HE\pierce\small\blitz_hit_int_he_pierce_small_01.wa
+863330015      True         True         True          Hits\surface_hits\hits\surface_hits_large_hard_02.wav
+865635694      True         True         True          Hits_new\AP\pierce\large\blitz_hits_ext_pierce_large_01.wav
+866149926      True         True         True          Explosions\expl_tanks\expl_close_01_distorted.wav
+866380802      True         True         True          Explosions\expl_tanks\expl_mid_start_07.wav
+866954008      True         True         True          Engines\uk\st\valen_lowrpm_01.wav
+86707346       True         True         True          Hits\surface_hits\surface\surface_hits_stone_fall_01.wav
+867405018      True         True         True          Engines\de\ht\pz4_accel_06.wav
+867743964      True         True         True          Engines\ussr\tractor\t38_deccel_04.wav
+868398         True         True         True          Explosions\expl_tanks\expl_far_tail_05.wav
+869325778      True         True         True          Engines\ussr\st\basic_pack\accel_short_10_basic.wav
+869482447      True         True         True          Engines\ussr\lt\t38_deccel_04_lt.wav
+869853773      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+870724972      True         True         True          Ambient\Generic_amb\Wind\winter_wind_polygon.wav
+870785900      True         True         True          Objects\Fence\Wood_wattle_fence\wattle_fence_02.wav
+870820424      True         True         True          Explosions\expl_tanks\expl_mid_start_08.wav
+87161397       True         True         True          Engines\ussr\tractor\t38_accel_04.wav
+874566571      True         True         True          Explosions\expl_tanks\expl_close_04_distorted.wav
+87794067       True         True         True          Hits\surface_hits\hits\surface_hits_fougasse_huge_hard.wav
+878619978      True         True         True          Objects\Fence\Fence_beam\fence_beam_002.wav
+878840749      True         True         True          Hits_new\HC\pierce\medium\blitz_hit_int_hc_pierce_medium_03.
+880509864      True         True         True          Engines\de\ht\pz4_accel_02.wav
+881261795      True         True         True          Tracks\transmission\dev_07.wav
+884208199      True         True         True          Engines\ussr\st\basic_pack\accel_short_08_basic.wav
+886146113      True         True         True          Hits_new\AP\pierce\huge\blitz_hit_int_huge_pierced_01.wav
+88758033       True         True         True          UI_basic\Buttons\ok_01.wav
+891456857      True         True         True          Hits_new\HC\pierce\large\blitz_hit_ext_hc_pierce_large_03.wa
+892860500      True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_07.wa
+893097001      True         True         True          Tracks\surfaces\ht\tanks_treads_heavy_tank_moving_normal_har
+893115485      True         True         True          Objects\Wood\Pole_laying\pole_laying_01.wav
+89630290       True         True         True          Engines\uk\lt\m3a1_accel_08.wav
+897655270      True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_05.wa
+898929148      True         True         True          Tracks\roughness\engine_sub.wav
+899989484      True         True         True          Engines\uk\lt\m3a1_accel_11.wav
+903910649      True         True         True          Explosions\expl_tanks\expl_mid_tail_03.wav
+904057973      True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_06.wa
+907770756      True         True         True          Hits_new\AP\pierce\small\blitz_hit_int_ap_pierce_small_01.wa
+908489869      True         True         True          Engines\ussr\tractor\t38_highrpm_04.wav
+91226551       True         True         True          Engines\ussr\st\accel_short_06.wav
+9129593        True         True         True          Engines\uk\st\valen_deccel_03.wav
+915542043      True         True         True          Engines\ussr\st\basic_pack\accel_short_12_basic.wav
+9169159        True         True         True          Engines\de\ht\pz4_stop_01.wav
+9174168        True         True         True          Hits_new\HC\pierce\small\blitz_hit_int_hc_pierce_small_02.wa
+922431388      True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_04.wa
+925035562      True         True         True          Engines\usa\tractor\priest_accel_05.wav
+927592170      True         True         True          Explosions\expl_tanks\expl_close_er_03.wav
+929689333      True         True         True          Explosions\expl_tanks\expl_close_er_01_distorted.wav
+930018994      True         True         True          Engines\usa\tractor\priest_accel_02.wav
+930907385      True         True         True          Engines\furious\basic_pack\accel_short_01_basic.wav
+931643544      True         True         True          Tracks\transmission\dev_03.wav
+93194183       True         True         True          Engines\sniper_mode_fx\sniper_mode_high_tone_basic.wav
+933431467      True         True         True          Engines\de\tractor\hetzer_midrpm_01.wav
+935565238      True         True         True          Ambient_basic\Water_basic\lake_01_basic.wav
+935889441      True         True         True          Hits_new\AP\pierce\medium\blitz_hit_ext_ap_pierce_medium_03.
+936598154      True         True         True          Hits_new\HE\pierce\huge\blitz_hit_int_he_pierce_huge_03.wav
+936954235      True         True         True          Objects_basic\Metal_construction_basic\metal_construction_04
+939347159      True         True         True          Hits\surface_hits\surface\surface_hits_ground_fall_01.wav
+940407577      True         True         True          Ambient\Combat_atmosphere\Weapons\Oneshot\oneshot_01.wav
+944179630      True         True         True          Engines\de\lt\pz4_lowrpm_02.wav
+945831300      True         True         True          Tracks\transmission\dev_09_basic.wav
+946064195      True         True         True          UI\Battle_Results\result_ui_skip_epic_medal.wav
+946257764      True         True         True          Ambient\Maps_amb\Map_14_port\ship_bell_01.WAV
+949227724      True         True         True          Tracks\loops\t05_start_04_basic.wav
+949635521      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+949723517      True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_08.wa
+950423189      True         True         True          Engines\de\tractor\hetzer_lowrpm_03.wav
+956160771      True         True         True          Engines\usa\ht\jackson_deccel_04.wav
+956890161      True         True         True          Engines\de\lt\pz4_accel_long_02.wav
+957325598      True         True         True          Engines\de\lt\pz4_accel_long_01.wav
+957915792      True         True         True          Tracks\surfaces\mt\tanks_tanks_treads_medium_tank_moving_slo
+959248179      True         True         True          Engines\de\ht\pz4_accel_05.wav
+960440210      True         True         True          Tracks\surfaces\mt\tanks_tanks_treads_medium_tank_moving_fas
+961118168      False        False        False         Hangar\Hangar_1_0\AMB\Simple\Boxes\hangar_prem_v2_box_04.wav
+961299077      True         True         True          Engines\furious\basic_pack\accel_short_12_basic.wav
+961969307      True         True         True          Engines\uk\st\valen_accel_02.wav
+963339246      True         True         True          Engines\de\ht\pz4_deccel_02.wav
+963429843      True         True         True          Tracks\roughness\roughness_medium_tank.wav
+964027401      True         True         True          Engines\de\tractor\hetzer_deccel_01.wav
+965423106      True         True         True          Engines\usa\st\m4a1_accel_02.wav
+967239412      True         True         True          Hits_new\AP\pierce\medium\blitz_hit_ext_ap_pierce_medium_04.
+967984318      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+969792995      True         True         True          Hits\surface_hits\surface\surface_hits_ground_fall_02.wav
+970413769      True         True         True          Engines\uk\ht\m60a3_accel_01.wav
+970807715      True         True         True          Hits_new\HE\pierce\large\blitz_hit_ext_he_pierce_large_01.wa
+971337199      True         True         True          Objects\Buildings\Stone\Stone_building_mid\stone_building_mi
+972291380      True         True         True          Engines\ussr\st\accel_short_02.wav
+973488452      True         True         True          Engines\de\lt\pz4_lowrpm_02.wav
+973929195      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+974834520      True         True         True          Hits_new\HC\pierce\large\blitz_hit_int_hc_pierce_large_02.wa
+978078517      True         True         True          Objects_basic\Wood_box_basic\wood_box_mid_02_basic.wav
+97951778       True         True         True          Objects_basic\Wood_pillar_basic\Woodpillar_down_basic\pole_f
+986110594      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+986200530      True         True         True          Hits_new\AP\pierce\small\blitz_hit_ext_ap_pierce_small_06.wa
+988216654      True         True         True          Engines\de\ht\pz4_start_01.wav
+98840782       True         True         True          Engines\de\ht\pz4_accel_01.wav
+98953741       True         True         True          Objects_basic\Car_corps_basic\car_corps_03_basic.wav
+989932274      True         True         True          Engines\damaged\engine_damaged_02.wav
+990050797      True         True         True          Engines\uk\tractor\m5_accel_04.wav
+99344630       True         True         True          Engines\de\lt\pz4_midrpm_01.wav
+993694966      True         True         True          Ambient\Combat_atmosphere\Weapons\Automatic\automatic_short_
+995108528      True         True         True          Engines\uk\st\valen_deccel_05.wav
+996032280      True         True         True          Engines\de\st\lt38_mid_rpm_loop_02.wav
+
+Done.

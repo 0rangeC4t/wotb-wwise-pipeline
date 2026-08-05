@@ -1,5 +1,9 @@
 import os, re, json, sys, argparse
 
+# Add scripts directory to sys.path so we can import fix_random_container_render
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from fix_random_container_render import is_random_container_bug, extract_source_ids
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--manifest', required=True)
@@ -54,18 +58,61 @@ def main():
                 for sid in sids:
                     source_to_txtps.setdefault(sid, set()).add(path)
                     
+    # Identify SIDs affected by the Random Container bug (Fact #17)
+    affected_sids = set()
+    affected_txtps = []
+    affected_paths = ['random_bug_files.txt', 'out_wwise/random_container_bug_list_20260802.txt']
+    loaded_from_file = False
+    for path in affected_paths:
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    parts = line.split(None, 1)
+                    if len(parts) == 2:
+                        affected_txtps.append(parts[1])
+            loaded_from_file = True
+            break
+            
+    if not loaded_from_file:
+        # Fall back to inline detection logic if list files are not found
+        for root, _, files in os.walk(txtp_dir):
+            for file in files:
+                if file.endswith('.txtp'):
+                    fpath = os.path.join(root, file)
+                    if is_random_container_bug(fpath):
+                        affected_txtps.append(fpath)
+                        
+    for txtp_path in affected_txtps:
+        if os.path.exists(txtp_path):
+            sids = extract_source_ids(txtp_path)
+            affected_sids.update(sids)
+
     ambiguous = {}
     valid_mapping = {}
     
     for sid, txtps in source_to_txtps.items():
-        if len(txtps) > 1:
-            ambiguous[sid] = list(txtps)
+        is_affected = (sid in affected_sids)
+        sid_wav_path = os.path.join(wav_dir, f"{sid}.wav")
+        
+        if is_affected and os.path.exists(sid_wav_path):
+            valid_mapping[sid] = os.path.abspath(sid_wav_path)
+            if len(txtps) > 1:
+                ambiguous[sid] = sorted(list(txtps))
         else:
-            txtp_path = list(txtps)[0]
-            rel = os.path.relpath(txtp_path, txtp_dir)
-            wav_path = os.path.join(wav_dir, os.path.splitext(rel)[0] + '.wav')
-            if os.path.exists(wav_path):
-                valid_mapping[sid] = os.path.abspath(wav_path)
+            matching_txtps = []
+            for txtp_path in sorted(txtps):
+                rel = os.path.relpath(txtp_path, txtp_dir)
+                wav_path = os.path.join(wav_dir, os.path.splitext(rel)[0] + '.wav')
+                if os.path.exists(wav_path):
+                    matching_txtps.append((txtp_path, os.path.abspath(wav_path)))
+            
+            if matching_txtps:
+                valid_mapping[sid] = matching_txtps[0][1]
+                if len(matching_txtps) > 1:
+                    ambiguous[sid] = [p[0] for p in matching_txtps]
                     
     with open(args.manifest, 'r', encoding='utf-8') as f:
         manifest = json.load(f)

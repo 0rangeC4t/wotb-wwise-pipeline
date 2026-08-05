@@ -1,0 +1,15 @@
+=== CHECK 1 ===
+Tổng dòng tính từ phân bố: 1967
+
+=== CHECK 2 ===
+   1961 1
+      2 3
+
+=== CHECK 3 ===
+ID: 826894977, old_file: input/WwiseSound/hits.bnk, new_file: input/WwiseSound/hits.pck, old_size: 5144, new_size: 38062
+ID: 826894977, old_file: input/WwiseSound/hits.pck, new_file: input/WwiseSound/hits_basic.bnk, old_size: 38062, new_size: 5144
+ID: 826894977, old_file: input/WwiseSound/hits_basic.bnk, new_file: input/WwiseSound/hits_basic.pck, old_size: 5144, new_size: 38062
+
+=== CHECK 4 ===
+1967 logs/carve_collisions.log
+
