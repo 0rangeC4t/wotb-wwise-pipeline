@@ -1,6 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DB736D7A-A2FD-44C2-9DF0-685E99E1D653}" SchemaVersion="97">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{DB736D7A-A2FD-44C2-9DF0-685E99E1D653}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DB736D7A-A2FD-44C2-9DF0-685E99E1D653}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="SWITCH_int_eng_stop" ID="{7C7C9A8C-5C44-446C-931C-8D793A4ABEF1}">
+					<ChildrenList>
+						<Switch Name="stop_off" ID="{DB8929F1-538F-4DBE-BC65-70A0C552E9D1}"/>
+						<Switch Name="stop_on" ID="{84E901E2-C9B7-485B-92B5-0D33FC36FBCF}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_trk_traktor_stop" ID="{0A66E4E0-CD4A-43D3-9931-0C4C9ED05B32}">
+					<ChildrenList>
+						<Switch Name="trk_stop_off" ID="{D6C65C02-055E-4FCE-A605-41809212AFC2}"/>
+						<Switch Name="trk_stop_on" ID="{23514DE9-E8A4-4683-B078-CBA31E4FC321}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_trk_tractor_start" ID="{3EFC57F9-C0DB-4D00-8143-2205EB4EB026}">
+					<ChildrenList>
+						<Switch Name="trk_start_off" ID="{7E3ACB5D-ADA7-4ABC-8B34-6C74CB1C299C}"/>
+						<Switch Name="trk_start_on" ID="{275D7DA1-F39F-490E-B165-9A3F6D4BDF79}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_trk_ht_stop" ID="{1077E573-F7EC-4775-B627-419A21794201}">
+					<ChildrenList>
+						<Switch Name="trk_stop_off" ID="{C479EDAA-A5D3-4539-963C-CFBC2883A8D6}"/>
+						<Switch Name="trk_stop_on" ID="{7BEB60AD-A52A-487F-8FF5-066DA5D2C440}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_turning_accel_short" ID="{05F34B33-D48C-4810-BAB8-4BA716A6741C}">
+					<ChildrenList>
+						<Switch Name="accel_off" ID="{57F0B2FC-5210-4E08-BD8A-03237A98BA6C}"/>
+						<Switch Name="accel_on" ID="{4F049496-853A-4198-A7F5-823D75968CE3}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_furious_accel" ID="{B6FE3672-524A-48D3-A8CF-97D281E5D17D}">
+					<ChildrenList>
+						<Switch Name="accel_off" ID="{76C97CEC-71EF-4046-A8F2-56A83EB9D132}"/>
+						<Switch Name="accel_on" ID="{7C863903-AE93-48A6-94D8-843FF335C71C}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_accel" ID="{93ACB189-A7E3-404C-9967-092BE0E25137}">
+					<ChildrenList>
+						<Switch Name="accel_off" ID="{A37803BC-7159-4A8E-8669-CF86BAE9496B}"/>
+						<Switch Name="accel_on" ID="{CBD032DD-CFDF-4B70-85F7-6B0C3C4AE5DE}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_collision_downfall_hit" ID="{9CF92DAE-919C-4C50-988E-E179C7375044}">
+					<ChildrenList>
+						<Switch Name="hit_heavy" ID="{63481612-617D-4631-88DE-1221CE03AF9C}"/>
+						<Switch Name="hit_light" ID="{F05E3C5F-DA99-45F2-80C3-DB4E8BC0149C}"/>
+						<Switch Name="hit_mid" ID="{E79D025B-4FF8-413E-9E44-1FAF78812B63}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_damaged_accel" ID="{CD908063-6CA1-481C-B31F-85BB3AF3BCB5}">
+					<ChildrenList>
+						<Switch Name="accel_off" ID="{CD0FE82F-5F3D-4D14-AA06-9A472A862684}"/>
+						<Switch Name="accel_on" ID="{0D0CAB23-D57B-46E3-8A7B-2D4846AC9A41}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_turning_decel_short" ID="{8FB484F6-596B-4DF1-A8FB-E35B9847AC11}">
+					<ChildrenList>
+						<Switch Name="decel_off" ID="{C9721656-69E6-4800-96FE-39C22FC3929F}"/>
+						<Switch Name="decel_on" ID="{9EF8B917-460B-44DA-8FFF-0C07B5455250}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_deccel" ID="{8E9C385E-9F44-49BC-BC25-A2F5D681120C}">
+					<ChildrenList>
+						<Switch Name="decel_off" ID="{32C3AF17-53CC-4982-9021-F6E0E945F513}"/>
+						<Switch Name="decel_on" ID="{11D4ACF1-76BD-4383-B654-34F7D5C109B5}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_trk_lt_stop" ID="{9B17E072-6D38-4ED4-9CA6-93F034F91F05}">
+					<ChildrenList>
+						<Switch Name="trk_stop_off" ID="{993B9C91-46F9-4F85-BD9D-1E48370F07D1}"/>
+						<Switch Name="trk_stop_on" ID="{B7A84B9F-6DF4-4C32-8965-E93661AA0E1C}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_trk_lt_start" ID="{500A8E0F-FC02-4BEC-BE3D-C7C9B6897043}">
+					<ChildrenList>
+						<Switch Name="trk_start_off" ID="{EA5CB150-4FC8-4917-981D-F5D03B402435}"/>
+						<Switch Name="trk_start_on" ID="{7938EA48-591D-4161-86D6-53560DDBA074}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_start_idle" ID="{E918D9A8-5CFE-4FB3-AC32-BA315211F92D}">
+					<ChildrenList>
+						<Switch Name="start_idle_off" ID="{9D8B3F02-EBBE-4096-82A2-A84D708D13DB}"/>
+						<Switch Name="start_idle_on" ID="{580808AD-7671-4244-907D-43929F30872C}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_repaired_accel" ID="{4056E570-E223-444D-B5AA-5E36AA9DEBCC}">
+					<ChildrenList>
+						<Switch Name="accel_off" ID="{C3E217BB-65A6-4B39-BD6C-5BD921FAC585}"/>
+						<Switch Name="accel_on" ID="{2439F3EC-C3AD-4EB3-92B6-F2A425F73F7E}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_eng_turning_decel_long" ID="{9196D5D9-227E-423E-9D62-D8B4BAE4FF73}">
+					<ChildrenList>
+						<Switch Name="decel_off" ID="{C9B9C143-FFE7-40DD-A21B-D97F8F7AE4E4}"/>
+						<Switch Name="decel_on" ID="{78015DB3-4158-4DF4-86FB-40174C7492D4}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_collision_hit" ID="{CC10A002-9997-43F3-97E2-80C763FD2E85}">
+					<ChildrenList>
+						<Switch Name="hit_heavy" ID="{4076F93F-B84B-428E-8264-A558CC9CE542}"/>
+						<Switch Name="hit_light" ID="{6017E072-94DB-450C-AD93-957F7788BB5C}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="SWITCH_int_trk_ht_start" ID="{BDF7AA86-0325-4D55-8A11-AC69DDB2383A}">
+					<ChildrenList>
+						<Switch Name="trk_start_off" ID="{E329B7EF-5692-4167-BC9F-82F3C9C037E0}"/>
+						<Switch Name="trk_start_on" ID="{9A360844-156F-4D7C-A038-79EB25DC07D2}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
