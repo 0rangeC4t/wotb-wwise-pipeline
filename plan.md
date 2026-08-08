@@ -451,10 +451,13 @@ Bước 4 (wwise_builder.py)   ✅ DONE — import.txt sạch (5637 dòng), Fact
                                và verify dứt điểm (3 lớp bằng chứng, 0 regression)
 Bước 5 (Music Hierarchy)    🔶 ĐANG LÀM — investigation report xong (verify khớp 51+17
                                object), dry-run script xong (bug parse Duration đã fix,
-                               verify sạch). Build thật apk.bnk lần 1: object đúng cấu
-                               trúc (17) nhưng RỖNG — audio "Empty Source" (sai path) +
-                               14/14 cue "Property cannot be set" (sai method). Đang sửa,
-                               xem Fact #18.
+                               verify sạch). **apk.bnk (17 object): ✅ DONE thật sự** —
+                               build lần 2 fix xong cả Bug 1 (audio path → wav_music/<SID>.wav)
+                               và Bug 2 (cue TimeMs + segment EndPosition), verify qua diff
+                               .wwu thật: 7/7 segment khớp duration ở cả 3 nơi (EndPosition/
+                               EndTrimOffset/cue TimeMs), xem Fact #18. **music_hangar.bnk
+                               (51 object, phức tạp hơn — có SwitchCntr + Transition Rule):
+                               CHƯA BẮT ĐẦU build thật**, chỉ có investigation+dry-run.
 Bước 6 (Bulk import)        ✅ DONE (cho 4874/4874 dòng hiện có) — 0 warning, 0 error
                                (LƯU Ý: có thể cần bulk-import lại phần dòng mới thêm sau
                                2 lần fix Fact #16/#17, chưa xác nhận việc này)
@@ -479,12 +482,17 @@ Bước 10 (compile cuối)      ⏭️ BỎ QUA (quyết định dự án)
   `out_wwise/wav/`). Bất kỳ script build Music Hierarchy nào PHẢI tra đúng thư mục này cho
   các Source ID thuộc Segment/Track, không dùng logic SID→wav cũ của `wwise_builder.py` (vốn
   chỉ tra `out_wwise/wav/`).
-- **Property đúng cho Entry/Exit Cue của MusicSegment là `TimeMs` (Type Real64)** — xác nhận
-  qua đọc trực tiếp file `.wwu` XML thật của project (không phải qua tài liệu SDK đoán). Lần
-  build đầu dùng sai cách gọi `ak.wwise.core.object.setProperty` (không rõ tên property đúng
-  hay sai cơ chế hoàn toàn — CHƯA xác nhận, có giả thuyết là Wwise cần cue nhúng sẵn trong
-  wav lúc import chứ không set rời sau khi tạo object) → 14/14 lần set cue thất bại, cần điều
-  tra tiếp trước khi build lại `apk.bnk`.
+- **Property đúng cho Entry/Exit Cue của MusicSegment là `TimeMs` (Type Real64) — ĐÃ XÁC NHẬN
+  ĐÚNG, verify qua diff `.wwu` thật (không chỉ giả thuyết nữa):** `setProperty` với `TimeMs`
+  hoạt động bình thường trên object `MusicCue` đã tồn tại sẵn trong `<CueList>` của
+  `MusicSegment` (Wwise tự tạo sẵn 2 cue "Entry Cue"/"Exit Cue" rỗng khi tạo Segment — KHÔNG
+  cần tự tạo `MusicCue` con qua `object.create`). Lần build đầu thất bại 14/14 nhiều khả năng
+  do gọi sai lúc object `MusicCue` con chưa tồn tại/chưa đúng target ID, không phải do sai tên
+  property. Đồng thời phải set THÊM property `EndPosition` (Type Real64) ở cấp `MusicSegment`
+  (không chỉ set cue) để segment nhận đúng duration — thiếu bước này thì dù cue đúng, segment
+  vẫn hiển thị sai độ dài. Đã verify build lại `apk.bnk` thành công: `AudioFile`/`AudioSourceRef`
+  trỏ đúng `<SID>.wav`, `EndTrimOffset`/cue `TimeMs`/segment `EndPosition` đều khớp đúng
+  duration thật (vd segment `201235529`: tất cả đồng bộ giá trị `7680`).
 
 ---
 
