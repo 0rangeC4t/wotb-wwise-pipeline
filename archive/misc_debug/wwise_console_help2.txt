@@ -1,0 +1,21 @@
+01c0:fixme:nls:RtlGetThreadPreferredUILanguages 00000038, 00007FFFFE20F144, 00007FFFFE20F160 00007FFFFE20F140
+01c0:fixme:nls:get_dummy_preferred_ui_language (0x38 0x409 00007FFFFE20F144 00007FFFFE20F160 00007FFFFE20F140) returning a dummy value (current locale)
+
+Wwise | v2019.2.15 | Build no.7667 | (C) 2006-2022. Audiokinetic Inc. All rights reserved.
+
+Usage:
+   WwiseConsole operation --help
+
+Operations:
+   convert-external-source
+   create-new-project
+   generate-soundbank
+   migrate
+   move-media-ids-to-single-file
+   move-media-ids-to-work-units
+   tab-delimited-import
+   update-media-ids-in-single-file
+   waapi-server
+
+01c0:fixme:ver:GetCurrentPackageId (00007FFFFE20FEB0 0000000000000000): stub
+01c8:fixme:ver:GetCurrentPackageId (00007FFFFE30FEB0 0000000000000000): stub

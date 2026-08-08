@@ -34,3 +34,4 @@ wproj/*/.wsettings
 # Project throwaway, không cần lịch sử git
 wproj/ThrowawayProject/
 wproj/*/*.validationcache
+wproj/*/Originals/

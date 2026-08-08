@@ -1,0 +1,2 @@
+wine: created the configuration directory '/home/orange_meow/.wwise_wine'
+wineserver: mkdir /tmp/.wine-1000/server-300025-e: Read-only file system
