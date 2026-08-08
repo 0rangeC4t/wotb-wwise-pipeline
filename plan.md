@@ -493,6 +493,58 @@ Bước 10 (compile cuối)      ⏭️ BỎ QUA (quyết định dự án)
   vẫn hiển thị sai độ dài. Đã verify build lại `apk.bnk` thành công: `AudioFile`/`AudioSourceRef`
   trỏ đúng `<SID>.wav`, `EndTrimOffset`/cue `TimeMs`/segment `EndPosition` đều khớp đúng
   duration thật (vd segment `201235529`: tất cả đồng bộ giá trị `7680`).
+- **XÁC NHẬN CUỐI CÙNG — nghe thật bằng tai trong Wwise Authoring GUI (không chỉ verify qua
+  log/diff nữa): `apk_bnk` phát ra âm thanh đúng, không im lặng, không cắt cụt bất thường.
+  `apk.bnk` (17 object) CHÍNH THỨC HOÀN TẤT.**
+
+### 19. Game Syncs (State/Switch Group) CHƯA từng được tạo thật trong Wwise project
+Phát hiện khi chuẩn bị nghe thử: toàn bộ pipeline tới giờ (kể cả build `apk_bnk` xong) mới chỉ
+tạo object hierarchy (Segment/Track/Container/Cue) — CHƯA có bước nào gọi WAAPI để tạo thật
+State Group/Switch Group trong `Game Syncs` của project, dù `gamesync_map.json` (đọc bởi
+`wwise_builder.py`) đã có sẵn danh sách tên đầy đủ (`state_groups`: `STATE_view_play_mode`;
+nhiều `switch_groups` như `SWITCH_int_eng_stop`, `SWITCH_int_eng_accel`...).
+- **Không ảnh hưởng `apk.bnk` vừa xong** — bank này có 0 `SwitchContainer` (chỉ 3
+  `RanSeqContainer` không phụ thuộc game state), nên nghe thử đúng dù thiếu Game Syncs.
+- **SẼ ảnh hưởng `music_hangar.bnk`** — bank này có 1 `SwitchContainer` thật (ID `109552928`,
+  xem Fact #17 phần điều tra ban đầu — ghi nhận lạ là "0 arguments" lúc investigate, cần điều
+  tra lại xem đây là do thiếu Game Sync thật trong project lúc query, hay bản chất Decision
+  Tree của nó đúng là không cần argument). Nếu build `music_hangar.bnk` mà chưa tạo Game Sync
+  trước, object vẫn tạo được (nghe từng Segment riêng lẻ vẫn ổn) nhưng hành vi
+  chuyển-nhạc-theo-game-state sẽ không hoạt động đúng khi test tương tác trong Wwise.
+- **Việc cần làm trước/song song khi build `music_hangar.bnk`:** dựng State Group/Switch
+  Group thật từ `gamesync_map.json` qua WAAPI (`ak.wwise.core.switchContainer.*` hoặc tạo qua
+  `object.create` với type `Switch`/`SwitchGroup`/`StateGroup` dưới `\Game Syncs\`), TRƯỚC khi
+  gán `SwitchContainer` của `music_hangar.bnk` vào đúng group tương ứng.
+
+**CẬP NHẬT — đã trích xuất ĐẦY ĐỦ danh sách con thật (KHÔNG cần đoán), lấy từ field
+`id_to_gamesync_refs` trong `gamesync_map.json` (field này trước đây chưa từng được dùng tới,
+đáng chú ý cho lần điều tra sau — không phải chỉ có `state_groups`/`switch_groups` cấp group
+như tưởng ban đầu):
+- **State Group:** `STATE_view_play_mode` → con: `STATE_view_play_mode_arcade`,
+  `STATE_view_play_mode_sniper`
+- **18 Switch Group, mỗi group 2-3 switch con** (đầy đủ, khớp naming đã thấy trong `.txtp` từ
+  đầu dự án — vd `accel_on`/`accel_off`):
+  `SWITCH_int_eng_stop` (stop_off/stop_on), `SWITCH_int_trk_traktor_stop`
+  (trk_stop_off/trk_stop_on), `SWITCH_int_trk_tractor_start` (trk_start_off/trk_start_on),
+  `SWITCH_int_trk_ht_stop` (trk_stop_off/trk_stop_on), `SWITCH_int_eng_turning_accel_short`
+  (accel_off/accel_on), `SWITCH_int_eng_furious_accel` (accel_off/accel_on),
+  `SWITCH_int_eng_accel` (accel_off/accel_on), `SWITCH_int_collision_downfall_hit`
+  (hit_heavy/hit_light/hit_mid), `SWITCH_int_eng_damaged_accel` (accel_off/accel_on),
+  `SWITCH_int_eng_turning_decel_short` (decel_off/decel_on), `SWITCH_int_eng_deccel`
+  (decel_off/decel_on), `SWITCH_int_trk_lt_stop` (trk_stop_off/trk_stop_on),
+  `SWITCH_int_trk_lt_start` (trk_start_off/trk_start_on), `SWITCH_int_eng_start_idle`
+  (start_idle_off/start_idle_on), `SWITCH_int_eng_repaired_accel` (accel_off/accel_on),
+  `SWITCH_int_eng_turning_decel_long` (decel_off/decel_on), `SWITCH_int_collision_hit`
+  (hit_heavy/hit_light), `SWITCH_int_trk_ht_start` (trk_start_off/trk_start_on).
+- **CẬP NHẬT — ĐÃ TẠO THÀNH CÔNG (không cần WAAPI thủ công, chạy qua Antigravity Gemini 3.5
+  Flash Low, tách 2 bước: dò type/path bằng test nhỏ trước, rồi bulk tạo theo template đã xác
+  nhận):** WAAPI type/path đúng là `StateGroup`/`State` dưới `\States\Default Work Unit`,
+  `SwitchGroup`/`Switch` dưới `\Switches\Default Work Unit`. Verify qua đọc trực tiếp file
+  `.wwu` thật: 1 StateGroup đúng 2 state con (+1 `"None"` mặc định Wwise tự sinh, không phải
+  lỗi). 18 SwitchGroup đúng 37 switch con, khớp chính xác danh sách gốc. 0 object test sót
+  lại. Commit `be7312f` xác nhận tồn tại thật trong git log, diff khớp đúng nội dung báo cáo.
+  **Fact #19 CHÍNH THỨC ĐÓNG — Game Syncs đã sẵn sàng cho việc build `music_hangar.bnk` gán
+  `SwitchContainer` vào đúng group.**
 
 ---
 
