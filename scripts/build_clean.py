@@ -55,16 +55,15 @@ def main():
                 pass
         client.call("ak.wwise.core.project.save")
 
-        # 4. Create parent folder 'apk.bnk'
-        folder_name = "apk.bnk"
+        # 4. Create parent folder 'apk_bnk'
         real_folder_name = "apk_bnk"
         folder_path = f"\\Interactive Music Hierarchy\\Default Work Unit\\{real_folder_name}"
-        logging.info(f"Creating Folder: \\Interactive Music Hierarchy\\Default Work Unit\\{folder_name}")
+        logging.info(f"Creating Folder: {folder_path}")
         
         folder_res = client.call("ak.wwise.core.object.create", {
             "parent": "\\Interactive Music Hierarchy\\Default Work Unit",
             "type": "Folder",
-            "name": folder_name,
+            "name": real_folder_name,
             "onNameConflict": "merge"
         })
         logging.info(f"Folder create response: {json.dumps(folder_res)}")
@@ -73,7 +72,6 @@ def main():
         # Parse objects from tree lines of apk.bnk
         stack = []
         objects_to_create = []
-        playlist_items = []
         seen_ids = set()
         
         for line in apk_data["tree_lines"]:
@@ -82,7 +80,6 @@ def main():
             
             import re
             m_obj = re.search(r"\*\*\[(RanSeqContainer|SwitchContainer|Segment|Track)\]\*\*\s+ID:\s+`(\d+)`", line_str)
-            m_playlist = re.search(r"\*\*\[(PlaylistGroup|PlaylistItem)\]\*\*", line_str)
             
             while stack and indent <= stack[-1][0]:
                 stack.pop()
@@ -132,29 +129,10 @@ def main():
                     seen_ids.add(obj_id)
                     objects_to_create.append(obj_entry)
                 stack.append((indent, obj_entry))
-                
-            elif m_playlist:
-                playlist_type = m_playlist.group(1)
-                loop_match = re.search(r"Loop:\s*`([^`]+)`", line_str)
-                type_match = re.search(r"Type:\s*`([^`]+)`", line_str)
-                weight_match = re.search(r"Weight:\s*`([^`]+)`", line_str)
-                seg_id_match = re.search(r"Segment ID:\s*`([^`]+)`", line_str)
-                
-                p_item = {
-                    "playlist_type": playlist_type,
-                    "loop": loop_match.group(1) if loop_match else "1",
-                    "mode": type_match.group(1) if type_match else "None",
-                    "weight": weight_match.group(1) if weight_match else "50000",
-                    "segment_id": seg_id_match.group(1) if seg_id_match else None,
-                    "parent_container": stack[-1][1]["id"] if stack else None
-                }
-                playlist_items.append(p_item)
 
-        # 5. Build Wwise Objects using WAAPI
-        logging.info(f"Recreating/merging apk.bnk objects...")
+        # 5. Create MusicPlaylistContainers FIRST
+        logging.info("Creating MusicPlaylistContainers...")
         created_guids = {} # maps obj_id -> GUID
-        
-        # Create MusicPlaylistContainers FIRST
         containers = [o for o in objects_to_create if o["type"] == "MusicPlaylistContainer"]
         for obj in containers:
             logging.info(f"Creating container {obj['name']}")
@@ -165,81 +143,14 @@ def main():
                 "onNameConflict": "merge"
             })
             created_guids[obj["id"]] = res["id"]
-            
-        # Create MusicSegments SECOND
-        segments = [o for o in objects_to_create if o["type"] == "MusicSegment"]
-        for obj in segments:
-            p_guid = created_guids[obj["parent_info"]["id"]]
-            logging.info(f"Creating segment {obj['name']} under parent {p_guid}")
-            res = client.call("ak.wwise.core.object.create", {
-                "parent": p_guid,
-                "type": obj["type"],
-                "name": obj["name"],
-                "onNameConflict": "merge"
-            })
-            created_guids[obj["id"]] = res["id"]
 
-        # Save project so cues get generated on segments *before* we create tracks
-        client.call("ak.wwise.core.project.save")
-
-        # 6. Configure segment cues / markers (BEFORE creating tracks or audio import)
-        logging.info("Setting cue positions for MusicSegments (BEFORE track creation/import)...")
-        cues_res = client.call("ak.wwise.core.object.get", {
-            "from": {"ofType": ["MusicCue"]}
-        }, options={"return": ["id", "name", "path"]})
-        
-        cues = cues_res.get("return", [])
-        logging.info(f"Found {len(cues)} total cues in the project.")
-        
-        for obj in segments:
-            seg_id = obj["id"]
-            seg_name = obj["name"]
-            duration_ms = obj["properties"].get("Duration", 0.0)
-            
-            # Find Entry and Exit cues for this segment
-            for cue in cues:
-                cue_path = cue["path"]
-                cue_name = cue["name"]
-                if seg_name in cue_path:
-                    if cue_name == "Entry Cue":
-                        logging.info(f"Setting Entry Cue position for {seg_name} to 0.0 ms")
-                        client.call("ak.wwise.core.object.setProperty", {
-                            "object": cue["id"],
-                            "property": "TimeMs",
-                            "value": 0.0
-                        })
-                    elif cue_name == "Exit Cue":
-                        logging.info(f"Setting Exit Cue position for {seg_name} to {duration_ms} ms")
-                        client.call("ak.wwise.core.object.setProperty", {
-                            "object": cue["id"],
-                            "property": "TimeMs",
-                            "value": duration_ms
-                        })
-
-        # Save project to persist segment cue durations
-        client.call("ak.wwise.core.project.save")
-
-        # 7. Create MusicTracks THIRD
+        # 6. Import audio files into MusicSegment objects
+        # This will automatically create the MusicSegment with correct names, auto-set its Exit Cue, and create a child MusicTrack (which we will rename)!
+        logging.info("Importing audio files and auto-creating Segments/Tracks...")
         tracks = [o for o in objects_to_create if o["type"] == "MusicTrack"]
-        for obj in tracks:
-            p_guid = created_guids[obj["parent_info"]["id"]]
-            logging.info(f"Creating track {obj['name']} under parent {p_guid}")
-            res = client.call("ak.wwise.core.object.create", {
-                "parent": p_guid,
-                "type": obj["type"],
-                "name": obj["name"],
-                "onNameConflict": "merge"
-            })
-            created_guids[obj["id"]] = res["id"]
-
-        # 8. Import audio files / assign source wavs
-        logging.info("Assigning source wavs to MusicTrack objects...")
         for obj in tracks:
             parent_segment = obj["parent_info"]
             parent_container = parent_segment["parent_info"]
-            
-            # Construct exact path for Wwise import
-            track_path = f"\\Interactive Music Hierarchy\\Default Work Unit\\{real_folder_name}\\{parent_container['name']}\\{parent_segment['name']}\\{obj['name']}"
             
             wavs = obj["properties"].get("SourceWavs", {})
             for sid, wav_path in wavs.items():
@@ -247,22 +158,111 @@ def main():
                     logging.warning(f"Audio file does not exist: {wav_path}")
                 # Convert to Wine path
                 wine_wav_path = "Z:" + wav_path.replace("/", "\\")
-                logging.info(f"Importing source: {wine_wav_path} to track path: {track_path}")
+                
+                # Construct exact path to segment
+                segment_path = f"\\Interactive Music Hierarchy\\Default Work Unit\\{real_folder_name}\\{parent_container['name']}\\{parent_segment['name']}"
+                logging.info(f"Importing source: {wine_wav_path} to target segment: {segment_path}")
                 
                 import_args = {
                     "importOperation": "useExisting",
                     "imports": [
                         {
                             "audioFile": wine_wav_path,
-                            "objectPath": track_path,
-                            "objectType": "MusicTrack"
+                            "objectPath": segment_path,
+                            "objectType": "MusicSegment"
                         }
                     ]
                 }
                 import_res = client.call("ak.wwise.core.audio.import", import_args)
                 logging.info(f"Import response: {json.dumps(import_res)}")
 
-        # 9. Configure Playlists for PlaylistContainers
+        # Save project to finalize audio import and metadata update
+        client.call("ak.wwise.core.project.save")
+
+        # 7. Query all descendants to rename the auto-created tracks and gather GUIDs
+        logging.info("Querying descendants to rename tracks and collect GUIDs...")
+        verify_res = client.call("ak.wwise.core.object.get", {
+            "from": {"path": [folder_path]},
+            "transform": [{"select": ["descendants"]}]
+        }, options={"return": ["id", "name", "type", "parent"]})
+        
+        descendants = verify_res.get("return", [])
+        
+        # Rename newly created tracks to their correct names "MusicTrack_<id>"
+        for d in descendants:
+            name = d["name"]
+            if d["type"] == "MusicTrack":
+                # Find the expected track name for this segment
+                parent_info = d.get("parent")
+                if parent_info:
+                    parent_name = parent_info.get("name", "")
+                    if "MusicSegment_" in parent_name:
+                        seg_id = parent_name.split("_")[-1]
+                        # Find the corresponding MusicTrack object in our spec
+                        expected_track = None
+                        for o in tracks:
+                            if o["parent_info"]["id"] == seg_id:
+                                expected_track = o
+                                break
+                        if expected_track:
+                            new_track_name = expected_track["name"]
+                            logging.info(f"Renaming auto-created track {name} to {new_track_name}")
+                            client.call("ak.wwise.core.object.setName", {
+                                "object": d["id"],
+                                "value": new_track_name
+                            })
+
+        # Save project to persist renames
+        client.call("ak.wwise.core.project.save")
+
+        # Re-query all descendants after rename to get final GUID mappings
+        logging.info("Re-querying descendants to map final GUIDs...")
+        verify_res = client.call("ak.wwise.core.object.get", {
+            "from": {"path": [folder_path]},
+            "transform": [{"select": ["descendants"]}]
+        }, options={"return": ["id", "name", "type", "parent"]})
+        
+        descendants = verify_res.get("return", [])
+        for d in descendants:
+            name = d["name"]
+            if d["type"] in ["MusicSegment", "MusicTrack"]:
+                obj_id = name.split("_")[-1]
+                created_guids[obj_id] = d["id"]
+
+        # 7.5 Create MusicCue children for Segment markers (Entry/Exit/etc.)
+        logging.info("Creating MusicCue children for segment markers where present...")
+        segments = [o for o in objects_to_create if o["type"] == "MusicSegment"]
+        for seg in segments:
+            seg_id = seg["id"]
+            seg_guid = created_guids.get(seg_id)
+            if not seg_guid:
+                logging.warning(f"No GUID found for segment {seg_id}; skipping cue creation")
+                continue
+
+            markers = seg.get("properties", {}).get("Markers", [])
+            for mk in markers:
+                try:
+                    cue_name = f"MusicCue_{mk.get('id', 'unknown')}"
+                    logging.info(f"Creating cue {cue_name} under segment {seg['name']} at {mk.get('position')} ms")
+                    cue_res = client.call("ak.wwise.core.object.create", {
+                        "parent": seg_guid,
+                        "type": "MusicCue",
+                        "name": cue_name,
+                        "onNameConflict": "merge"
+                    })
+                    cue_guid = cue_res.get("id")
+                    # Set TimeMs property on the cue child
+                    time_ms = float(mk.get("position", 0.0))
+                    client.call("ak.wwise.core.object.setProperty", {
+                        "object": cue_guid,
+                        "property": "TimeMs",
+                        "value": time_ms
+                    })
+                    logging.info(f"Set TimeMs={time_ms} on cue {cue_guid}")
+                except Exception as e:
+                    logging.warning(f"Could not create/set cue for segment {seg_id}: {e}")
+
+        # 8. Configure Playlists for PlaylistContainers
         logging.info("Configuring Playlists for MusicPlaylistContainers...")
         # Find all playlist items in project
         items_get = client.call("ak.wwise.core.object.get", {
@@ -271,6 +271,7 @@ def main():
         
         all_playlist_items = items_get.get("return", [])
         
+        segments = [o for o in objects_to_create if o["type"] == "MusicSegment"]
         for obj in containers:
             container_id = obj["id"]
             container_guid = created_guids[container_id]
@@ -346,12 +347,12 @@ def main():
                     except Exception as e:
                         logging.warning(f"Could not create/link playlist item for segment {cs['name']}: {e}")
 
-        # 10. Save Project
+        # 9. Save Project
         logging.info("Saving Wwise project...")
         client.call("ak.wwise.core.project.save")
         logging.info("Wwise project saved successfully!")
 
-        # 11. Verification queries
+        # 10. Verification queries
         logging.info("================= RUNNING VERIFICATION QUERIES =================")
         verify_res = client.call("ak.wwise.core.object.get", {
             "from": {"path": [folder_path]},
@@ -375,7 +376,7 @@ def main():
             if d["type"] == "MusicSegment":
                 dur_res = client.call("ak.wwise.core.object.get", {
                     "from": {"id": [d["id"]]}
-                }, options={"return": ["id", "name", "duration"]})
+                }, options={"return": ["id", "name", "duration", "@EndPosition"]})
                 logging.info(f"Segment info: {json.dumps(dur_res.get('return', []))}")
                 
         # Read back source assignment for tracks
@@ -387,6 +388,15 @@ def main():
                     "transform": [{"select": ["descendants"]}]
                 }, options={"return": ["id", "name", "type", "path"]})
                 logging.info(f"Track {d['name']} sources: {json.dumps(track_sources.get('return', []))}")
+
+        # Read back Cue positions
+        logging.info("Reading back Cue positions:")
+        cues_verify = client.call("ak.wwise.core.object.get", {
+            "from": {"ofType": ["MusicCue"]}
+        }, options={"return": ["id", "name", "path", "@TimeMs", "@CueType"]})
+        for cue in cues_verify.get("return", []):
+            if real_folder_name in cue["path"]:
+                logging.info(f"Cue: {cue['name']} at {cue['path']} -> TimeMs: {cue['@TimeMs']} ms, Type: {cue['@CueType']}")
 
     except Exception as e:
         logging.error(f"Error during WAAPI reconstruction: {e}")
