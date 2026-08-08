@@ -1,0 +1,25 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ "kwargs={'message': 'Object \\\\Interactive Music Hierarchy\\\\Default Work "
+ "Unit\\\\TEST_IMPORT_SEG is unknown.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.delete'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Import response: {
+  "objects": [
+    {
+      "id": "{544B4FB6-1148-4A19-87C5-BD8F43D2F2EC}",
+      "name": "56953293"
+    },
+    {
+      "id": "{472AF53A-7168-4455-9478-43347C25634A}",
+      "name": "TEST_IMPORT_SEG"
+    }
+  ]
+}
+Found Track: {'id': '{02FE4FEA-9E0C-4CEC-93A4-B144B567240B}', 'type': 'MusicTrack', 'name': 'TEST_IMPORT_SEG'}
+Renaming track to MusicTrack_558864082...
+Rename successful!
+Descendants after rename: [{'id': '{02FE4FEA-9E0C-4CEC-93A4-B144B567240B}', 'type': 'MusicTrack', 'name': 'MusicTrack_558864082'}, {'id': '{544B4FB6-1148-4A19-87C5-BD8F43D2F2EC}', 'type': 'AudioFileSource', 'name': '56953293'}]
+Cue after rename: {'@TimeMs': 0.0, 'id': '{41BE0B7F-0731-4187-98AC-DCDCB3AC0195}', 'type': 'MusicCue', 'name': 'Entry Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_IMPORT_SEG\\Entry Cue'}
+Cue after rename: {'@TimeMs': 7680.027777777778, 'id': '{345D00E5-34C8-414C-911F-228716CFC643}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_IMPORT_SEG\\Exit Cue'}
+Cleaned up.

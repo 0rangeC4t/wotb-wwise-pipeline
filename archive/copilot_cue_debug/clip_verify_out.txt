@@ -1,0 +1,59 @@
+Connected to WAAPI
+MusicClips: [
+  {
+    "@EndTrimOffset": 1000.0,
+    "@PlayAt": 0.0,
+    "id": "{1804B9CA-4019-402C-88EE-21FF4D542BB9}",
+    "type": "MusicClip",
+    "name": "login_drone_war_ambience",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\apk_bnk\\MusicPlaylistContainer_517021411\\MusicSegment_519451801\\MusicTrack_960691355\\[Music Track Sequence #1]\\login_drone_war_ambience"
+  },
+  {
+    "@EndTrimOffset": 1000.0,
+    "@PlayAt": 0.0,
+    "id": "{255D9748-70BE-4D29-A937-B6A9FA7FA04A}",
+    "type": "MusicClip",
+    "name": "login_drone_music_loop_03",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\apk_bnk\\MusicPlaylistContainer_543160948\\MusicSegment_1037442491\\MusicTrack_514718034\\[Music Track Sequence #1]\\login_drone_music_loop_03"
+  },
+  {
+    "@EndTrimOffset": 1000.0,
+    "@PlayAt": 0.0,
+    "id": "{DB6EC314-E813-4B99-A824-C8EA002C332C}",
+    "type": "MusicClip",
+    "name": "login_drone_music_loop_02",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\apk_bnk\\MusicPlaylistContainer_543160948\\MusicSegment_737701375\\MusicTrack_374737966\\[Music Track Sequence #1]\\login_drone_music_loop_02"
+  },
+  {
+    "@EndTrimOffset": 1000.0,
+    "@PlayAt": 0.0,
+    "id": "{FD134C51-4EDE-4E61-A040-418DC3539743}",
+    "type": "MusicClip",
+    "name": "login_drone_drums_loop_03",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\apk_bnk\\MusicPlaylistContainer_359976450\\MusicSegment_308239515\\MusicTrack_686286511\\[Music Track Sequence #1]\\login_drone_drums_loop_03"
+  },
+  {
+    "@EndTrimOffset": 1000.0,
+    "@PlayAt": 0.0,
+    "id": "{C5D8EB51-4A4C-427A-A3E7-61A1B413628A}",
+    "type": "MusicClip",
+    "name": "login_drone_drums_loop_01",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\apk_bnk\\MusicPlaylistContainer_359976450\\MusicSegment_201235529\\MusicTrack_558864082\\[Music Track Sequence #1]\\login_drone_drums_loop_01"
+  },
+  {
+    "@EndTrimOffset": 1000.0,
+    "@PlayAt": 0.0,
+    "id": "{D636AC4F-DB10-47DF-9F3C-BF2FC839D288}",
+    "type": "MusicClip",
+    "name": "login_drone_drums_loop_02",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\apk_bnk\\MusicPlaylistContainer_359976450\\MusicSegment_37419850\\MusicTrack_921557064\\[Music Track Sequence #1]\\login_drone_drums_loop_02"
+  },
+  {
+    "@EndTrimOffset": 1000.0,
+    "@PlayAt": 0.0,
+    "id": "{CE446ACA-20AC-40E8-9BAB-284E6DD443C1}",
+    "type": "MusicClip",
+    "name": "login_drone_music_loop_01",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\apk_bnk\\MusicPlaylistContainer_543160948\\MusicSegment_950042432\\MusicTrack_387347864\\[Music Track Sequence #1]\\login_drone_music_loop_01"
+  }
+]

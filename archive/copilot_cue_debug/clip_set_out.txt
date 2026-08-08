@@ -1,0 +1,25 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Created segment: {A02B5C71-82AB-46EA-9B8E-9FE6CD8FC23C}
+Created track: {F8031708-9F74-4A1A-94E0-43A74A763445}
+Importing real audio: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\56953293.wav
+Import response: {
+  "objects": [
+    {
+      "id": "{4CECD369-85F9-40D1-95C5-7BE97348581E}",
+      "name": "56953293"
+    }
+  ]
+}
+Found Clip before: {'@EndTrimOffset': 7680.027777777778, 'id': '{E16F0461-960C-40EF-9763-0C0ADB3FCBC2}', 'type': 'MusicClip', 'name': '56953293', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_CLIP_SET\\TEST_CLIP_TRACK\\[Music Track Sequence #1]\\56953293'}
+Found Exit Cue before: {'@TimeMs': 1000.0, 'id': '{5E359480-0F82-4AB6-A1A9-12B4DDDB288E}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_CLIP_SET\\Exit Cue'}
+Setting EndTrimOffset to 7680.0 ms...
+Successfully set EndTrimOffset!
+Setting Exit Cue TimeMs to 7680.0 ms...
+Successfully set Exit Cue TimeMs!
+Clip after: [{'@EndTrimOffset': 7680.0, 'id': '{E16F0461-960C-40EF-9763-0C0ADB3FCBC2}', 'name': '56953293'}]
+Cue after: [{'@TimeMs': 1000.0, 'id': '{5E359480-0F82-4AB6-A1A9-12B4DDDB288E}', 'name': 'Exit Cue'}]
+Cleaned up.

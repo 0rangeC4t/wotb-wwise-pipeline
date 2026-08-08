@@ -1,0 +1,17 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+EndPosition: [{'@EndPosition': 4000.0, 'id': '{B3A608A8-F20D-497C-84A4-6F22B99EFB06}', 'name': 'TEST_LIMIT_SEG'}]
+Exit cue before: {'@TimeMs': 1000.0, 'id': '{A9071DD2-BCCD-4D8F-BD6D-B68AA0C8F448}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_LIMIT_SEG\\Exit Cue'}
+Setting TimeMs on Exit Cue to 2000.0 ms...
+Successfully set Exit Cue TimeMs to 2000.0 ms!
+Setting TimeMs on Exit Cue to 5000.0 ms...
+Successfully set Exit Cue TimeMs to 5000.0 ms!
+Exit Cue after: [{'@TimeMs': 1000.0, 'id': '{A9071DD2-BCCD-4D8F-BD6D-B68AA0C8F448}', 'name': 'Exit Cue'}]
+Cleaned up.

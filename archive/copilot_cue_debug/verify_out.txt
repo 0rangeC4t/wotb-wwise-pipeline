@@ -1,0 +1,11 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Segment created: {08B69DB2-BF09-4BD5-A9BB-FDDB31088681}
+Found Exit Cue before: {'@TimeMs': 1000.0, '@CueType': 1, 'id': '{724059D6-A132-4357-8706-07637740AEAF}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_SEG_VERIFY\\Exit Cue'}
+Setting TimeMs to 5432.1 ms...
+setProperty called.
+Found Exit Cue after: [{'@TimeMs': 1000.0, '@CueType': 1, 'id': '{724059D6-A132-4357-8706-07637740AEAF}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_SEG_VERIFY\\Exit Cue'}]
+Cleaned up.

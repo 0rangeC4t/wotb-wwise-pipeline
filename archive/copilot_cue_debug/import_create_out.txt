@@ -1,0 +1,27 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ "kwargs={'message': 'Object \\\\Interactive Music Hierarchy\\\\Default Work "
+ "Unit\\\\TEST_IMPORT_SEG is unknown.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.delete'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Importing and creating hierarchy for: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\56953293.wav
+Import response: {
+  "objects": [
+    {
+      "id": "{F43EA166-8E32-44C1-B367-D8F7FF3367C6}",
+      "name": "TEST_IMPORT_SEG"
+    },
+    {
+      "id": "{3C0774C6-239D-4E79-82E3-D71EC4CCDB59}",
+      "name": "56953293"
+    },
+    {
+      "id": "{378E10D5-1D75-46B1-B93D-1B986ED0312F}",
+      "name": "TEST_IMPORT_TRACK"
+    }
+  ]
+}
+Created Segment: [{'id': '{F43EA166-8E32-44C1-B367-D8F7FF3367C6}', 'name': 'TEST_IMPORT_SEG'}]
+Found cue for TEST_IMPORT_SEG: {'@TimeMs': 0.0, 'id': '{D2DA225D-3B1C-4BDB-ABB2-7E5C29DF8A11}', 'type': 'MusicCue', 'name': 'Entry Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_IMPORT_SEG\\TEST_IMPORT_TRACK\\Entry Cue'}
+Found cue for TEST_IMPORT_SEG: {'@TimeMs': 7680.027777777778, 'id': '{E3CDA7AB-80B2-4FF8-B7BF-81140CFCCBF9}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_IMPORT_SEG\\TEST_IMPORT_TRACK\\Exit Cue'}
+Cleaned up.

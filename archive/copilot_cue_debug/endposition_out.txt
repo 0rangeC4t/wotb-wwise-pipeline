@@ -1,0 +1,19 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Segment created: {ECFEE65F-AC67-4CD1-AAEC-31386409BD6B}
+EndPosition before: [{'@EndPosition': 4000.0, 'id': '{ECFEE65F-AC67-4CD1-AAEC-31386409BD6B}', 'name': 'TEST_SEG_ENDPOS'}]
+Exit cue before: {'@TimeMs': 1000.0, 'id': '{757D74D0-253A-4986-AA7E-1224EEB7FE56}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_SEG_ENDPOS\\Exit Cue'}
+Setting EndPosition on segment to 7680.0 ms...
+Set EndPosition on segment successfully!
+Setting TimeMs on Exit Cue to 7680.0 ms...
+Set Exit Cue TimeMs successfully!
+EndPosition after: [{'@EndPosition': 4000.0, 'id': '{ECFEE65F-AC67-4CD1-AAEC-31386409BD6B}', 'name': 'TEST_SEG_ENDPOS'}]
+Exit Cue after: [{'@TimeMs': 1000.0, 'id': '{757D74D0-253A-4986-AA7E-1224EEB7FE56}', 'name': 'Exit Cue'}]
+Cleaned up.

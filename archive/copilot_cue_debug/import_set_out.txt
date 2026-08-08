@@ -1,0 +1,15 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ "kwargs={'message': 'Object \\\\Interactive Music Hierarchy\\\\Default Work "
+ "Unit\\\\TEST_IMPORT_SEG is unknown.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.delete'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Exit cue before: {'@TimeMs': 7680.027777777778, 'id': '{06CC0FB4-44EA-4148-B205-76BEFE20C63A}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_IMPORT_SEG\\TEST_IMPORT_TRACK\\Exit Cue'}
+Trying to set Exit Cue TimeMs to 7680.0 ms...
+Successfully set Exit Cue TimeMs!
+Exit Cue after: [{'@TimeMs': 7680.027777777778, 'id': '{06CC0FB4-44EA-4148-B205-76BEFE20C63A}', 'name': 'Exit Cue'}]
+Cleaned up.

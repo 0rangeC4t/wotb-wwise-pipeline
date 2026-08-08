@@ -1,0 +1,21 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Created segment: {1D7D1318-E7D2-4123-9E8F-0A2CA26D5176}
+Created track: {E9AC5311-F47B-4425-BB66-0AF7A4A172E0}
+Importing real audio: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\56953293.wav
+Import response: {
+  "objects": [
+    {
+      "id": "{5F6681B4-8ACB-4C65-8B03-97B44BADDAB7}",
+      "name": "56953293"
+    }
+  ]
+}
+Found Exit Cue: {'@TimeMs': 1000.0, 'id': '{D1A55E3B-ACFE-4195-8DD5-E5774D25B958}', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_REAL_SEG\\Exit Cue'}
+Trying to set Exit Cue TimeMs to 7680.0 ms...
+Successfully set TimeMs!
+After set: [{'@TimeMs': 1000.0, 'id': '{D1A55E3B-ACFE-4195-8DD5-E5774D25B958}', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_REAL_SEG\\Exit Cue'}]
+Cleaned up.

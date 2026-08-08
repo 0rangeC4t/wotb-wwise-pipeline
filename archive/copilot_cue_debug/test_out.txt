@@ -1,0 +1,19 @@
+Connected to WAAPI
+Segment created: {86C44DD3-4A09-4F05-A691-0A07412FF36D}
+Found cue for TEST_SEG_CUE: {
+  "@TimeMs": 0.0,
+  "@CueType": 0,
+  "id": "{82BC0E00-D668-4AA4-BC22-3CE06AAD94D4}",
+  "type": "MusicCue",
+  "name": "Entry Cue",
+  "path": "\\Interactive Music Hierarchy\\Default Work Unit\\TEST_SEG_CUE\\Entry Cue"
+}
+Found cue for TEST_SEG_CUE: {
+  "@TimeMs": 1000.0,
+  "@CueType": 1,
+  "id": "{B762032E-6040-408D-8454-0FF98A48AB71}",
+  "type": "MusicCue",
+  "name": "Exit Cue",
+  "path": "\\Interactive Music Hierarchy\\Default Work Unit\\TEST_SEG_CUE\\Exit Cue"
+}
+Cleaned up.

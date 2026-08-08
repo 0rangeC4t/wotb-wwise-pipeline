@@ -1,0 +1,39 @@
+Connected to WAAPI
+Created segment: {4D5D8F5C-FBDF-4CA5-B5C5-DF47B35793C0}
+Created track: {FFFBCD2A-1CCB-4AA4-9BC3-B0D303E80CFA}
+Importing real audio: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\56953293.wav
+Import response: {
+  "objects": [
+    {
+      "id": "{2499399B-6B78-4A61-BE0B-0A31DCD1F0AE}",
+      "name": "56953293"
+    }
+  ]
+}
+Descendants of segment: [
+  {
+    "id": "{FFFBCD2A-1CCB-4AA4-9BC3-B0D303E80CFA}",
+    "type": "MusicTrack",
+    "name": "TEST_CLIP_TRACK",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\TEST_CLIP_SEG\\TEST_CLIP_TRACK"
+  },
+  {
+    "id": "{2499399B-6B78-4A61-BE0B-0A31DCD1F0AE}",
+    "type": "AudioFileSource",
+    "name": "56953293",
+    "path": "\\Interactive Music Hierarchy\\Default Work Unit\\TEST_CLIP_SEG\\TEST_CLIP_TRACK\\56953293"
+  }
+]
+After modification descendants: [
+  {
+    "id": "{FFFBCD2A-1CCB-4AA4-9BC3-B0D303E80CFA}",
+    "type": "MusicTrack",
+    "name": "TEST_CLIP_TRACK"
+  },
+  {
+    "id": "{2499399B-6B78-4A61-BE0B-0A31DCD1F0AE}",
+    "type": "AudioFileSource",
+    "name": "56953293"
+  }
+]
+Cleaned up.

@@ -1,0 +1,29 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': \'Argument property="@TimeMs" does not match '
+ "requirements.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty', 'schemaPointer': "
+ "'/definitions/propertyName', 'schemaDescription': 'A property name. Refer to "
+ '\\\\ref wobjects_index for information about the Wwise objects and their '
+ "properties.', 'schemaKeyword': 'pattern', 'typeUri': "
+ "'ak.wwise.schema_validation_failed', 'argumentName': 'property', "
+ '\'argumentPointer\': \'/property\', \'argumentValue\': \'"@TimeMs"\', '
+ '\'schemaExpect\': \'"^[:a-zA-Z0-9 _]+$"\'}}, enc_algo=None, callee=None, '
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected to WAAPI
+Segment created: {9D67D298-B2CA-4935-992E-8CF134348665}
+Found Exit Cue: {'@TimeMs': 1000.0, '@CueType': 1, 'id': '{492D688A-6948-4386-965E-75789487A078}', 'type': 'MusicCue', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\TEST_SEG_CUE_WRITE\\Exit Cue'}
+Attempt 1: Setting TimeMs as 2000.0
+Attempt 1 Success!
+Attempt 2: Setting @TimeMs as 2000.0
+Attempt 2 Success!
+Attempt 3: Setting TimeMs on Segment
+Attempt 3 Success!
+Cleaned up.
