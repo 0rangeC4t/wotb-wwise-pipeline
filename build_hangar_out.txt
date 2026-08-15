@@ -1,0 +1,565 @@
+2026-08-15 14:19:08,721 [INFO] Starting CLEAN build_music_hierarchy for music_hangar.bnk
+2026-08-15 14:19:08,721 [INFO] Parsing music_hierarchy_investigation.md...
+2026-08-15 14:19:08,788 [INFO] Loaded music_hangar.bnk data from report. Segments: 4
+2026-08-15 14:19:08,846 [INFO] Connected to WAAPI successfully.
+2026-08-15 14:19:08,846 [INFO] Folder path: \Interactive Music Hierarchy\Default Work Unit\music_hangar
+2026-08-15 14:19:08,846 [INFO] Creating Folder: \Interactive Music Hierarchy\Default Work Unit\music_hangar
+2026-08-15 14:19:08,889 [INFO] Creating MusicPlaylistContainer: MusicPlaylistContainer_1054648317
+2026-08-15 14:19:08,931 [INFO] Creating MusicSegments...
+2026-08-15 14:19:08,931 [INFO] Creating MusicSegment: MusicSegment_860825692
+2026-08-15 14:19:08,973 [INFO] Created segment MusicSegment_860825692 (EndPosition to be set via WWU modification post-build)
+2026-08-15 14:19:08,973 [INFO] Creating MusicSegment: MusicSegment_195645763
+2026-08-15 14:19:09,015 [INFO] Created segment MusicSegment_195645763 (EndPosition to be set via WWU modification post-build)
+2026-08-15 14:19:09,015 [INFO] Creating MusicSegment: MusicSegment_797778272
+2026-08-15 14:19:09,057 [INFO] Created segment MusicSegment_797778272 (EndPosition to be set via WWU modification post-build)
+2026-08-15 14:19:09,057 [INFO] Creating MusicSegment: MusicSegment_626154474
+2026-08-15 14:19:09,099 [INFO] Created segment MusicSegment_626154474 (EndPosition to be set via WWU modification post-build)
+2026-08-15 14:19:09,100 [INFO] Parsed 68 MusicTracks from investigation report.
+2026-08-15 14:19:09,100 [INFO] Creating MusicTrack MusicTrack_1021808380 under Segment 860825692
+2026-08-15 14:19:09,185 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:09,185 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1021808380
+2026-08-15 14:19:09,185 [INFO] Importing source ID 175220409 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\175220409.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_1021808380
+2026-08-15 14:19:09,290 [INFO] Import success for SID 175220409
+2026-08-15 14:19:09,290 [INFO] Creating MusicTrack MusicTrack_1041720602 under Segment 860825692
+2026-08-15 14:19:09,375 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:09,375 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1041720602
+2026-08-15 14:19:09,375 [INFO] Importing source ID 182175148 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\182175148.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_1041720602
+2026-08-15 14:19:09,486 [INFO] Import success for SID 182175148
+2026-08-15 14:19:09,486 [INFO] Creating MusicTrack MusicTrack_116844110 under Segment 860825692
+2026-08-15 14:19:09,571 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:09,571 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_116844110
+2026-08-15 14:19:09,571 [INFO] Importing source ID 179862644 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\179862644.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_116844110
+2026-08-15 14:19:09,669 [INFO] Import success for SID 179862644
+2026-08-15 14:19:09,669 [INFO] Creating MusicTrack MusicTrack_170128469 under Segment 860825692
+2026-08-15 14:19:09,753 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:09,753 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_170128469
+2026-08-15 14:19:09,753 [INFO] Importing source ID 191908676 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\191908676.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_170128469
+2026-08-15 14:19:09,862 [INFO] Import success for SID 191908676
+2026-08-15 14:19:09,862 [INFO] Creating MusicTrack MusicTrack_211642220 under Segment 860825692
+2026-08-15 14:19:09,945 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:09,945 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_211642220
+2026-08-15 14:19:09,945 [INFO] Importing source ID 190292069 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\190292069.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_211642220
+2026-08-15 14:19:09,990 [INFO] Import success for SID 190292069
+2026-08-15 14:19:09,990 [INFO] Creating MusicTrack MusicTrack_386420989 under Segment 860825692
+2026-08-15 14:19:10,075 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:10,075 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_386420989
+2026-08-15 14:19:10,076 [INFO] Importing source ID 1034661840 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1034661840.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_386420989
+2026-08-15 14:19:10,121 [INFO] Import success for SID 1034661840
+2026-08-15 14:19:10,121 [INFO] Creating MusicTrack MusicTrack_561154981 under Segment 860825692
+2026-08-15 14:19:10,205 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:10,205 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_561154981
+2026-08-15 14:19:10,206 [INFO] Importing source ID 168141338 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\168141338.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_561154981
+2026-08-15 14:19:10,318 [INFO] Import success for SID 168141338
+2026-08-15 14:19:10,318 [INFO] Creating MusicTrack MusicTrack_607608978 under Segment 860825692
+2026-08-15 14:19:10,403 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:10,403 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_607608978
+2026-08-15 14:19:10,403 [INFO] Importing source ID 166357404 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\166357404.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_607608978
+2026-08-15 14:19:10,484 [INFO] Import success for SID 166357404
+2026-08-15 14:19:10,484 [INFO] Creating MusicTrack MusicTrack_681658988 under Segment 860825692
+2026-08-15 14:19:10,569 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:10,569 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_681658988
+2026-08-15 14:19:10,569 [INFO] Importing source ID 1005898551 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1005898551.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_681658988
+2026-08-15 14:19:10,671 [INFO] Import success for SID 1005898551
+2026-08-15 14:19:10,671 [INFO] Creating MusicTrack MusicTrack_764360876 under Segment 860825692
+2026-08-15 14:19:10,755 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:10,755 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_764360876
+2026-08-15 14:19:10,755 [INFO] Importing source ID 1056986176 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1056986176.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_764360876
+2026-08-15 14:19:10,869 [INFO] Import success for SID 1056986176
+2026-08-15 14:19:10,869 [INFO] Creating MusicTrack MusicTrack_925048849 under Segment 860825692
+2026-08-15 14:19:10,953 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:10,953 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_925048849
+2026-08-15 14:19:10,953 [INFO] Importing source ID 104977954 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\104977954.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_925048849
+2026-08-15 14:19:11,064 [INFO] Import success for SID 104977954
+2026-08-15 14:19:11,064 [INFO] Creating MusicTrack MusicTrack_1042107536 under Segment 195645763
+2026-08-15 14:19:11,148 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:11,148 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1042107536
+2026-08-15 14:19:11,148 [INFO] Importing source ID 175220409 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\175220409.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_1042107536
+2026-08-15 14:19:11,200 [INFO] Import success for SID 175220409
+2026-08-15 14:19:11,200 [INFO] Creating MusicTrack MusicTrack_1361127 under Segment 195645763
+2026-08-15 14:19:11,284 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:11,284 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1361127
+2026-08-15 14:19:11,284 [INFO] Importing source ID 168141338 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\168141338.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_1361127
+2026-08-15 14:19:11,332 [INFO] Import success for SID 168141338
+2026-08-15 14:19:11,332 [INFO] Creating MusicTrack MusicTrack_176782469 under Segment 195645763
+2026-08-15 14:19:11,417 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:11,417 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_176782469
+2026-08-15 14:19:11,417 [INFO] Importing source ID 1056986176 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1056986176.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_176782469
+2026-08-15 14:19:11,464 [INFO] Import success for SID 1056986176
+2026-08-15 14:19:11,465 [INFO] Creating MusicTrack MusicTrack_192231012 under Segment 195645763
+2026-08-15 14:19:11,549 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:11,549 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_192231012
+2026-08-15 14:19:11,549 [INFO] Importing source ID 104977954 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\104977954.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_192231012
+2026-08-15 14:19:11,598 [INFO] Import success for SID 104977954
+2026-08-15 14:19:11,599 [INFO] Creating MusicTrack MusicTrack_260813276 under Segment 195645763
+2026-08-15 14:19:11,683 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:11,684 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_260813276
+2026-08-15 14:19:11,684 [INFO] Importing source ID 1034661840 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1034661840.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_260813276
+2026-08-15 14:19:11,729 [INFO] Import success for SID 1034661840
+2026-08-15 14:19:11,729 [INFO] Creating MusicTrack MusicTrack_37384268 under Segment 195645763
+2026-08-15 14:19:11,813 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:11,813 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_37384268
+2026-08-15 14:19:11,813 [INFO] Importing source ID 191908676 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\191908676.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_37384268
+2026-08-15 14:19:11,863 [INFO] Import success for SID 191908676
+2026-08-15 14:19:11,863 [INFO] Creating MusicTrack MusicTrack_4707570 under Segment 195645763
+2026-08-15 14:19:11,947 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:11,948 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_4707570
+2026-08-15 14:19:11,948 [INFO] Importing source ID 166357404 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\166357404.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_4707570
+2026-08-15 14:19:11,994 [INFO] Import success for SID 166357404
+2026-08-15 14:19:11,994 [INFO] Creating MusicTrack MusicTrack_729573324 under Segment 195645763
+2026-08-15 14:19:12,079 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:12,080 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_729573324
+2026-08-15 14:19:12,080 [INFO] Importing source ID 1025113401 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1025113401.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_729573324
+2026-08-15 14:19:12,173 [INFO] Import success for SID 1025113401
+2026-08-15 14:19:12,173 [INFO] Creating MusicTrack MusicTrack_927864271 under Segment 195645763
+2026-08-15 14:19:12,259 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:12,259 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_927864271
+2026-08-15 14:19:12,259 [INFO] Importing source ID 179862644 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\179862644.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_927864271
+2026-08-15 14:19:12,309 [INFO] Import success for SID 179862644
+2026-08-15 14:19:12,309 [INFO] Creating MusicTrack MusicTrack_936180386 under Segment 195645763
+2026-08-15 14:19:12,393 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:12,393 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_936180386
+2026-08-15 14:19:12,393 [INFO] Importing source ID 190292069 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\190292069.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_936180386
+2026-08-15 14:19:12,439 [INFO] Import success for SID 190292069
+2026-08-15 14:19:12,439 [INFO] Creating MusicTrack MusicTrack_977369172 under Segment 195645763
+2026-08-15 14:19:12,524 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:12,524 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_977369172
+2026-08-15 14:19:12,524 [INFO] Importing source ID 182175148 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\182175148.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_977369172
+2026-08-15 14:19:12,574 [INFO] Import success for SID 182175148
+2026-08-15 14:19:12,574 [INFO] Creating MusicTrack MusicTrack_983541840 under Segment 195645763
+2026-08-15 14:19:12,660 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:12,660 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_983541840
+2026-08-15 14:19:12,660 [INFO] Importing source ID 1005898551 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1005898551.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_983541840
+2026-08-15 14:19:12,710 [INFO] Import success for SID 1005898551
+2026-08-15 14:19:12,710 [INFO] Creating MusicTrack MusicTrack_1048285044 under Segment 797778272
+2026-08-15 14:19:12,795 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:12,796 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1048285044
+2026-08-15 14:19:12,796 [INFO] Importing source ID 110985778 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\110985778.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_1048285044
+2026-08-15 14:19:12,902 [INFO] Import success for SID 110985778
+2026-08-15 14:19:12,902 [INFO] Creating MusicTrack MusicTrack_1052856934 under Segment 797778272
+2026-08-15 14:19:12,987 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:12,988 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1052856934
+2026-08-15 14:19:12,988 [INFO] Importing source ID 190292069 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\190292069.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_1052856934
+2026-08-15 14:19:13,034 [INFO] Import success for SID 190292069
+2026-08-15 14:19:13,034 [INFO] Creating MusicTrack MusicTrack_1065353250 under Segment 797778272
+2026-08-15 14:19:13,119 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:13,119 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1065353250
+2026-08-15 14:19:13,119 [INFO] Importing source ID 1022076765 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1022076765.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_1065353250
+2026-08-15 14:19:13,220 [INFO] Import success for SID 1022076765
+2026-08-15 14:19:13,220 [INFO] Creating MusicTrack MusicTrack_167833654 under Segment 797778272
+2026-08-15 14:19:13,304 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:13,304 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_167833654
+2026-08-15 14:19:13,304 [INFO] Importing source ID 376891970 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\376891970.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_167833654
+2026-08-15 14:19:13,379 [INFO] Import success for SID 376891970
+2026-08-15 14:19:13,379 [INFO] Creating MusicTrack MusicTrack_174646855 under Segment 797778272
+2026-08-15 14:19:13,465 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:13,465 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_174646855
+2026-08-15 14:19:13,465 [INFO] Importing source ID 172126398 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\172126398.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_174646855
+2026-08-15 14:19:13,551 [INFO] Import success for SID 172126398
+2026-08-15 14:19:13,551 [INFO] Creating MusicTrack MusicTrack_212283298 under Segment 797778272
+2026-08-15 14:19:13,636 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:13,636 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_212283298
+2026-08-15 14:19:13,637 [INFO] Importing source ID 283160497 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\283160497.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_212283298
+2026-08-15 14:19:13,742 [INFO] Import success for SID 283160497
+2026-08-15 14:19:13,742 [INFO] Creating MusicTrack MusicTrack_437480029 under Segment 797778272
+2026-08-15 14:19:13,827 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:13,827 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_437480029
+2026-08-15 14:19:13,828 [INFO] Importing source ID 118047092 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\118047092.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_437480029
+2026-08-15 14:19:13,922 [INFO] Import success for SID 118047092
+2026-08-15 14:19:13,922 [INFO] Creating MusicTrack MusicTrack_45731404 under Segment 797778272
+2026-08-15 14:19:14,007 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:14,008 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_45731404
+2026-08-15 14:19:14,008 [INFO] Importing source ID 241522436 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\241522436.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_45731404
+2026-08-15 14:19:14,102 [INFO] Import success for SID 241522436
+2026-08-15 14:19:14,103 [INFO] Creating MusicTrack MusicTrack_575463144 under Segment 797778272
+2026-08-15 14:19:14,187 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:14,187 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_575463144
+2026-08-15 14:19:14,187 [INFO] Importing source ID 1034661840 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1034661840.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_575463144
+2026-08-15 14:19:14,232 [INFO] Import success for SID 1034661840
+2026-08-15 14:19:14,233 [INFO] Creating MusicTrack MusicTrack_749415209 under Segment 797778272
+2026-08-15 14:19:14,318 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:14,318 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_749415209
+2026-08-15 14:19:14,318 [INFO] Importing source ID 365766766 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\365766766.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_749415209
+2026-08-15 14:19:14,430 [INFO] Import success for SID 365766766
+2026-08-15 14:19:14,430 [INFO] Creating MusicTrack MusicTrack_999362184 under Segment 797778272
+2026-08-15 14:19:14,516 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:14,516 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_999362184
+2026-08-15 14:19:14,516 [INFO] Importing source ID 177841400 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\177841400.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_797778272\MusicTrack_999362184
+2026-08-15 14:19:14,609 [INFO] Import success for SID 177841400
+2026-08-15 14:19:14,609 [INFO] Creating MusicTrack MusicTrack_129179080 under Segment 626154474
+2026-08-15 14:19:14,693 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:14,693 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_129179080
+2026-08-15 14:19:14,693 [INFO] Importing source ID 206346892 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\206346892.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_129179080
+2026-08-15 14:19:14,773 [INFO] Import success for SID 206346892
+2026-08-15 14:19:14,773 [INFO] Creating MusicTrack MusicTrack_152231358 under Segment 626154474
+2026-08-15 14:19:14,857 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:14,857 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_152231358
+2026-08-15 14:19:14,857 [INFO] Importing source ID 172126398 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\172126398.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_152231358
+2026-08-15 14:19:14,904 [INFO] Import success for SID 172126398
+2026-08-15 14:19:14,904 [INFO] Creating MusicTrack MusicTrack_157732931 under Segment 626154474
+2026-08-15 14:19:14,990 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:14,990 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_157732931
+2026-08-15 14:19:14,990 [INFO] Importing source ID 376891970 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\376891970.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_157732931
+2026-08-15 14:19:15,037 [INFO] Import success for SID 376891970
+2026-08-15 14:19:15,037 [INFO] Creating MusicTrack MusicTrack_27889698 under Segment 626154474
+2026-08-15 14:19:15,122 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:15,122 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_27889698
+2026-08-15 14:19:15,122 [INFO] Importing source ID 1034661840 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1034661840.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_27889698
+2026-08-15 14:19:15,167 [INFO] Import success for SID 1034661840
+2026-08-15 14:19:15,167 [INFO] Creating MusicTrack MusicTrack_413517410 under Segment 626154474
+2026-08-15 14:19:15,252 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:15,252 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_413517410
+2026-08-15 14:19:15,252 [INFO] Importing source ID 118047092 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\118047092.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_413517410
+2026-08-15 14:19:15,299 [INFO] Import success for SID 118047092
+2026-08-15 14:19:15,299 [INFO] Creating MusicTrack MusicTrack_533030997 under Segment 626154474
+2026-08-15 14:19:15,383 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:15,383 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_533030997
+2026-08-15 14:19:15,383 [INFO] Importing source ID 177841400 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\177841400.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_533030997
+2026-08-15 14:19:15,430 [INFO] Import success for SID 177841400
+2026-08-15 14:19:15,430 [INFO] Creating MusicTrack MusicTrack_72237546 under Segment 626154474
+2026-08-15 14:19:15,515 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:15,515 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_72237546
+2026-08-15 14:19:15,515 [INFO] Importing source ID 1022076765 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1022076765.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_72237546
+2026-08-15 14:19:15,563 [INFO] Import success for SID 1022076765
+2026-08-15 14:19:15,563 [INFO] Creating MusicTrack MusicTrack_893886562 under Segment 626154474
+2026-08-15 14:19:15,648 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:15,648 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_893886562
+2026-08-15 14:19:15,648 [INFO] Importing source ID 110985778 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\110985778.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_893886562
+2026-08-15 14:19:15,695 [INFO] Import success for SID 110985778
+2026-08-15 14:19:15,696 [INFO] Creating MusicTrack MusicTrack_938562671 under Segment 626154474
+2026-08-15 14:19:15,780 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:15,781 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_938562671
+2026-08-15 14:19:15,781 [INFO] Importing source ID 365766766 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\365766766.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_938562671
+2026-08-15 14:19:15,827 [INFO] Import success for SID 365766766
+2026-08-15 14:19:15,827 [INFO] Creating MusicTrack MusicTrack_976160990 under Segment 626154474
+2026-08-15 14:19:15,911 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:15,911 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_976160990
+2026-08-15 14:19:15,911 [INFO] Importing source ID 283160497 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\283160497.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_976160990
+2026-08-15 14:19:15,959 [INFO] Import success for SID 283160497
+2026-08-15 14:19:15,959 [INFO] Creating MusicTrack MusicTrack_988979913 under Segment 626154474
+2026-08-15 14:19:16,043 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,043 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_988979913
+2026-08-15 14:19:16,043 [INFO] Importing source ID 241522436 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\241522436.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_626154474\MusicTrack_988979913
+2026-08-15 14:19:16,113 [INFO] Import success for SID 241522436
+2026-08-15 14:19:16,114 [INFO] Creating MusicTrack MusicTrack_1042107536 under Segment 195645763
+2026-08-15 14:19:16,198 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,198 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1042107536
+2026-08-15 14:19:16,198 [INFO] Importing source ID 175220409 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\175220409.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_1042107536
+2026-08-15 14:19:16,246 [INFO] Import success for SID 175220409
+2026-08-15 14:19:16,247 [INFO] Creating MusicTrack MusicTrack_1361127 under Segment 195645763
+2026-08-15 14:19:16,331 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,331 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1361127
+2026-08-15 14:19:16,332 [INFO] Importing source ID 168141338 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\168141338.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_1361127
+2026-08-15 14:19:16,379 [INFO] Import success for SID 168141338
+2026-08-15 14:19:16,379 [INFO] Creating MusicTrack MusicTrack_176782469 under Segment 195645763
+2026-08-15 14:19:16,463 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,463 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_176782469
+2026-08-15 14:19:16,463 [INFO] Importing source ID 1056986176 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1056986176.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_176782469
+2026-08-15 14:19:16,510 [INFO] Import success for SID 1056986176
+2026-08-15 14:19:16,510 [INFO] Creating MusicTrack MusicTrack_192231012 under Segment 195645763
+2026-08-15 14:19:16,594 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,594 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_192231012
+2026-08-15 14:19:16,594 [INFO] Importing source ID 104977954 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\104977954.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_192231012
+2026-08-15 14:19:16,641 [INFO] Import success for SID 104977954
+2026-08-15 14:19:16,642 [INFO] Creating MusicTrack MusicTrack_260813276 under Segment 195645763
+2026-08-15 14:19:16,726 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,726 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_260813276
+2026-08-15 14:19:16,726 [INFO] Importing source ID 1034661840 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1034661840.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_260813276
+2026-08-15 14:19:16,771 [INFO] Import success for SID 1034661840
+2026-08-15 14:19:16,771 [INFO] Creating MusicTrack MusicTrack_37384268 under Segment 195645763
+2026-08-15 14:19:16,855 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,855 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_37384268
+2026-08-15 14:19:16,856 [INFO] Importing source ID 191908676 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\191908676.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_37384268
+2026-08-15 14:19:16,903 [INFO] Import success for SID 191908676
+2026-08-15 14:19:16,903 [INFO] Creating MusicTrack MusicTrack_4707570 under Segment 195645763
+2026-08-15 14:19:16,987 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:16,987 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_4707570
+2026-08-15 14:19:16,987 [INFO] Importing source ID 166357404 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\166357404.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_4707570
+2026-08-15 14:19:17,032 [INFO] Import success for SID 166357404
+2026-08-15 14:19:17,032 [INFO] Creating MusicTrack MusicTrack_729573324 under Segment 195645763
+2026-08-15 14:19:17,116 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:17,116 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_729573324
+2026-08-15 14:19:17,116 [INFO] Importing source ID 1025113401 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1025113401.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_729573324
+2026-08-15 14:19:17,162 [INFO] Import success for SID 1025113401
+2026-08-15 14:19:17,162 [INFO] Creating MusicTrack MusicTrack_927864271 under Segment 195645763
+2026-08-15 14:19:17,246 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:17,246 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_927864271
+2026-08-15 14:19:17,246 [INFO] Importing source ID 179862644 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\179862644.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_927864271
+2026-08-15 14:19:17,293 [INFO] Import success for SID 179862644
+2026-08-15 14:19:17,293 [INFO] Creating MusicTrack MusicTrack_936180386 under Segment 195645763
+2026-08-15 14:19:17,377 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:17,377 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_936180386
+2026-08-15 14:19:17,377 [INFO] Importing source ID 190292069 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\190292069.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_936180386
+2026-08-15 14:19:17,423 [INFO] Import success for SID 190292069
+2026-08-15 14:19:17,423 [INFO] Creating MusicTrack MusicTrack_977369172 under Segment 195645763
+2026-08-15 14:19:17,507 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:17,507 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_977369172
+2026-08-15 14:19:17,507 [INFO] Importing source ID 182175148 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\182175148.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_977369172
+2026-08-15 14:19:17,555 [INFO] Import success for SID 182175148
+2026-08-15 14:19:17,555 [INFO] Creating MusicTrack MusicTrack_983541840 under Segment 195645763
+2026-08-15 14:19:17,640 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:17,640 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_983541840
+2026-08-15 14:19:17,640 [INFO] Importing source ID 1005898551 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1005898551.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_195645763\MusicTrack_983541840
+2026-08-15 14:19:17,687 [INFO] Import success for SID 1005898551
+2026-08-15 14:19:17,687 [INFO] Creating MusicTrack MusicTrack_1021808380 under Segment 860825692
+2026-08-15 14:19:17,771 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:17,771 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1021808380
+2026-08-15 14:19:17,771 [INFO] Importing source ID 175220409 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\175220409.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_1021808380
+2026-08-15 14:19:17,818 [INFO] Import success for SID 175220409
+2026-08-15 14:19:17,818 [INFO] Creating MusicTrack MusicTrack_1041720602 under Segment 860825692
+2026-08-15 14:19:17,902 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:17,902 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_1041720602
+2026-08-15 14:19:17,902 [INFO] Importing source ID 182175148 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\182175148.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_1041720602
+2026-08-15 14:19:17,951 [INFO] Import success for SID 182175148
+2026-08-15 14:19:17,951 [INFO] Creating MusicTrack MusicTrack_116844110 under Segment 860825692
+2026-08-15 14:19:18,038 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:18,039 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_116844110
+2026-08-15 14:19:18,039 [INFO] Importing source ID 179862644 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\179862644.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_116844110
+2026-08-15 14:19:18,092 [INFO] Import success for SID 179862644
+2026-08-15 14:19:18,092 [INFO] Creating MusicTrack MusicTrack_170128469 under Segment 860825692
+2026-08-15 14:19:18,178 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:18,183 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_170128469
+2026-08-15 14:19:18,183 [INFO] Importing source ID 191908676 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\191908676.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_170128469
+2026-08-15 14:19:18,231 [INFO] Import success for SID 191908676
+2026-08-15 14:19:18,231 [INFO] Creating MusicTrack MusicTrack_211642220 under Segment 860825692
+2026-08-15 14:19:18,315 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:18,315 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_211642220
+2026-08-15 14:19:18,315 [INFO] Importing source ID 190292069 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\190292069.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_211642220
+2026-08-15 14:19:18,360 [INFO] Import success for SID 190292069
+2026-08-15 14:19:18,360 [INFO] Creating MusicTrack MusicTrack_386420989 under Segment 860825692
+2026-08-15 14:19:18,445 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:18,447 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_386420989
+2026-08-15 14:19:18,448 [INFO] Importing source ID 1034661840 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1034661840.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_386420989
+2026-08-15 14:19:18,493 [INFO] Import success for SID 1034661840
+2026-08-15 14:19:18,493 [INFO] Creating MusicTrack MusicTrack_561154981 under Segment 860825692
+2026-08-15 14:19:18,578 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:18,579 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_561154981
+2026-08-15 14:19:18,579 [INFO] Importing source ID 168141338 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\168141338.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_561154981
+2026-08-15 14:19:18,656 [INFO] Import success for SID 168141338
+2026-08-15 14:19:18,656 [INFO] Creating MusicTrack MusicTrack_607608978 under Segment 860825692
+2026-08-15 14:19:18,740 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:18,740 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_607608978
+2026-08-15 14:19:18,740 [INFO] Importing source ID 166357404 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\166357404.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_607608978
+2026-08-15 14:19:18,799 [INFO] Import success for SID 166357404
+2026-08-15 14:19:18,799 [INFO] Creating MusicTrack MusicTrack_681658988 under Segment 860825692
+2026-08-15 14:19:18,883 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:18,883 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_681658988
+2026-08-15 14:19:18,883 [INFO] Importing source ID 1005898551 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1005898551.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_681658988
+2026-08-15 14:19:18,930 [INFO] Import success for SID 1005898551
+2026-08-15 14:19:18,930 [INFO] Creating MusicTrack MusicTrack_764360876 under Segment 860825692
+2026-08-15 14:19:19,014 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:19,014 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_764360876
+2026-08-15 14:19:19,014 [INFO] Importing source ID 1056986176 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\1056986176.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_764360876
+2026-08-15 14:19:19,061 [INFO] Import success for SID 1056986176
+2026-08-15 14:19:19,061 [INFO] Creating MusicTrack MusicTrack_925048849 under Segment 860825692
+2026-08-15 14:19:19,145 [ERROR] WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_arguments>, args=[], '
+ 'kwargs={\'message\': "Property doesn\'t exist on the object.", \'details\': '
+ "{'procedureUri': 'ak.wwise.core.object.setProperty'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+2026-08-15 14:19:19,145 [INFO] Set TrackType=1 (Random) on MusicTrack MusicTrack_925048849
+2026-08-15 14:19:19,146 [INFO] Importing source ID 104977954 WAV: Z:\mnt\data\wotb-wwise-pipeline\out_wwise\wav_music\104977954.wav to MusicTrack: \Interactive Music Hierarchy\Default Work Unit\music_hangar\MusicPlaylistContainer_1054648317\MusicSegment_860825692\MusicTrack_925048849
+2026-08-15 14:19:19,192 [INFO] Import success for SID 104977954
+2026-08-15 14:19:19,284 [INFO] Updating EndTrimOffset on MusicClips...
+2026-08-15 14:19:19,326 [INFO] Configuring Nested Playlist for MusicPlaylistContainer 1054648317...
+2026-08-15 14:19:19,368 [ERROR] Could not find auto-created Root PlaylistItem for MusicPlaylistContainer.
+2026-08-15 14:19:19,411 [INFO] Disconnected from WAAPI.

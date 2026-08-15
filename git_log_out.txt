@@ -1,0 +1,5 @@
+dc87747 Sync plan.md: apk.bnk confirmed by ear, Fact #19 Game Syncs closed
+fd55865 Update plan.md (apk.bnk Music Hierarchy DONE) + gitignore per-user Wwise validation cache
+a44b548 Archive Copilot debug/test scripts from apk.bnk cue investigation (28 throwaway files)
+872ab9b Fix apk.bnk Music Hierarchy (Bug 1+2 resolved): audio sources now resolve to wav_music/<SID>.wav (not empty), cue TimeMs + segment EndPosition set correctly on existing Entry/Exit Cue objects. Verified via .wwu diff: all 7 segments have matching duration across EndPosition/EndTrimOffset/cue TimeMs. apk.bnk (17 objects) confirmed complete.
+b1403c1 Music Hierarchy investigation report: music_hangar.bnk (51 objects) + apk.bnk (17 objects), verified count match Fact #7

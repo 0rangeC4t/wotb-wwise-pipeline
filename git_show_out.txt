@@ -1,0 +1,940 @@
+commit 872ab9b45d19984f95a1d919795afb6b9990571e
+Author: Hong Hoang <honghoang@example.com>
+Date:   Sat Aug 8 12:58:37 2026 +0700
+
+    Fix apk.bnk Music Hierarchy (Bug 1+2 resolved): audio sources now resolve to wav_music/<SID>.wav (not empty), cue TimeMs + segment EndPosition set correctly on existing Entry/Exit Cue objects. Verified via .wwu diff: all 7 segments have matching duration across EndPosition/EndTrimOffset/cue TimeMs. apk.bnk (17 objects) confirmed complete.
+
+diff --git a/scripts/build_clean.py b/scripts/build_clean.py
+index f011710..69a7e06 100644
+--- a/scripts/build_clean.py
++++ b/scripts/build_clean.py
+@@ -55,16 +55,15 @@ def main():
+                 pass
+         client.call("ak.wwise.core.project.save")
+ 
+-        # 4. Create parent folder 'apk.bnk'
+-        folder_name = "apk.bnk"
++        # 4. Create parent folder 'apk_bnk'
+         real_folder_name = "apk_bnk"
+         folder_path = f"\\Interactive Music Hierarchy\\Default Work Unit\\{real_folder_name}"
+-        logging.info(f"Creating Folder: \\Interactive Music Hierarchy\\Default Work Unit\\{folder_name}")
++        logging.info(f"Creating Folder: {folder_path}")
+         
+         folder_res = client.call("ak.wwise.core.object.create", {
+             "parent": "\\Interactive Music Hierarchy\\Default Work Unit",
+             "type": "Folder",
+-            "name": folder_name,
++            "name": real_folder_name,
+             "onNameConflict": "merge"
+         })
+         logging.info(f"Folder create response: {json.dumps(folder_res)}")
+@@ -73,7 +72,6 @@ def main():
+         # Parse objects from tree lines of apk.bnk
+         stack = []
+         objects_to_create = []
+-        playlist_items = []
+         seen_ids = set()
+         
+         for line in apk_data["tree_lines"]:
+@@ -82,7 +80,6 @@ def main():
+             
+             import re
+             m_obj = re.search(r"\*\*\[(RanSeqContainer|SwitchContainer|Segment|Track)\]\*\*\s+ID:\s+`(\d+)`", line_str)
+-            m_playlist = re.search(r"\*\*\[(PlaylistGroup|PlaylistItem)\]\*\*", line_str)
+             
+             while stack and indent <= stack[-1][0]:
+                 stack.pop()
+@@ -132,29 +129,10 @@ def main():
+                     seen_ids.add(obj_id)
+                     objects_to_create.append(obj_entry)
+                 stack.append((indent, obj_entry))
+-                
+-            elif m_playlist:
+-                playlist_type = m_playlist.group(1)
+-                loop_match = re.search(r"Loop:\s*`([^`]+)`", line_str)
+-                type_match = re.search(r"Type:\s*`([^`]+)`", line_str)
+-                weight_match = re.search(r"Weight:\s*`([^`]+)`", line_str)
+-                seg_id_match = re.search(r"Segment ID:\s*`([^`]+)`", line_str)
+-                
+-                p_item = {
+-                    "playlist_type": playlist_type,
+-                    "loop": loop_match.group(1) if loop_match else "1",
+-                    "mode": type_match.group(1) if type_match else "None",
+-                    "weight": weight_match.group(1) if weight_match else "50000",
+-                    "segment_id": seg_id_match.group(1) if seg_id_match else None,
+-                    "parent_container": stack[-1][1]["id"] if stack else None
+-                }
+-                playlist_items.append(p_item)
+ 
+-        # 5. Build Wwise Objects using WAAPI
+-        logging.info(f"Recreating/merging apk.bnk objects...")
++        # 5. Create MusicPlaylistContainers FIRST
++        logging.info("Creating MusicPlaylistContainers...")
+         created_guids = {} # maps obj_id -> GUID
+-        
+-        # Create MusicPlaylistContainers FIRST
+         containers = [o for o in objects_to_create if o["type"] == "MusicPlaylistContainer"]
+         for obj in containers:
+             logging.info(f"Creating container {obj['name']}")
+@@ -165,104 +143,126 @@ def main():
+                 "onNameConflict": "merge"
+             })
+             created_guids[obj["id"]] = res["id"]
+-            
+-        # Create MusicSegments SECOND
+-        segments = [o for o in objects_to_create if o["type"] == "MusicSegment"]
+-        for obj in segments:
+-            p_guid = created_guids[obj["parent_info"]["id"]]
+-            logging.info(f"Creating segment {obj['name']} under parent {p_guid}")
+-            res = client.call("ak.wwise.core.object.create", {
+-                "parent": p_guid,
+-                "type": obj["type"],
+-                "name": obj["name"],
+-                "onNameConflict": "merge"
+-            })
+-            created_guids[obj["id"]] = res["id"]
+-
+-        # Save project so cues get generated on segments *before* we create tracks
+-        client.call("ak.wwise.core.project.save")
+-
+-        # 6. Configure segment cues / markers (BEFORE creating tracks or audio import)
+-        logging.info("Setting cue positions for MusicSegments (BEFORE track creation/import)...")
+-        cues_res = client.call("ak.wwise.core.object.get", {
+-            "from": {"ofType": ["MusicCue"]}
+-        }, options={"return": ["id", "name", "path"]})
+-        
+-        cues = cues_res.get("return", [])
+-        logging.info(f"Found {len(cues)} total cues in the project.")
+-        
+-        for obj in segments:
+-            seg_id = obj["id"]
+-            seg_name = obj["name"]
+-            duration_ms = obj["properties"].get("Duration", 0.0)
+-            
+-            # Find Entry and Exit cues for this segment
+-            for cue in cues:
+-                cue_path = cue["path"]
+-                cue_name = cue["name"]
+-                if seg_name in cue_path:
+-                    if cue_name == "Entry Cue":
+-                        logging.info(f"Setting Entry Cue position for {seg_name} to 0.0 ms")
+-                        client.call("ak.wwise.core.object.setProperty", {
+-                            "object": cue["id"],
+-                            "property": "TimeMs",
+-                            "value": 0.0
+-                        })
+-                    elif cue_name == "Exit Cue":
+-                        logging.info(f"Setting Exit Cue position for {seg_name} to {duration_ms} ms")
+-                        client.call("ak.wwise.core.object.setProperty", {
+-                            "object": cue["id"],
+-                            "property": "TimeMs",
+-                            "value": duration_ms
+-                        })
+-
+-        # Save project to persist segment cue durations
+-        client.call("ak.wwise.core.project.save")
+ 
+-        # 7. Create MusicTracks THIRD
++        # 6. Import audio files into MusicSegment objects
++        # This will automatically create the MusicSegment with correct names, auto-set its Exit Cue, and create a child MusicTrack (which we will rename)!
++        logging.info("Importing audio files and auto-creating Segments/Tracks...")
+         tracks = [o for o in objects_to_create if o["type"] == "MusicTrack"]
+-        for obj in tracks:
+-            p_guid = created_guids[obj["parent_info"]["id"]]
+-            logging.info(f"Creating track {obj['name']} under parent {p_guid}")
+-            res = client.call("ak.wwise.core.object.create", {
+-                "parent": p_guid,
+-                "type": obj["type"],
+-                "name": obj["name"],
+-                "onNameConflict": "merge"
+-            })
+-            created_guids[obj["id"]] = res["id"]
+-
+-        # 8. Import audio files / assign source wavs
+-        logging.info("Assigning source wavs to MusicTrack objects...")
+         for obj in tracks:
+             parent_segment = obj["parent_info"]
+             parent_container = parent_segment["parent_info"]
+             
+-            # Construct exact path for Wwise import
+-            track_path = f"\\Interactive Music Hierarchy\\Default Work Unit\\{real_folder_name}\\{parent_container['name']}\\{parent_segment['name']}\\{obj['name']}"
+-            
+             wavs = obj["properties"].get("SourceWavs", {})
+             for sid, wav_path in wavs.items():
+                 if not os.path.exists(wav_path):
+                     logging.warning(f"Audio file does not exist: {wav_path}")
+                 # Convert to Wine path
+                 wine_wav_path = "Z:" + wav_path.replace("/", "\\")
+-                logging.info(f"Importing source: {wine_wav_path} to track path: {track_path}")
++                
++                # Construct exact path to segment
++                segment_path = f"\\Interactive Music Hierarchy\\Default Work Unit\\{real_folder_name}\\{parent_container['name']}\\{parent_segment['name']}"
++                logging.info(f"Importing source: {wine_wav_path} to target segment: {segment_path}")
+                 
+                 import_args = {
+                     "importOperation": "useExisting",
+                     "imports": [
+                         {
+                             "audioFile": wine_wav_path,
+-                            "objectPath": track_path,
+-                            "objectType": "MusicTrack"
++                            "objectPath": segment_path,
++                            "objectType": "MusicSegment"
+                         }
+                     ]
+                 }
+                 import_res = client.call("ak.wwise.core.audio.import", import_args)
+                 logging.info(f"Import response: {json.dumps(import_res)}")
+ 
+-        # 9. Configure Playlists for PlaylistContainers
++        # Save project to finalize audio import and metadata update
++        client.call("ak.wwise.core.project.save")
++
++        # 7. Query all descendants to rename the auto-created tracks and gather GUIDs
++        logging.info("Querying descendants to rename tracks and collect GUIDs...")
++        verify_res = client.call("ak.wwise.core.object.get", {
++            "from": {"path": [folder_path]},
++            "transform": [{"select": ["descendants"]}]
++        }, options={"return": ["id", "name", "type", "parent"]})
++        
++        descendants = verify_res.get("return", [])
++        
++        # Rename newly created tracks to their correct names "MusicTrack_<id>"
++        for d in descendants:
++            name = d["name"]
++            if d["type"] == "MusicTrack":
++                # Find the expected track name for this segment
++                parent_info = d.get("parent")
++                if parent_info:
++                    parent_name = parent_info.get("name", "")
++                    if "MusicSegment_" in parent_name:
++                        seg_id = parent_name.split("_")[-1]
++                        # Find the corresponding MusicTrack object in our spec
++                        expected_track = None
++                        for o in tracks:
++                            if o["parent_info"]["id"] == seg_id:
++                                expected_track = o
++                                break
++                        if expected_track:
++                            new_track_name = expected_track["name"]
++                            logging.info(f"Renaming auto-created track {name} to {new_track_name}")
++                            client.call("ak.wwise.core.object.setName", {
++                                "object": d["id"],
++                                "value": new_track_name
++                            })
++
++        # Save project to persist renames
++        client.call("ak.wwise.core.project.save")
++
++        # Re-query all descendants after rename to get final GUID mappings
++        logging.info("Re-querying descendants to map final GUIDs...")
++        verify_res = client.call("ak.wwise.core.object.get", {
++            "from": {"path": [folder_path]},
++            "transform": [{"select": ["descendants"]}]
++        }, options={"return": ["id", "name", "type", "parent"]})
++        
++        descendants = verify_res.get("return", [])
++        for d in descendants:
++            name = d["name"]
++            if d["type"] in ["MusicSegment", "MusicTrack"]:
++                obj_id = name.split("_")[-1]
++                created_guids[obj_id] = d["id"]
++
++        # 7.5 Create MusicCue children for Segment markers (Entry/Exit/etc.)
++        logging.info("Creating MusicCue children for segment markers where present...")
++        segments = [o for o in objects_to_create if o["type"] == "MusicSegment"]
++        for seg in segments:
++            seg_id = seg["id"]
++            seg_guid = created_guids.get(seg_id)
++            if not seg_guid:
++                logging.warning(f"No GUID found for segment {seg_id}; skipping cue creation")
++                continue
++
++            markers = seg.get("properties", {}).get("Markers", [])
++            for mk in markers:
++                try:
++                    cue_name = f"MusicCue_{mk.get('id', 'unknown')}"
++                    logging.info(f"Creating cue {cue_name} under segment {seg['name']} at {mk.get('position')} ms")
++                    cue_res = client.call("ak.wwise.core.object.create", {
++                        "parent": seg_guid,
++                        "type": "MusicCue",
++                        "name": cue_name,
++                        "onNameConflict": "merge"
++                    })
++                    cue_guid = cue_res.get("id")
++                    # Set TimeMs property on the cue child
++                    time_ms = float(mk.get("position", 0.0))
++                    client.call("ak.wwise.core.object.setProperty", {
++                        "object": cue_guid,
++                        "property": "TimeMs",
++                        "value": time_ms
++                    })
++                    logging.info(f"Set TimeMs={time_ms} on cue {cue_guid}")
++                except Exception as e:
++                    logging.warning(f"Could not create/set cue for segment {seg_id}: {e}")
++
++        # 8. Configure Playlists for PlaylistContainers
+         logging.info("Configuring Playlists for MusicPlaylistContainers...")
+         # Find all playlist items in project
+         items_get = client.call("ak.wwise.core.object.get", {
+@@ -271,6 +271,7 @@ def main():
+         
+         all_playlist_items = items_get.get("return", [])
+         
++        segments = [o for o in objects_to_create if o["type"] == "MusicSegment"]
+         for obj in containers:
+             container_id = obj["id"]
+             container_guid = created_guids[container_id]
+@@ -346,12 +347,12 @@ def main():
+                     except Exception as e:
+                         logging.warning(f"Could not create/link playlist item for segment {cs['name']}: {e}")
+ 
+-        # 10. Save Project
++        # 9. Save Project
+         logging.info("Saving Wwise project...")
+         client.call("ak.wwise.core.project.save")
+         logging.info("Wwise project saved successfully!")
+ 
+-        # 11. Verification queries
++        # 10. Verification queries
+         logging.info("================= RUNNING VERIFICATION QUERIES =================")
+         verify_res = client.call("ak.wwise.core.object.get", {
+             "from": {"path": [folder_path]},
+@@ -375,7 +376,7 @@ def main():
+             if d["type"] == "MusicSegment":
+                 dur_res = client.call("ak.wwise.core.object.get", {
+                     "from": {"id": [d["id"]]}
+-                }, options={"return": ["id", "name", "duration"]})
++                }, options={"return": ["id", "name", "duration", "@EndPosition"]})
+                 logging.info(f"Segment info: {json.dumps(dur_res.get('return', []))}")
+                 
+         # Read back source assignment for tracks
+@@ -388,6 +389,15 @@ def main():
+                 }, options={"return": ["id", "name", "type", "path"]})
+                 logging.info(f"Track {d['name']} sources: {json.dumps(track_sources.get('return', []))}")
+ 
++        # Read back Cue positions
++        logging.info("Reading back Cue positions:")
++        cues_verify = client.call("ak.wwise.core.object.get", {
++            "from": {"ofType": ["MusicCue"]}
++        }, options={"return": ["id", "name", "path", "@TimeMs", "@CueType"]})
++        for cue in cues_verify.get("return", []):
++            if real_folder_name in cue["path"]:
++                logging.info(f"Cue: {cue['name']} at {cue['path']} -> TimeMs: {cue['@TimeMs']} ms, Type: {cue['@CueType']}")
++
+     except Exception as e:
+         logging.error(f"Error during WAAPI reconstruction: {e}")
+     finally:
+diff --git a/wproj/TestProject/Interactive Music Hierarchy/Default Work Unit.wwu b/wproj/TestProject/Interactive Music Hierarchy/Default Work Unit.wwu
+index 767bfb3..20e094e 100644
+--- a/wproj/TestProject/Interactive Music Hierarchy/Default Work Unit.wwu	
++++ b/wproj/TestProject/Interactive Music Hierarchy/Default Work Unit.wwu	
+@@ -3,9 +3,9 @@
+ 	<InteractiveMusic>
+ 		<WorkUnit Name="Default Work Unit" ID="{6BEA8D10-A7E0-4F5C-BC61-11699E72205A}" PersistMode="Standalone">
+ 			<ChildrenList>
+-				<Folder Name="apk_bnk" ID="{36681BD0-A6E2-4099-95DC-CAA22E89A8F2}" ShortID="51721791">
++				<Folder Name="apk_bnk" ID="{F61477D0-90BE-4D11-800D-EAC5D1A940A7}" ShortID="447895777">
+ 					<ChildrenList>
+-						<MusicPlaylistContainer Name="MusicPlaylistContainer_359976450" ID="{6D2FB9FF-12FB-40E9-A8F8-9C620B82825A}" ShortID="903921843">
++						<MusicPlaylistContainer Name="MusicPlaylistContainer_359976450" ID="{2BA9EE48-61BC-49C4-9A5F-03F7492B1C4F}" ShortID="392707230">
+ 							<ReferenceList>
+ 								<Reference Name="Conversion">
+ 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -15,7 +15,10 @@
+ 								</Reference>
+ 							</ReferenceList>
+ 							<ChildrenList>
+-								<MusicSegment Name="MusicSegment_201235529" ID="{9478CC91-C7C1-46C5-97EE-3E5154C437F8}" ShortID="460396530">
++								<MusicSegment Name="MusicSegment_201235529" ID="{D36C0A76-5011-4701-86A5-9D2C8F03A933}" ShortID="256249360">
++									<PropertyList>
++										<Property Name="EndPosition" Type="Real64" Value="7680"/>
++									</PropertyList>
+ 									<ReferenceList>
+ 										<Reference Name="Conversion">
+ 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -25,23 +28,23 @@
+ 										</Reference>
+ 									</ReferenceList>
+ 									<ChildrenList>
+-										<MusicTrack Name="MusicTrack_558864082" ID="{261927F7-732B-449F-A895-16B3385A1618}" ShortID="460651407">
++										<MusicTrack Name="MusicTrack_558864082" ID="{180ACDA6-D0C8-48B0-BCA7-3912E43D446B}" ShortID="515279749">
+ 											<ReferenceList>
+ 												<Reference Name="OutputBus">
+ 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+ 												</Reference>
+ 											</ReferenceList>
+ 											<ChildrenList>
+-												<AudioFileSource Name="login_drone_drums_loop_01" ID="{25EBF8EC-1E3F-48BA-BDEE-78E2FB5CF772}">
++												<AudioFileSource Name="783383513" ID="{7C9D0225-98FB-4F06-AFFF-22A1733DA0E5}">
+ 													<Language>SFX</Language>
+-													<AudioFile>login_drone_drums_loop_01.wav</AudioFile>
++													<AudioFile>783383513.wav</AudioFile>
+ 													<MediaIDList>
+-														<MediaID ID="91043606"/>
++														<MediaID ID="535027491"/>
+ 													</MediaIDList>
+ 												</AudioFileSource>
+ 											</ChildrenList>
+ 											<TransitionList>
+-												<MusicTransition Name="Root" ID="{01393105-7523-4EAF-B0C0-039EBA8E8A7C}">
++												<MusicTransition Name="Root" ID="{4F516DF3-9E69-4037-8986-F27571687491}">
+ 													<PropertyList>
+ 														<Property Name="IsFolder" Type="bool" Value="True"/>
+ 													</PropertyList>
+@@ -49,15 +52,15 @@
+ 												</MusicTransition>
+ 											</TransitionList>
+ 											<SequenceList>
+-												<MusicTrackSequence Name="" ID="{E39526DC-6FDA-4005-86B9-FA0393EC3FBD}">
++												<MusicTrackSequence Name="" ID="{8366C4F6-C5D8-4D01-BD6A-07F7000AF819}">
+ 													<ClipList>
+-														<MusicClip Name="login_drone_drums_loop_01" ID="{C5D8EB51-4A4C-427A-A3E7-61A1B413628A}">
++														<MusicClip Name="783383513" ID="{9B841633-8D48-4944-93A0-04077398EE38}">
+ 															<PropertyList>
+-																<Property Name="EndTrimOffset" Type="Real64" Value="1000"/>
++																<Property Name="EndTrimOffset" Type="Real64" Value="7680"/>
+ 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+ 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+ 															</PropertyList>
+-															<AudioSourceRef Name="login_drone_drums_loop_01" ID="{25EBF8EC-1E3F-48BA-BDEE-78E2FB5CF772}"/>
++															<AudioSourceRef Name="783383513" ID="{7C9D0225-98FB-4F06-AFFF-22A1733DA0E5}"/>
+ 														</MusicClip>
+ 													</ClipList>
+ 												</MusicTrackSequence>
+@@ -65,16 +68,19 @@
+ 										</MusicTrack>
+ 									</ChildrenList>
+ 									<CueList>
+-										<MusicCue Name="Entry Cue" ID="{2850BA1C-76D7-45FA-A32D-DD8E7250A281}"/>
+-										<MusicCue Name="Exit Cue" ID="{9D4FDCF2-BD0E-499E-8652-4DA096F1C7FF}">
++										<MusicCue Name="Entry Cue" ID="{0AAC997E-03AE-4DF9-B8F3-832E8E6106F1}"/>
++										<MusicCue Name="Exit Cue" ID="{BC0B2FB1-8822-475A-A1F2-A2065FA08EBA}">
+ 											<PropertyList>
+ 												<Property Name="CueType" Type="int16" Value="1"/>
+-												<Property Name="TimeMs" Type="Real64" Value="1000"/>
++												<Property Name="TimeMs" Type="Real64" Value="7680"/>
+ 											</PropertyList>
+ 										</MusicCue>
+ 									</CueList>
+ 								</MusicSegment>
+-								<MusicSegment Name="MusicSegment_37419850" ID="{110E0BB9-A0A7-474A-9B16-40F2D28D8B74}" ShortID="53351082">
++								<MusicSegment Name="MusicSegment_37419850" ID="{025FFB2F-A9B6-4131-AF6C-6725870B2B2A}" ShortID="763110826">
++									<PropertyList>
++										<Property Name="EndPosition" Type="Real64" Value="7680"/>
++									</PropertyList>
+ 									<ReferenceList>
+ 										<Reference Name="Conversion">
+ 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -84,23 +90,23 @@
+ 										</Reference>
+ 									</ReferenceList>
+ 									<ChildrenList>
+-										<MusicTrack Name="MusicTrack_921557064" ID="{FE90BE82-F3D8-46EA-B445-6DEB93C1F01D}" ShortID="920478458">
++										<MusicTrack Name="MusicTrack_921557064" ID="{F8AB29E6-94C8-41F3-B30D-FC8DC8466EA8}" ShortID="437066547">
+ 											<ReferenceList>
+ 												<Reference Name="OutputBus">
+ 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+ 												</Reference>
+ 											</ReferenceList>
+ 											<ChildrenList>
+-												<AudioFileSource Name="login_drone_drums_loop_02" ID="{5F92DA97-8F1E-4F4C-8C60-E0D580663E8E}">
++												<AudioFileSource Name="255291834" ID="{CAE6A0AB-8AEF-40CD-9D16-4F0A747069A4}">
+ 													<Language>SFX</Language>
+-													<AudioFile>login_drone_drums_loop_02.wav</AudioFile>
++													<AudioFile>255291834.wav</AudioFile>
+ 													<MediaIDList>
+-														<MediaID ID="897908846"/>
++														<MediaID ID="378213173"/>
+ 													</MediaIDList>
+ 												</AudioFileSource>
+ 											</ChildrenList>
+ 											<TransitionList>
+-												<MusicTransition Name="Root" ID="{ADA68172-E0BA-4E08-A7EA-173B001816C0}">
++												<MusicTransition Name="Root" ID="{82A5F375-EEEB-4933-9E85-B47D0E4A783F}">
+ 													<PropertyList>
+ 														<Property Name="IsFolder" Type="bool" Value="True"/>
+ 													</PropertyList>
+@@ -108,15 +114,15 @@
+ 												</MusicTransition>
+ 											</TransitionList>
+ 											<SequenceList>
+-												<MusicTrackSequence Name="" ID="{776777DA-9868-4031-992F-ECC127FF4B78}">
++												<MusicTrackSequence Name="" ID="{10D97B05-4749-4555-823D-2BDBBAC59473}">
+ 													<ClipList>
+-														<MusicClip Name="login_drone_drums_loop_02" ID="{D636AC4F-DB10-47DF-9F3C-BF2FC839D288}">
++														<MusicClip Name="255291834" ID="{A2202C63-7BC1-4A21-8F32-157C3F548866}">
+ 															<PropertyList>
+-																<Property Name="EndTrimOffset" Type="Real64" Value="1000"/>
++																<Property Name="EndTrimOffset" Type="Real64" Value="7680"/>
+ 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+ 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+ 															</PropertyList>
+-															<AudioSourceRef Name="login_drone_drums_loop_02" ID="{5F92DA97-8F1E-4F4C-8C60-E0D580663E8E}"/>
++															<AudioSourceRef Name="255291834" ID="{CAE6A0AB-8AEF-40CD-9D16-4F0A747069A4}"/>
+ 														</MusicClip>
+ 													</ClipList>
+ 												</MusicTrackSequence>
+@@ -124,16 +130,19 @@
+ 										</MusicTrack>
+ 									</ChildrenList>
+ 									<CueList>
+-										<MusicCue Name="Entry Cue" ID="{B87B8E87-2F9D-48EE-8216-07A5015E7D76}"/>
+-										<MusicCue Name="Exit Cue" ID="{53632C45-8BA8-4D39-9A3E-588A793DC6F7}">
++										<MusicCue Name="Entry Cue" ID="{5DCBDDE4-F490-4467-84A4-0F282C1AC28F}"/>
++										<MusicCue Name="Exit Cue" ID="{8F153329-8BEB-48F7-81CC-31883846BDE4}">
+ 											<PropertyList>
+ 												<Property Name="CueType" Type="int16" Value="1"/>
+-												<Property Name="TimeMs" Type="Real64" Value="1000"/>
++												<Property Name="TimeMs" Type="Real64" Value="7680"/>
+ 											</PropertyList>
+ 										</MusicCue>
+ 									</CueList>
+ 								</MusicSegment>
+-								<MusicSegment Name="MusicSegment_308239515" ID="{FCFE8B0A-C274-4BD4-AB54-EF10238633C8}" ShortID="369570234">
++								<MusicSegment Name="MusicSegment_308239515" ID="{1FBCC866-06D4-4595-A7AA-15BCD97A731B}" ShortID="96405576">
++									<PropertyList>
++										<Property Name="EndPosition" Type="Real64" Value="7680.02777777778"/>
++									</PropertyList>
+ 									<ReferenceList>
+ 										<Reference Name="Conversion">
+ 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -143,23 +152,23 @@
+ 										</Reference>
+ 									</ReferenceList>
+ 									<ChildrenList>
+-										<MusicTrack Name="MusicTrack_686286511" ID="{9AAF1453-B9DD-41ED-9400-34D36756789D}" ShortID="444979860">
++										<MusicTrack Name="MusicTrack_686286511" ID="{F9B2352A-29E2-452D-BF2B-E51C412E9D19}" ShortID="639145047">
+ 											<ReferenceList>
+ 												<Reference Name="OutputBus">
+ 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+ 												</Reference>
+ 											</ReferenceList>
+ 											<ChildrenList>
+-												<AudioFileSource Name="login_drone_drums_loop_03" ID="{D2AD11FA-5706-454B-A25E-4E14C315275C}">
++												<AudioFileSource Name="56953293" ID="{D9BEF025-7FCE-4352-A118-F2AA6806D5E3}">
+ 													<Language>SFX</Language>
+-													<AudioFile>login_drone_drums_loop_03.wav</AudioFile>
++													<AudioFile>56953293.wav</AudioFile>
+ 													<MediaIDList>
+-														<MediaID ID="445942858"/>
++														<MediaID ID="501744844"/>
+ 													</MediaIDList>
+ 												</AudioFileSource>
+ 											</ChildrenList>
+ 											<TransitionList>
+-												<MusicTransition Name="Root" ID="{EA88911C-2138-4B1E-A908-4D309BA80600}">
++												<MusicTransition Name="Root" ID="{AF21FD80-3BD5-46EF-B77F-C1C656D201FB}">
+ 													<PropertyList>
+ 														<Property Name="IsFolder" Type="bool" Value="True"/>
+ 													</PropertyList>
+@@ -167,15 +176,15 @@
+ 												</MusicTransition>
+ 											</TransitionList>
+ 											<SequenceList>
+-												<MusicTrackSequence Name="" ID="{19BFF96C-F006-4939-980F-0576736DAF59}">
++												<MusicTrackSequence Name="" ID="{FC268821-5BF6-49E7-8A14-2EA39E2BF294}">
+ 													<ClipList>
+-														<MusicClip Name="login_drone_drums_loop_03" ID="{FD134C51-4EDE-4E61-A040-418DC3539743}">
++														<MusicClip Name="56953293" ID="{D67F0C22-8022-4FDA-A5E7-39456515C607}">
+ 															<PropertyList>
+-																<Property Name="EndTrimOffset" Type="Real64" Value="1000"/>
++																<Property Name="EndTrimOffset" Type="Real64" Value="7680.02777777778"/>
+ 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+ 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+ 															</PropertyList>
+-															<AudioSourceRef Name="login_drone_drums_loop_03" ID="{D2AD11FA-5706-454B-A25E-4E14C315275C}"/>
++															<AudioSourceRef Name="56953293" ID="{D9BEF025-7FCE-4352-A118-F2AA6806D5E3}"/>
+ 														</MusicClip>
+ 													</ClipList>
+ 												</MusicTrackSequence>
+@@ -183,23 +192,23 @@
+ 										</MusicTrack>
+ 									</ChildrenList>
+ 									<CueList>
+-										<MusicCue Name="Entry Cue" ID="{44DFE83B-EFD5-49F8-AC91-D2442383362C}"/>
+-										<MusicCue Name="Exit Cue" ID="{08021240-EFB8-4423-A169-0052899FE460}">
++										<MusicCue Name="Entry Cue" ID="{577828F0-BA00-4501-A945-E486AA9B9401}"/>
++										<MusicCue Name="Exit Cue" ID="{33EE7FE8-0F0C-4A7C-8934-7758DB2F57E9}">
+ 											<PropertyList>
+ 												<Property Name="CueType" Type="int16" Value="1"/>
+-												<Property Name="TimeMs" Type="Real64" Value="1000"/>
++												<Property Name="TimeMs" Type="Real64" Value="7680.02777777778"/>
+ 											</PropertyList>
+ 										</MusicCue>
+ 									</CueList>
+ 								</MusicSegment>
+ 							</ChildrenList>
+ 							<TransitionList>
+-								<MusicTransition Name="Root" ID="{52334C50-6223-4AC7-B3E8-C20BBAA44DAB}">
++								<MusicTransition Name="Root" ID="{A577B949-BC20-438E-8899-2EC1B43CB850}">
+ 									<PropertyList>
+ 										<Property Name="IsFolder" Type="bool" Value="True"/>
+ 									</PropertyList>
+ 									<ChildrenList>
+-										<MusicTransition Name="Transition" ID="{61DF812E-8BEF-43A4-9207-8D53870251E1}">
++										<MusicTransition Name="Transition" ID="{D7F51D88-7F48-4D36-9D58-A898FAA5ADD0}">
+ 											<TransitionInfo/>
+ 										</MusicTransition>
+ 									</ChildrenList>
+@@ -207,10 +216,10 @@
+ 								</MusicTransition>
+ 							</TransitionList>
+ 							<Playlist>
+-								<MusicPlaylistItem Name="" ID="{A5BE86FA-A070-4423-9240-C9D328FD7B71}" ShortID="876930099"/>
++								<MusicPlaylistItem Name="" ID="{E16C2578-7334-48BB-8A22-8BFFB73C0D67}" ShortID="92705621"/>
+ 							</Playlist>
+ 						</MusicPlaylistContainer>
+-						<MusicPlaylistContainer Name="MusicPlaylistContainer_517021411" ID="{2ABA7743-01F8-4210-809C-719101061CD2}" ShortID="771277208">
++						<MusicPlaylistContainer Name="MusicPlaylistContainer_517021411" ID="{842011F7-EA91-4F3C-A735-7D15603DF518}" ShortID="251535407">
+ 							<ReferenceList>
+ 								<Reference Name="Conversion">
+ 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -220,7 +229,10 @@
+ 								</Reference>
+ 							</ReferenceList>
+ 							<ChildrenList>
+-								<MusicSegment Name="MusicSegment_519451801" ID="{C36D7646-1E2C-48F7-9E15-F92721B9A349}" ShortID="638186170">
++								<MusicSegment Name="MusicSegment_519451801" ID="{9639B832-0CCF-4B5E-A2E7-969938CFC767}" ShortID="5798118">
++									<PropertyList>
++										<Property Name="EndPosition" Type="Real64" Value="20000"/>
++									</PropertyList>
+ 									<ReferenceList>
+ 										<Reference Name="Conversion">
+ 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -230,23 +242,23 @@
+ 										</Reference>
+ 									</ReferenceList>
+ 									<ChildrenList>
+-										<MusicTrack Name="MusicTrack_960691355" ID="{691DC7C8-7E32-400E-B506-E3A6DC38285E}" ShortID="942634430">
++										<MusicTrack Name="MusicTrack_960691355" ID="{371C8A3F-3132-4041-B469-0001F196E4F1}" ShortID="178971062">
+ 											<ReferenceList>
+ 												<Reference Name="OutputBus">
+ 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+ 												</Reference>
+ 											</ReferenceList>
+ 											<ChildrenList>
+-												<AudioFileSource Name="login_drone_war_ambience" ID="{18F62521-2318-4DCC-870F-29DCEF110E53}">
++												<AudioFileSource Name="362746063" ID="{A4F2E2BA-31B8-43BA-914B-0B78D0FB5EDA}">
+ 													<Language>SFX</Language>
+-													<AudioFile>login_drone_war_ambience.wav</AudioFile>
++													<AudioFile>362746063.wav</AudioFile>
+ 													<MediaIDList>
+-														<MediaID ID="16519963"/>
++														<MediaID ID="982743882"/>
+ 													</MediaIDList>
+ 												</AudioFileSource>
+ 											</ChildrenList>
+ 											<TransitionList>
+-												<MusicTransition Name="Root" ID="{919587A9-46B5-4067-9C95-40AE6B9B6AAC}">
++												<MusicTransition Name="Root" ID="{CA5FF7CD-DDFB-4286-872E-CAB488B47A31}">
+ 													<PropertyList>
+ 														<Property Name="IsFolder" Type="bool" Value="True"/>
+ 													</PropertyList>
+@@ -254,15 +266,15 @@
+ 												</MusicTransition>
+ 											</TransitionList>
+ 											<SequenceList>
+-												<MusicTrackSequence Name="" ID="{B33B3CA6-2CB4-423A-8EB6-E357F8C908CA}">
++												<MusicTrackSequence Name="" ID="{849E3A9B-A66F-48CD-AE6F-E990559B4DD0}">
+ 													<ClipList>
+-														<MusicClip Name="login_drone_war_ambience" ID="{1804B9CA-4019-402C-88EE-21FF4D542BB9}">
++														<MusicClip Name="362746063" ID="{18768810-9AEC-4FA9-ADE9-417324DF82A3}">
+ 															<PropertyList>
+-																<Property Name="EndTrimOffset" Type="Real64" Value="1000"/>
++																<Property Name="EndTrimOffset" Type="Real64" Value="20000"/>
+ 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+ 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+ 															</PropertyList>
+-															<AudioSourceRef Name="login_drone_war_ambience" ID="{18F62521-2318-4DCC-870F-29DCEF110E53}"/>
++															<AudioSourceRef Name="362746063" ID="{A4F2E2BA-31B8-43BA-914B-0B78D0FB5EDA}"/>
+ 														</MusicClip>
+ 													</ClipList>
+ 												</MusicTrackSequence>
+@@ -270,23 +282,23 @@
+ 										</MusicTrack>
+ 									</ChildrenList>
+ 									<CueList>
+-										<MusicCue Name="Entry Cue" ID="{B2486E0C-25F5-40A1-BE99-26D0451C864F}"/>
+-										<MusicCue Name="Exit Cue" ID="{E75C40A8-219E-4C51-9A65-2165682DE8C8}">
++										<MusicCue Name="Entry Cue" ID="{1F77C8C3-362F-48E6-98CE-8E9AD97B0ED1}"/>
++										<MusicCue Name="Exit Cue" ID="{5EED1156-43B3-4D6E-9F3F-A1D2F5B1CAF0}">
+ 											<PropertyList>
+ 												<Property Name="CueType" Type="int16" Value="1"/>
+-												<Property Name="TimeMs" Type="Real64" Value="1000"/>
++												<Property Name="TimeMs" Type="Real64" Value="20000"/>
+ 											</PropertyList>
+ 										</MusicCue>
+ 									</CueList>
+ 								</MusicSegment>
+ 							</ChildrenList>
+ 							<TransitionList>
+-								<MusicTransition Name="Root" ID="{03BAB002-174C-464E-9EAB-0A45AE20FE34}">
++								<MusicTransition Name="Root" ID="{6131C7D3-2525-434C-83D6-C8F6D94E982D}">
+ 									<PropertyList>
+ 										<Property Name="IsFolder" Type="bool" Value="True"/>
+ 									</PropertyList>
+ 									<ChildrenList>
+-										<MusicTransition Name="Transition" ID="{E90A8BEC-F93F-4982-9D2D-39A52A62F9C1}">
++										<MusicTransition Name="Transition" ID="{A499B7FB-C423-4E61-A397-7FCD758E4324}">
+ 											<TransitionInfo/>
+ 										</MusicTransition>
+ 									</ChildrenList>
+@@ -294,10 +306,10 @@
+ 								</MusicTransition>
+ 							</TransitionList>
+ 							<Playlist>
+-								<MusicPlaylistItem Name="" ID="{4B87F656-B9E0-44E3-830D-D5107199C2B8}" ShortID="69853810"/>
++								<MusicPlaylistItem Name="" ID="{52AE3F13-99DF-479E-911B-87BF27CA9634}" ShortID="99898547"/>
+ 							</Playlist>
+ 						</MusicPlaylistContainer>
+-						<MusicPlaylistContainer Name="MusicPlaylistContainer_543160948" ID="{8A44DEDE-5F97-4339-B068-E02562AD3FE1}" ShortID="397792679">
++						<MusicPlaylistContainer Name="MusicPlaylistContainer_543160948" ID="{D10E31B6-C25D-44EC-9BB1-C30D09616458}" ShortID="1017451977">
+ 							<ReferenceList>
+ 								<Reference Name="Conversion">
+ 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -307,7 +319,10 @@
+ 								</Reference>
+ 							</ReferenceList>
+ 							<ChildrenList>
+-								<MusicSegment Name="MusicSegment_950042432" ID="{6C18F0C3-006F-4A42-88D7-1A33926666A6}" ShortID="372416985">
++								<MusicSegment Name="MusicSegment_950042432" ID="{53D661C5-BF6B-48CA-B8D0-11CCB4C69624}" ShortID="797697981">
++									<PropertyList>
++										<Property Name="EndPosition" Type="Real64" Value="30720"/>
++									</PropertyList>
+ 									<ReferenceList>
+ 										<Reference Name="Conversion">
+ 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -317,23 +332,23 @@
+ 										</Reference>
+ 									</ReferenceList>
+ 									<ChildrenList>
+-										<MusicTrack Name="MusicTrack_387347864" ID="{1FD155CE-41A9-4C9F-9107-475C3F0F5056}" ShortID="122459717">
++										<MusicTrack Name="MusicTrack_387347864" ID="{45F319BF-607F-43AA-864D-AD983EE7A3CB}" ShortID="737512917">
+ 											<ReferenceList>
+ 												<Reference Name="OutputBus">
+ 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+ 												</Reference>
+ 											</ReferenceList>
+ 											<ChildrenList>
+-												<AudioFileSource Name="login_drone_music_loop_01" ID="{983118C7-7626-412E-8887-86164FD33B76}">
++												<AudioFileSource Name="315220599" ID="{B2DA6D51-AC1A-4016-8FF7-925C68961395}">
+ 													<Language>SFX</Language>
+-													<AudioFile>login_drone_music_loop_01.wav</AudioFile>
++													<AudioFile>315220599.wav</AudioFile>
+ 													<MediaIDList>
+-														<MediaID ID="877691555"/>
++														<MediaID ID="41955789"/>
+ 													</MediaIDList>
+ 												</AudioFileSource>
+ 											</ChildrenList>
+ 											<TransitionList>
+-												<MusicTransition Name="Root" ID="{7E76994F-0BED-481D-88E8-EE4708579948}">
++												<MusicTransition Name="Root" ID="{BF21E627-D32A-4727-AF93-EA211FDD9516}">
+ 													<PropertyList>
+ 														<Property Name="IsFolder" Type="bool" Value="True"/>
+ 													</PropertyList>
+@@ -341,15 +356,15 @@
+ 												</MusicTransition>
+ 											</TransitionList>
+ 											<SequenceList>
+-												<MusicTrackSequence Name="" ID="{D8D1FF50-CFD4-4B49-8B0E-C45BCFFEFC9B}">
++												<MusicTrackSequence Name="" ID="{4BEA99F0-DC5D-47E8-A7E7-4697E0DCAF75}">
+ 													<ClipList>
+-														<MusicClip Name="login_drone_music_loop_01" ID="{CE446ACA-20AC-40E8-9BAB-284E6DD443C1}">
++														<MusicClip Name="315220599" ID="{7BD7ADE3-B992-4F36-8267-F7807343C4B6}">
+ 															<PropertyList>
+-																<Property Name="EndTrimOffset" Type="Real64" Value="1000"/>
++																<Property Name="EndTrimOffset" Type="Real64" Value="30720"/>
+ 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+ 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+ 															</PropertyList>
+-															<AudioSourceRef Name="login_drone_music_loop_01" ID="{983118C7-7626-412E-8887-86164FD33B76}"/>
++															<AudioSourceRef Name="315220599" ID="{B2DA6D51-AC1A-4016-8FF7-925C68961395}"/>
+ 														</MusicClip>
+ 													</ClipList>
+ 												</MusicTrackSequence>
+@@ -357,16 +372,19 @@
+ 										</MusicTrack>
+ 									</ChildrenList>
+ 									<CueList>
+-										<MusicCue Name="Entry Cue" ID="{60626808-CB76-4D79-AC29-834987352E3C}"/>
+-										<MusicCue Name="Exit Cue" ID="{AFBE244A-E39E-4CE9-AABA-4F0E2995E6EE}">
++										<MusicCue Name="Entry Cue" ID="{805FA7DD-65CC-447C-8774-46E4E5EB62BA}"/>
++										<MusicCue Name="Exit Cue" ID="{6897ECCC-CE4F-455D-9F45-2A83E8907E5C}">
+ 											<PropertyList>
+ 												<Property Name="CueType" Type="int16" Value="1"/>
+-												<Property Name="TimeMs" Type="Real64" Value="1000"/>
++												<Property Name="TimeMs" Type="Real64" Value="30720"/>
+ 											</PropertyList>
+ 										</MusicCue>
+ 									</CueList>
+ 								</MusicSegment>
+-								<MusicSegment Name="MusicSegment_737701375" ID="{2254D96F-980D-4C46-88F7-F2F9E9E07ABB}" ShortID="367914431">
++								<MusicSegment Name="MusicSegment_737701375" ID="{94F34D17-5E88-41D5-88F9-04CDCB38F4CF}" ShortID="444217324">
++									<PropertyList>
++										<Property Name="EndPosition" Type="Real64" Value="30720"/>
++									</PropertyList>
+ 									<ReferenceList>
+ 										<Reference Name="Conversion">
+ 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -376,23 +394,23 @@
+ 										</Reference>
+ 									</ReferenceList>
+ 									<ChildrenList>
+-										<MusicTrack Name="MusicTrack_374737966" ID="{E3E364F0-1657-4AB4-A55B-60A80FEE6819}" ShortID="269433126">
++										<MusicTrack Name="MusicTrack_374737966" ID="{F9852577-7105-4789-8A6A-16811EA5F83E}" ShortID="164119047">
+ 											<ReferenceList>
+ 												<Reference Name="OutputBus">
+ 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+ 												</Reference>
+ 											</ReferenceList>
+ 											<ChildrenList>
+-												<AudioFileSource Name="login_drone_music_loop_02" ID="{064E3D41-ECFF-4966-BEA4-BD6ECC800BF9}">
++												<AudioFileSource Name="393637054" ID="{FFECB950-402E-4921-9907-8D55F7140C27}">
+ 													<Language>SFX</Language>
+-													<AudioFile>login_drone_music_loop_02.wav</AudioFile>
++													<AudioFile>393637054.wav</AudioFile>
+ 													<MediaIDList>
+-														<MediaID ID="601730317"/>
++														<MediaID ID="645520103"/>
+ 													</MediaIDList>
+ 												</AudioFileSource>
+ 											</ChildrenList>
+ 											<TransitionList>
+-												<MusicTransition Name="Root" ID="{F5310F5B-B435-4165-BA43-BA18C51B9F74}">
++												<MusicTransition Name="Root" ID="{2C60EE07-C6B6-4990-9142-E14B58FC521D}">
+ 													<PropertyList>
+ 														<Property Name="IsFolder" Type="bool" Value="True"/>
+ 													</PropertyList>
+@@ -400,15 +418,15 @@
+ 												</MusicTransition>
+ 											</TransitionList>
+ 											<SequenceList>
+-												<MusicTrackSequence Name="" ID="{A9BA7991-209F-4727-95D2-5D4C22EF78EF}">
++												<MusicTrackSequence Name="" ID="{487842F7-5B01-42A7-9EF4-B022777BA681}">
+ 													<ClipList>
+-														<MusicClip Name="login_drone_music_loop_02" ID="{DB6EC314-E813-4B99-A824-C8EA002C332C}">
++														<MusicClip Name="393637054" ID="{324649BD-D022-4730-A397-5DF86BC42D5F}">
+ 															<PropertyList>
+-																<Property Name="EndTrimOffset" Type="Real64" Value="1000"/>
++																<Property Name="EndTrimOffset" Type="Real64" Value="30720"/>
+ 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+ 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+ 															</PropertyList>
+-															<AudioSourceRef Name="login_drone_music_loop_02" ID="{064E3D41-ECFF-4966-BEA4-BD6ECC800BF9}"/>
++															<AudioSourceRef Name="393637054" ID="{FFECB950-402E-4921-9907-8D55F7140C27}"/>
+ 														</MusicClip>
+ 													</ClipList>
+ 												</MusicTrackSequence>
+@@ -416,16 +434,19 @@
+ 										</MusicTrack>
+ 									</ChildrenList>
+ 									<CueList>
+-										<MusicCue Name="Entry Cue" ID="{936FC45B-979D-434A-A91A-83BA5612155E}"/>
+-										<MusicCue Name="Exit Cue" ID="{F1506662-A296-46BF-91F2-E2B75B0E2072}">
++										<MusicCue Name="Entry Cue" ID="{D496109E-3D78-4586-8894-6A0C0D0E4888}"/>
++										<MusicCue Name="Exit Cue" ID="{C5D105C2-AB7C-4EF4-BB7E-7CFD18434986}">
+ 											<PropertyList>
+ 												<Property Name="CueType" Type="int16" Value="1"/>
+-												<Property Name="TimeMs" Type="Real64" Value="1000"/>
++												<Property Name="TimeMs" Type="Real64" Value="30720"/>
+ 											</PropertyList>
+ 										</MusicCue>
+ 									</CueList>
+ 								</MusicSegment>
+-								<MusicSegment Name="MusicSegment_1037442491" ID="{646A8A35-C63B-43E1-869B-F6B89140840A}" ShortID="368897542">
++								<MusicSegment Name="MusicSegment_1037442491" ID="{2702A984-CBE4-4BF1-B5BE-A38BF025A63C}" ShortID="847532963">
++									<PropertyList>
++										<Property Name="EndPosition" Type="Real64" Value="30720"/>
++									</PropertyList>
+ 									<ReferenceList>
+ 										<Reference Name="Conversion">
+ 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+@@ -435,23 +456,23 @@
+ 										</Reference>
+ 									</ReferenceList>
+ 									<ChildrenList>
+-										<MusicTrack Name="MusicTrack_514718034" ID="{4AFCCC4A-BCF1-44D3-A845-4306BBE9CBAD}" ShortID="475904719">
++										<MusicTrack Name="MusicTrack_514718034" ID="{004E1180-08CA-43FE-9D17-6227BD2D7BFB}" ShortID="892103247">
+ 											<ReferenceList>
+ 												<Reference Name="OutputBus">
+ 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+ 												</Reference>
+ 											</ReferenceList>
+ 											<ChildrenList>
+-												<AudioFileSource Name="login_drone_music_loop_03" ID="{30D22410-3170-46B0-B8AA-322E18B1E0A4}">
++												<AudioFileSource Name="919841421" ID="{EE4724A8-D58C-4332-9E27-631A208AD64C}">
+ 													<Language>SFX</Language>
+-													<AudioFile>login_drone_music_loop_03.wav</AudioFile>
++													<AudioFile>919841421.wav</AudioFile>
+ 													<MediaIDList>
+-														<MediaID ID="1060419753"/>
++														<MediaID ID="247717242"/>
+ 													</MediaIDList>
+ 												</AudioFileSource>
+ 											</ChildrenList>
+ 											<TransitionList>
+-												<MusicTransition Name="Root" ID="{4FEC3F48-FD20-4F5E-80CC-964B6CBED239}">
++												<MusicTransition Name="Root" ID="{EB3685FF-6778-4346-9F27-B6D2C1B11A5F}">
+ 													<PropertyList>
+ 														<Property Name="IsFolder" Type="bool" Value="True"/>
+ 													</PropertyList>
+@@ -459,15 +480,15 @@
+ 												</MusicTransition>
+ 											</TransitionList>
+ 											<SequenceList>
+-												<MusicTrackSequence Name="" ID="{E6731FC2-464D-4598-AAB9-6DFADB812101}">
++												<MusicTrackSequence Name="" ID="{C23D3E3C-19A2-4ABD-AF87-930B86F3464C}">
+ 													<ClipList>
+-														<MusicClip Name="login_drone_music_loop_03" ID="{255D9748-70BE-4D29-A937-B6A9FA7FA04A}">
++														<MusicClip Name="919841421" ID="{F752A70C-F06E-44D0-85B9-82F410AA9D67}">
+ 															<PropertyList>
+-																<Property Name="EndTrimOffset" Type="Real64" Value="1000"/>
++																<Property Name="EndTrimOffset" Type="Real64" Value="30720"/>
+ 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+ 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+ 															</PropertyList>
+-															<AudioSourceRef Name="login_drone_music_loop_03" ID="{30D22410-3170-46B0-B8AA-322E18B1E0A4}"/>
++															<AudioSourceRef Name="919841421" ID="{EE4724A8-D58C-4332-9E27-631A208AD64C}"/>
+ 														</MusicClip>
+ 													</ClipList>
+ 												</MusicTrackSequence>
+@@ -475,23 +496,23 @@
+ 										</MusicTrack>
+ 									</ChildrenList>
+ 									<CueList>
+-										<MusicCue Name="Entry Cue" ID="{B78BAEFD-C5CD-49BF-B911-D9940A9204C8}"/>
+-										<MusicCue Name="Exit Cue" ID="{CB6B62B4-4BFC-42FD-B2D4-EDFB13A5D558}">
++										<MusicCue Name="Entry Cue" ID="{924AA69A-4DE2-434F-8E8F-80C7994A5B4C}"/>
++										<MusicCue Name="Exit Cue" ID="{B2E04725-98B8-4543-902D-60D746D45ED8}">
+ 											<PropertyList>
+ 												<Property Name="CueType" Type="int16" Value="1"/>
+-												<Property Name="TimeMs" Type="Real64" Value="1000"/>
++												<Property Name="TimeMs" Type="Real64" Value="30720"/>
+ 											</PropertyList>
+ 										</MusicCue>
+ 									</CueList>
+ 								</MusicSegment>
+ 							</ChildrenList>
+ 							<TransitionList>
+-								<MusicTransition Name="Root" ID="{57A2914E-7370-4AA5-B068-A2A538A1A420}">
++								<MusicTransition Name="Root" ID="{C1F1622C-7A4F-4954-BD34-4B695F154AD8}">
+ 									<PropertyList>
+ 										<Property Name="IsFolder" Type="bool" Value="True"/>
+ 									</PropertyList>
+ 									<ChildrenList>
+-										<MusicTransition Name="Transition" ID="{81A9D971-330B-4A65-8319-C40B1EFBB67B}">
++										<MusicTransition Name="Transition" ID="{DCE1F817-F22C-4117-9E8F-101296F62059}">
+ 											<TransitionInfo/>
+ 										</MusicTransition>
+ 									</ChildrenList>
+@@ -499,7 +520,7 @@
+ 								</MusicTransition>
+ 							</TransitionList>
+ 							<Playlist>
+-								<MusicPlaylistItem Name="" ID="{186F3D77-2CB0-4CC7-9A68-0CDC45E5132E}" ShortID="701139811"/>
++								<MusicPlaylistItem Name="" ID="{576DC0A2-DE79-4010-A110-7D272C7C741D}" ShortID="765050826"/>
+ 							</Playlist>
+ 						</MusicPlaylistContainer>
+ 					</ChildrenList>

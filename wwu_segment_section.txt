@@ -1,0 +1,90 @@
+530 | 						<MusicPlaylistContainer Name="MusicPlaylistContainer_1054648317" ID="{C4241359-7359-4F05-B1A9-4FAAF93DFDFB}" ShortID="672662009">
+531 | 							<ReferenceList>
+532 | 								<Reference Name="Conversion">
+533 | 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+534 | 								</Reference>
+535 | 								<Reference Name="OutputBus">
+536 | 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+537 | 								</Reference>
+538 | 							</ReferenceList>
+539 | 							<ChildrenList>
+540 | 								<MusicSegment Name="MusicSegment_860825692" ID="{5D36B392-C77A-48FB-AE96-775B42CED15B}" ShortID="891252674">
+541 | 									<PropertyList>
+542 | 										<Property Name="EndPosition" Type="Real64" Value="27391.3055555556"/>
+543 | 									</PropertyList>
+544 | 									<ReferenceList>
+545 | 										<Reference Name="Conversion">
+546 | 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F626B6BD-1A59-4220-8E1F-CDEE330BE5B7}"/>
+547 | 										</Reference>
+548 | 										<Reference Name="OutputBus">
+549 | 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+550 | 										</Reference>
+551 | 									</ReferenceList>
+552 | 									<ChildrenList>
+553 | 										<MusicTrack Name="MusicTrack_1021808380" ID="{CE39E0EB-5045-4C49-8BFF-EAD6922979A8}" ShortID="593212554">
+554 | 											<ReferenceList>
+555 | 												<Reference Name="OutputBus">
+556 | 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+557 | 												</Reference>
+558 | 											</ReferenceList>
+559 | 											<ChildrenList>
+560 | 												<AudioFileSource Name="175220409" ID="{56414B44-88EA-4AB0-91F2-28D06D82EA6D}">
+561 | 													<Language>SFX</Language>
+562 | 													<AudioFile>175220409.wav</AudioFile>
+563 | 													<MediaIDList>
+564 | 														<MediaID ID="88754959"/>
+565 | 													</MediaIDList>
+566 | 												</AudioFileSource>
+567 | 											</ChildrenList>
+568 | 											<TransitionList>
+569 | 												<MusicTransition Name="Root" ID="{39355D66-AF67-454D-8FE9-FAAB4046EDB5}">
+570 | 													<PropertyList>
+571 | 														<Property Name="IsFolder" Type="bool" Value="True"/>
+572 | 													</PropertyList>
+573 | 													<TransitionInfo/>
+574 | 												</MusicTransition>
+575 | 											</TransitionList>
+576 | 											<SequenceList>
+577 | 												<MusicTrackSequence Name="" ID="{206CB792-8DA7-4F07-ABB2-0450A7254971}">
+578 | 													<ClipList>
+579 | 														<MusicClip Name="175220409" ID="{D9CB66CD-7E6D-4791-8EE5-3D43142E786F}">
+580 | 															<PropertyList>
+581 | 																<Property Name="EndTrimOffset" Type="Real64" Value="31035.2903480233"/>
+582 | 																<Property Name="FadeInMode" Type="int16" Value="0"/>
+583 | 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+584 | 															</PropertyList>
+585 | 															<AudioSourceRef Name="175220409" ID="{56414B44-88EA-4AB0-91F2-28D06D82EA6D}"/>
+586 | 														</MusicClip>
+587 | 													</ClipList>
+588 | 												</MusicTrackSequence>
+589 | 											</SequenceList>
+590 | 										</MusicTrack>
+591 | 										<MusicTrack Name="MusicTrack_1041720602" ID="{D1901817-DEA3-4BD0-AAF0-9DA5225A8259}" ShortID="321019316">
+592 | 											<ReferenceList>
+593 | 												<Reference Name="OutputBus">
+594 | 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FFFF9198-046E-478E-B81F-3BC268C7732A}"/>
+595 | 												</Reference>
+596 | 											</ReferenceList>
+597 | 											<ChildrenList>
+598 | 												<AudioFileSource Name="182175148" ID="{0FFED534-03A8-4373-BD3C-D84D14BD1884}">
+599 | 													<Language>SFX</Language>
+600 | 													<AudioFile>182175148.wav</AudioFile>
+601 | 													<MediaIDList>
+602 | 														<MediaID ID="815598774"/>
+603 | 													</MediaIDList>
+604 | 												</AudioFileSource>
+605 | 											</ChildrenList>
+606 | 											<TransitionList>
+607 | 												<MusicTransition Name="Root" ID="{DC119E00-3E47-4C00-A011-6A955B2BDF93}">
+608 | 													<PropertyList>
+609 | 														<Property Name="IsFolder" Type="bool" Value="True"/>
+610 | 													</PropertyList>
+611 | 													<TransitionInfo/>
+612 | 												</MusicTransition>
+613 | 											</TransitionList>
+614 | 											<SequenceList>
+615 | 												<MusicTrackSequence Name="" ID="{149F3308-7FA9-4974-9ACD-C30086624722}">
+616 | 													<ClipList>
+617 | 														<MusicClip Name="182175148" ID="{CDB50D4D-09C2-483F-A6AC-D6973B7E12CA}">
+618 | 															<PropertyList>
+619 | 																<Property Name="EndTrimOffset" Type="Real64" Value="31035.2903480233"/>

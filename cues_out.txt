@@ -1,0 +1,7 @@
+<MusicCue Name="Entry Cue" ID="{DA2E613A-A25E-4E10-B083-4FA4CB10DDE0}"/>
+										<MusicCue Name="Exit Cue" ID="{03C3603A-680C-467E-9A20-A01038FD0D16}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="1000"/>
+											</PropertyList>
+										</MusicCue>

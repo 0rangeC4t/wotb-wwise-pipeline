@@ -1,0 +1,22 @@
+WampClientAutobahn (ERROR): ("ApplicationError(error=<ak.wwise.unavailable>, args=[], kwargs={'message': "
+ "'Procedure not available for this type of Wwise instance.', 'details': "
+ "{'procedureUri': 'ak.wwise.ui.project.open'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected. Saving project...
+Disconnected.
+Modified Segment {5D36B392-C77A-48FB-AE96-775B42CED15B} in memory.
+Modified Segment {1F9DDBF8-3EBD-4127-8147-20A8B5FA436C} in memory.
+Modified Segment {DAB2FBC4-E3E0-4070-B38C-09CC148ABE5D} in memory.
+Modified Segment {7216554E-BEE8-4D14-9059-1A53C35A4E25} in memory.
+Wrote modifications to Default Work Unit.wwu.
+Reconnected.
+Reopening project via UI...
+Reopen call executed.
+Segment readback: {'@EndPosition': 27391.3055555556, 'id': '{5D36B392-C77A-48FB-AE96-775B42CED15B}', 'name': 'MusicSegment_860825692'}
+  Exit Cue readback: {'@CueType': 1, '@TimeMs': 1000.0, 'id': '{03C3603A-680C-467E-9A20-A01038FD0D16}', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\music_hangar\\MusicPlaylistContainer_1054648317\\MusicSegment_860825692\\Exit Cue'}
+Segment readback: {'@EndPosition': 27391.3055555556, 'id': '{1F9DDBF8-3EBD-4127-8147-20A8B5FA436C}', 'name': 'MusicSegment_195645763'}
+  Exit Cue readback: {'@CueType': 1, '@TimeMs': 1000.0, 'id': '{3CE1979A-92D9-4B6D-A911-253AD071BA7E}', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\music_hangar\\MusicPlaylistContainer_1054648317\\MusicSegment_195645763\\Exit Cue'}
+Segment readback: {'@EndPosition': 23478.2777777778, 'id': '{DAB2FBC4-E3E0-4070-B38C-09CC148ABE5D}', 'name': 'MusicSegment_797778272'}
+  Exit Cue readback: {'@CueType': 1, '@TimeMs': 1000.0, 'id': '{E89CFA71-0A27-48C7-8F3E-390DE83E7B8B}', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\music_hangar\\MusicPlaylistContainer_1054648317\\MusicSegment_797778272\\Exit Cue'}
+Segment readback: {'@EndPosition': 23478.2777777778, 'id': '{7216554E-BEE8-4D14-9059-1A53C35A4E25}', 'name': 'MusicSegment_626154474'}
+  Exit Cue readback: {'@CueType': 1, '@TimeMs': 1000.0, 'id': '{FE22919D-573E-4920-A0FD-9D3036931B98}', 'name': 'Exit Cue', 'path': '\\Interactive Music Hierarchy\\Default Work Unit\\music_hangar\\MusicPlaylistContainer_1054648317\\MusicSegment_626154474\\Exit Cue'}

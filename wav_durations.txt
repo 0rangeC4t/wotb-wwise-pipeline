@@ -1,0 +1,11 @@
+Checking durations for 10 files in out_wwise/wav_music:
+File: 681154230.wav, Duration: 21521.722222222223 ms
+File: 765264963.wav, Duration: 25434.777777777777 ms
+File: 496764128.wav, Duration: 7040.277777777778 ms
+File: 87356060.wav, Duration: 25434.777777777777 ms
+File: 4744647.wav, Duration: 4646.75 ms
+File: 54875470.wav, Duration: 4157.61111111111 ms
+File: 332055054.wav, Duration: 17527.166666666668 ms
+File: 919841421.wav, Duration: 30720.0 ms
+File: 333047118.wav, Duration: 20543.47222222222 ms
+File: 453743972.wav, Duration: 17608.694444444445 ms

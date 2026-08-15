@@ -1,0 +1,41 @@
+Connected.
+
+All MusicPlaylistItem objects:
+{'return': [{'id': '{576DC0A2-DE79-4010-A110-7D272C7C741D}',
+             'name': '',
+             'path': '[1. Sequence Continuous Group]',
+             'type': 'MusicPlaylistItem'},
+            {'id': '{E16C2578-7334-48BB-8A22-8BFFB73C0D67}',
+             'name': '',
+             'path': '[1. Sequence Continuous Group]',
+             'type': 'MusicPlaylistItem'},
+            {'id': '{52AE3F13-99DF-479E-911B-87BF27CA9634}',
+             'name': '',
+             'path': '[1. Sequence Continuous Group]',
+             'type': 'MusicPlaylistItem'}]}
+
+Introspecting MusicPlaylistItem {576DC0A2-DE79-4010-A110-7D272C7C741D}...
+
+MusicPlaylistItem Property and Reference Names:
+{'return': ['Color',
+            'PlaylistItemType',
+            'PlayMode',
+            'LoopCount',
+            'NormalOrShuffle',
+            'OverrideColor',
+            'RandomAvoidRepeatingCount',
+            'Weight']}
+
+Property Values for MusicPlaylistItem:
+{'return': [{'@Color': 0,
+             '@LoopCount': 1,
+             '@NormalOrShuffle': 1,
+             '@OverrideColor': False,
+             '@PlayMode': 0,
+             '@PlaylistItemType': 0,
+             '@RandomAvoidRepeatingCount': 1,
+             '@Weight': 50.0,
+             'id': '{576DC0A2-DE79-4010-A110-7D272C7C741D}',
+             'name': '',
+             'path': '[1. Sequence Continuous Group]',
+             'type': 'MusicPlaylistItem'}]}

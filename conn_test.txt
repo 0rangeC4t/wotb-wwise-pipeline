@@ -1,0 +1,2 @@
+OSError("Multiple exceptions: [Errno 111] Connect call failed ('::1', 8080, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 8080)")
+FAILED: Connection failed: Could not connect to ws://localhost:8080/waapi

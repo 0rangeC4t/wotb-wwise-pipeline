@@ -1,0 +1,25 @@
+OSError("Multiple exceptions: [Errno 111] Connect call failed ('::1', 8080, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 8080)")
+OSError("Multiple exceptions: [Errno 111] Connect call failed ('::1', 8080, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 8080)")
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.query.unknown_object>, args=[], '
+ "kwargs={'message': 'from id object is unknown', 'details': "
+ "{'procedureUri': 'ak.wwise.core.object.get'}}, enc_algo=None, "
+ 'callee=None, callee_authid=None, callee_authrole=None, forward_for=None)')
+Could not connect to save project (maybe already stopped): Could not connect to ws://localhost:8080/waapi
+Killing existing WwiseConsole.exe/wine processes...
+Running command: pkill -9 -f WwiseConsole.exe
+Running command: pkill -9 -f wine
+Running test_wwu_edit.py to modify WWU on disk...
+Starting WwiseConsole waapi-server...
+Waiting for WAAPI server to start...
+Connecting...
+Successfully re-connected to WAAPI!
+Running readback verification via WAAPI:
+Traceback (most recent call last):
+  File "/mnt/data/wotb-wwise-pipeline/scripts/reboot_wwise.py", line 139, in <module>
+    main()
+    ~~~~^^
+  File "/mnt/data/wotb-wwise-pipeline/scripts/reboot_wwise.py", line 125, in main
+    print(f"Segment {res['return'][0]['name']}: EndPosition={res['return'][0]['@EndPosition']}")
+                     ~~~^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+session closed with reason wamp.close.transport_lost [WAMP transport was lost without closing the session 1 before]

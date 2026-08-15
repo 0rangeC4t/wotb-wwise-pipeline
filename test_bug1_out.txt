@@ -1,0 +1,16 @@
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+WampClientAutobahn (ERROR): ('ApplicationError(error=<ak.wwise.invalid_property>, args=[], '
+ "kwargs={'message': 'Property cannot be set.', 'details': {'procedureUri': "
+ "'ak.wwise.core.object.setProperty'}}, enc_algo=None, callee=None, "
+ 'callee_authid=None, callee_authrole=None, forward_for=None)')
+Connected.
+Setting 11 clips' EndTrimOffset...
+Saving project after setting Clip EndTrimOffsets...
+Setting Exit Cue TimeMs to 31035.290348023253...
+Setting Segment EndPosition to 31035.290348023253...
+Saving project after setting Cue and Segment...
+Read-back Segment EndPosition: 27391.3055555556
+Read-back Exit Cue TimeMs: 1000.0
