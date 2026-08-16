@@ -160,20 +160,23 @@ def main():
             track_guid = track_res["id"]
             created_guids[ts["id"]] = track_guid
 
-            # Set TrackType property
-            # Normal: 0, Random: 1, Sequence: 2
+            # Set TrackType property (Normal: 0 is default; Random: 1, Sequence: 2)
             t_type_val = 0
             if ts["type"] == "Random":
                 t_type_val = 1
             elif ts["type"] == "Sequence":
                 t_type_val = 2
                 
-            client.call("ak.wwise.core.object.setProperty", {
-                "object": track_guid,
-                "property": "TrackType",
-                "value": t_type_val
-            })
-            logging.info(f"Set TrackType={t_type_val} ({ts['type']}) on MusicTrack {track_name}")
+            if t_type_val != 0:
+                try:
+                    client.call("ak.wwise.core.object.setProperty", {
+                        "object": track_guid,
+                        "property": "TrackType",
+                        "value": t_type_val
+                    })
+                    logging.info(f"Set TrackType={t_type_val} ({ts['type']}) on MusicTrack {track_name}")
+                except Exception as e:
+                    logging.warning(f"Could not set TrackType={t_type_val} on {track_name}: {e}")
 
             # Import each of its Source ID WAV files directly under this Track!
             # The user states that the WAV files are located in out_wwise/wav_music/<SID>.wav
@@ -246,19 +249,36 @@ def main():
                         })
                         logging.info(f"Set EndTrimOffset={duration} ms on MusicClip {d['name']} ({d['id']})")
 
-        # Save project
+        # Save project after audio import and clip EndTrimOffset updates
         client.call("ak.wwise.core.project.save")
 
-        # After imports and clip EndTrimOffset save, set segment EndPosition via WAAPI.
-        # Test on one segment first, then apply to all if successful.
-        logging.info("Attempting to set EndPosition via WAAPI (test one segment first)...")
+        # Now that audio and clips are imported, set segment EndPosition and Exit Cue TimeMs via WAAPI
+        logging.info("Setting EndPosition and Exit Cue TimeMs via WAAPI after audio import...")
 
-        def _set_endposition_for_segment(seg_id):
+        def _set_endposition_and_cue_for_segment(seg_id):
             seg_guid = created_guids.get(seg_id)
             duration = segment_durations.get(seg_id)
             if not seg_guid or duration is None:
                 logging.error(f"Missing seg_guid or duration for {seg_id}")
                 return False, None
+
+            # Find Exit Cue
+            all_cues = client.call("ak.wwise.core.object.get", {
+                "from": {"ofType": ["MusicCue"]}
+            }, options={"return": ["id", "name", "@CueType", "path"]})
+            
+            for cue in all_cues.get("return", []):
+                if f"MusicSegment_{seg_id}" in cue.get("path", "") and cue.get("@CueType") == 1:
+                    try:
+                        client.call("ak.wwise.core.object.setProperty", {
+                            "object": cue["id"],
+                            "property": "TimeMs",
+                            "value": duration
+                        })
+                        logging.info(f"Set Exit Cue TimeMs={duration} ms for segment {seg_id}")
+                    except Exception as e:
+                        logging.error(f"Failed to set Exit Cue TimeMs for segment {seg_id}: {e}")
+
             try:
                 client.call("ak.wwise.core.object.setProperty", {
                     "object": seg_guid,
@@ -268,6 +288,8 @@ def main():
             except Exception as e:
                 logging.error(f"Failed to set EndPosition via WAAPI for {seg_id}: {e}")
                 return False, None
+
+            client.call("ak.wwise.core.project.save")
 
             try:
                 get_res = client.call("ak.wwise.core.object.get", {
@@ -286,51 +308,33 @@ def main():
 
         # Pick the first segment to test
         first_seg = next(iter(segment_durations.keys()))
-        ok, _ = _set_endposition_for_segment(first_seg)
+        ok, _ = _set_endposition_and_cue_for_segment(first_seg)
         if not ok:
-            logging.error("WAAPI EndPosition test failed on first segment; will fallback to WWU edit if necessary.")
+            logging.warning("WAAPI EndPosition set failed on first segment; falling back to WWU direct XML modification + Wwise reboot...")
+            client.disconnect()
+            
+            import subprocess
+            logging.info("Running reboot_wwise.py to apply EndPosition and Exit Cue TimeMs directly to WWU...")
+            subprocess.run(["python3", "scripts/reboot_wwise.py"], check=True)
+            
+            # Reconnect client
+            client = WaapiClient(url="ws://localhost:8080/waapi")
+            logging.info("Re-connected to WAAPI server after reboot.")
         else:
-            logging.info("WAAPI EndPosition test succeeded; applying to remaining segments...")
+            logging.info("WAAPI EndPosition test succeeded on first segment; applying to remaining segments...")
             for seg_id in segment_durations.keys():
                 if seg_id == first_seg:
                     continue
-                _set_endposition_for_segment(seg_id)
-
-        # Also set Exit Cue TimeMs via WAAPI to match each segment's duration
-        try:
-            cues_verify = client.call("ak.wwise.core.object.get", {
-                "from": {"ofType": ["MusicCue"]}
-            }, options={"return": ["id", "name", "path", "@TimeMs", "@CueType"]})
-            for cue in cues_verify.get("return", []):
-                cue_path = cue.get("path", "")
-                # CueType == 1 indicates Exit Cue
-                if folder_name in cue_path and cue.get("@CueType") == 1:
-                    for seg_id, duration in segment_durations.items():
-                        if f"MusicSegment_{seg_id}" in cue_path:
-                            try:
-                                client.call("ak.wwise.core.object.setProperty", {
-                                    "object": cue["id"],
-                                    "property": "TimeMs",
-                                    "value": duration
-                                })
-                                logging.info(f"Set Exit Cue TimeMs={duration} ms for segment {seg_id}")
-                            except Exception as e:
-                                logging.error(f"Failed to set Exit Cue TimeMs for segment {seg_id}: {e}")
-        except Exception as e:
-            logging.error(f"Failed to query MusicCue objects for setting TimeMs: {e}")
+                _set_endposition_and_cue_for_segment(seg_id)
 
         # 9. Build the nested playlist structure for the top-level RanSeqContainer 1054648317
         logging.info("Configuring Nested Playlist for MusicPlaylistContainer 1054648317...")
-        # Get all MusicPlaylistItem in project currently; retry until the auto-created
-        # root item is available (it can take a moment after project save/imports).
         root_item = None
         for attempt in range(10):
             playlist_items_get = client.call("ak.wwise.core.object.get", {
                 "from": {"ofType": ["MusicPlaylistItem"]}
             }, options={"return": ["id", "name", "owner", "parent", "path"]})
             all_playlist_items = playlist_items_get.get("return", [])
-            logging.info(f"All queried playlist items (attempt {attempt+1}): {json.dumps(all_playlist_items, indent=2)}")
-            logging.info(f"Target container_guid: {container_guid}")
 
             for pi in all_playlist_items:
                 owner_info = pi.get("owner")
@@ -372,45 +376,7 @@ def main():
             "value": 50.0
         })
         
-        # Now let's build the playlist hierarchy tree:
-        # Root (PlaylistItemType = 1, LoopCount = 0)
-        # ├── Group A (ContinuousRandom, Loop = 1, Weight = 50.0) -> PlaylistItemType = 2
-        # │   ├── Segment Item 860825692 (Loop = 1, Weight = 60.0) -> PlaylistItemType = 0
-        # │   └── Segment Item 195645763 (Loop = 1, Weight = 50.0) -> PlaylistItemType = 0
-        # └── Group B (ContinuousSequence, Loop = 0, Weight = 50.0) -> PlaylistItemType = 1
-        #     ├── Group B1 (StepRandom, Loop = 1, Weight = 50.0) -> PlaylistItemType = 4 (Step Random)
-        #     │   ├── Segment Item 797778272 (Loop = 1, Weight = 50.0) -> PlaylistItemType = 0
-        #     │   └── Segment Item 626154474 (Loop = 2, Weight = 50.0) -> PlaylistItemType = 0
-        #     └── Group B2 (ContinuousRandom, Loop = 1, Weight = 50.0) -> PlaylistItemType = 2
-        #         ├── Segment Item 195645763 (Loop = 1, Weight = 25.0) -> PlaylistItemType = 0
-        #         └── Segment Item 860825692 (Loop = 1, Weight = 75.0) -> PlaylistItemType = 0
-        
-        # 1. Create Group A under Root
-        logging.info("Creating Group A (Continuous Random)...")
-        group_a = client.call("ak.wwise.core.object.create", {
-            "parent": root_guid,
-            "type": "MusicPlaylistItem",
-            "name": "Group_A_Random",
-            "onNameConflict": "replace"
-        })
-        ga_guid = group_a["id"]
-        client.call("ak.wwise.core.object.setProperty", {
-            "object": ga_guid,
-            "property": "PlaylistItemType",
-            "value": 2 # Random Continuous
-        })
-        client.call("ak.wwise.core.object.setProperty", {
-            "object": ga_guid,
-            "property": "LoopCount",
-            "value": 1
-        })
-        client.call("ak.wwise.core.object.setProperty", {
-            "object": ga_guid,
-            "property": "Weight",
-            "value": 50.0
-        })
-
-        # Create Items under Group A
+        # Helper to add segment items correctly (PlaylistItemType=0 must be set BEFORE setReference)
         def add_segment_item(parent_guid, seg_id, loop, weight):
             item = client.call("ak.wwise.core.object.create", {
                 "parent": parent_guid,
@@ -440,6 +406,31 @@ def main():
                 "value": created_guids[seg_id]
             })
             logging.info(f"Added Segment Item {seg_id} to parent {parent_guid}: Loop={loop}, Weight={weight}")
+
+        # 1. Create Group A under Root
+        logging.info("Creating Group A (Continuous Random)...")
+        group_a = client.call("ak.wwise.core.object.create", {
+            "parent": root_guid,
+            "type": "MusicPlaylistItem",
+            "name": "Group_A_Random",
+            "onNameConflict": "replace"
+        })
+        ga_guid = group_a["id"]
+        client.call("ak.wwise.core.object.setProperty", {
+            "object": ga_guid,
+            "property": "PlaylistItemType",
+            "value": 2 # Random Continuous
+        })
+        client.call("ak.wwise.core.object.setProperty", {
+            "object": ga_guid,
+            "property": "LoopCount",
+            "value": 1
+        })
+        client.call("ak.wwise.core.object.setProperty", {
+            "object": ga_guid,
+            "property": "Weight",
+            "value": 50.0
+        })
 
         add_segment_item(ga_guid, "860825692", loop=1, weight=60.0)
         add_segment_item(ga_guid, "195645763", loop=1, weight=50.0)
@@ -523,13 +514,22 @@ def main():
         add_segment_item(gb2_guid, "195645763", loop=1, weight=25.0)
         add_segment_item(gb2_guid, "860825692", loop=1, weight=75.0)
 
-        # Save and finish!
+        # Save project
         logging.info("Saving Wwise project...")
         client.call("ak.wwise.core.project.save")
         logging.info("Wwise project saved successfully!")
+
+        # Disconnect client before rebooting Wwise
+        client.disconnect()
         
-        # No WWU direct edits or Wwise restart required anymore; EndPosition and Exit Cue
-        # TimeMs were set via WAAPI earlier. Continue to verification using the active client.
+        # Run reboot_wwise.py to apply segment EndPosition and Exit Cue TimeMs directly to WWU and reboot Wwise
+        import subprocess
+        logging.info("Running reboot_wwise.py to set segment EndPosition and Exit Cue TimeMs in WWU...")
+        subprocess.run(["python3", "scripts/reboot_wwise.py"], check=True)
+
+        # Reconnect WAAPI client for mandatory verification read-backs
+        client = WaapiClient(url="ws://localhost:8080/waapi")
+        logging.info("Re-connected to WAAPI for verification.")
 
         # 10. Perform Verification Read-Backs (MANDATORY)
         logging.info("================= RUNNING MANDATORY VERIFICATION =================")

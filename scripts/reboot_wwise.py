@@ -33,10 +33,10 @@ def main():
         content = f.read()
 
     segment_durations = {
-        "{5D36B392-C77A-48FB-AE96-775B42CED15B}": 31035.290348023253, # 860825692
-        "{1F9DDBF8-3EBD-4127-8147-20A8B5FA436C}": 31035.290348023253, # 195645763
-        "{DAB2FBC4-E3E0-4070-B38C-09CC148ABE5D}": 26172.91396780616,  # 797778272
-        "{7216554E-BEE8-4D14-9059-1A53C35A4E25}": 22253.02308487956   # 626154474
+        "{C48BAD93-F856-4233-B912-42C164175E33}": 31035.290348023253, # 860825692
+        "{E7140C6D-FABD-43F2-907D-B213A40D9574}": 31035.290348023253, # 195645763
+        "{1E304852-5C5A-475A-BBA4-85A3C077E4D1}": 26172.91396780616,  # 797778272
+        "{9B3B4746-3DB0-4FAD-93E9-55F0AF90D846}": 22253.02308487956   # 626154474
     }
 
     modified = False
@@ -84,6 +84,38 @@ def main():
             modified = True
             print(f"Modified Segment {seg_id} in memory.")
 
+    # Also inject Segment ObjectRef for playlist items
+    seg_item_map = {
+        "Item_Seg_860825692": ("MusicSegment_860825692", "{C48BAD93-F856-4233-B912-42C164175E33}"),
+        "Item_Seg_195645763": ("MusicSegment_195645763", "{E7140C6D-FABD-43F2-907D-B213A40D9574}"),
+        "Item_Seg_797778272": ("MusicSegment_797778272", "{1E304852-5C5A-475A-BBA4-85A3C077E4D1}"),
+        "Item_Seg_626154474": ("MusicSegment_626154474", "{9B3B4746-3DB0-4FAD-93E9-55F0AF90D846}")
+    }
+
+    for item_name, (seg_name, seg_guid) in seg_item_map.items():
+        pattern = re.compile(rf'<MusicPlaylistItem\s+Name="{item_name}"\s+ID="([^"]+)"\s+ShortID="([^"]+)"(?:\s*/>|>(.*?)</MusicPlaylistItem>)', re.DOTALL)
+        for m in pattern.finditer(content):
+            full_match = m.group(0)
+            item_id = m.group(1)
+            short_id = m.group(2)
+            inner = m.group(3) or ""
+
+            if "<Reference Name=\"Segment\">" not in full_match:
+                ref_xml = (
+                    f'<ReferenceList>\n'
+                    f'\t\t\t\t\t\t\t\t\t\t\t\t\t<Reference Name="Segment">\n'
+                    f'\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ObjectRef Name="{seg_name}" ID="{seg_guid}" WorkUnitID="{{6BEA8D10-A7E0-4F5C-BC61-11699E72205A}}"/>\n'
+                    f'\t\t\t\t\t\t\t\t\t\t\t\t\t</Reference>\n'
+                    f'\t\t\t\t\t\t\t\t\t\t\t\t</ReferenceList>'
+                )
+                if full_match.endswith("/>"):
+                    new_item_xml = f'<MusicPlaylistItem Name="{item_name}" ID="{item_id}" ShortID="{short_id}">\n\t\t\t\t\t\t\t\t\t\t\t\t{ref_xml}\n\t\t\t\t\t\t\t\t\t\t\t</MusicPlaylistItem>'
+                else:
+                    new_item_xml = f'<MusicPlaylistItem Name="{item_name}" ID="{item_id}" ShortID="{short_id}">\n\t\t\t\t\t\t\t\t\t\t\t\t{ref_xml}\n{inner}\n\t\t\t\t\t\t\t\t\t\t\t</MusicPlaylistItem>'
+                content = content.replace(full_match, new_item_xml)
+                modified = True
+                print(f"Injected Segment reference for {item_name} ({item_id})")
+
     if modified:
         with open(wwu_path, "w", encoding="utf-8") as f:
             f.write(content)
@@ -119,19 +151,26 @@ def main():
     # 6. Read back segment properties via WAAPI
     print("Running readback verification via WAAPI:")
     for seg_id, duration in segment_durations.items():
-        res = client.call("ak.wwise.core.object.get", {
-            "from": {"id": [seg_id]}
-        }, options={"return": ["id", "name", "@EndPosition"]})
-        print(f"Segment {res['return'][0]['name']}: EndPosition={res['return'][0]['@EndPosition']}")
+        try:
+            res = client.call("ak.wwise.core.object.get", {
+                "from": {"id": [seg_id]}
+            }, options={"return": ["id", "name", "@EndPosition"]})
+            if res and res.get("return"):
+                seg_obj = res["return"][0]
+                print(f"Segment {seg_obj['name']}: EndPosition={seg_obj['@EndPosition']}")
 
-        # Get Exit Cue
-        all_cues = client.call("ak.wwise.core.object.get", {
-            "from": {"ofType": ["MusicCue"]}
-        }, options={"return": ["id", "name", "@CueType", "path", "@TimeMs"]})
-        for cue in all_cues.get("return", []):
-            if seg_id in cue["path"] or res['return'][0]['name'] in cue["path"]:
-                if cue["@CueType"] == 1: # Exit Cue
-                    print(f"  Exit Cue for {res['return'][0]['name']}: TimeMs={cue['@TimeMs']}")
+                # Get Exit Cue
+                all_cues = client.call("ak.wwise.core.object.get", {
+                    "from": {"ofType": ["MusicCue"]}
+                }, options={"return": ["id", "name", "@CueType", "path", "@TimeMs"]})
+                for cue in all_cues.get("return", []):
+                    if seg_id in cue["path"] or seg_obj['name'] in cue["path"]:
+                        if cue["@CueType"] == 1: # Exit Cue
+                            print(f"  Exit Cue for {seg_obj['name']}: TimeMs={cue['@TimeMs']}")
+            else:
+                print(f"Segment ID {seg_id} not found via WAAPI query.")
+        except Exception as e:
+            print(f"Readback query exception for {seg_id}: {e}")
 
     client.disconnect()
 
