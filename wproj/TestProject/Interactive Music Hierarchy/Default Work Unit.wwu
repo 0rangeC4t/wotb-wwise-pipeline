@@ -539,7 +539,7 @@
 							<ChildrenList>
 								<MusicSegment Name="MusicSegment_860825692" ID="{C48BAD93-F856-4233-B912-42C164175E33}" ShortID="102209416">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="31035.290348023253"/>
+										<Property Name="EndPosition" Type="Real64" Value="31035.2903480233"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -974,14 +974,14 @@
 										<MusicCue Name="Exit Cue" ID="{562583D7-C8CA-4C6E-8936-6D7129152B52}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="31035.290348023253"/>
+												<Property Name="TimeMs" Type="Real64" Value="31035.2903480233"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
 								</MusicSegment>
 								<MusicSegment Name="MusicSegment_195645763" ID="{E7140C6D-FABD-43F2-907D-B213A40D9574}" ShortID="1067190045">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="31035.290348023253"/>
+										<Property Name="EndPosition" Type="Real64" Value="31035.2903480233"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1454,14 +1454,14 @@
 										<MusicCue Name="Exit Cue" ID="{B4EE73BD-9D09-4981-868A-8F9169732008}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="31035.290348023253"/>
+												<Property Name="TimeMs" Type="Real64" Value="31035.2903480233"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
 								</MusicSegment>
 								<MusicSegment Name="MusicSegment_797778272" ID="{1E304852-5C5A-475A-BBA4-85A3C077E4D1}" ShortID="713972852">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="26172.91396780616"/>
+										<Property Name="EndPosition" Type="Real64" Value="26172.9139678062"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1896,14 +1896,14 @@
 										<MusicCue Name="Exit Cue" ID="{B2CAC09F-770D-4A11-B78D-4282419A78DF}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="26172.91396780616"/>
+												<Property Name="TimeMs" Type="Real64" Value="26172.9139678062"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
 								</MusicSegment>
 								<MusicSegment Name="MusicSegment_626154474" ID="{9B3B4746-3DB0-4FAD-93E9-55F0AF90D846}" ShortID="196211458">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="22253.02308487956"/>
+										<Property Name="EndPosition" Type="Real64" Value="22253.0230848796"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2338,7 +2338,7 @@
 										<MusicCue Name="Exit Cue" ID="{86DE5985-1B07-4D5F-BA44-155A39360291}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="22253.02308487956"/>
+												<Property Name="TimeMs" Type="Real64" Value="22253.0230848796"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
