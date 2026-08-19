@@ -59,54 +59,55 @@ def link_manifest():
         data = json.load(f)
         
     manifest = {}
-    
+    # Collect languages per source_id into sets for dedup, then convert to sorted lists.
+    # This avoids last-write-wins silent data loss when the same source_id appears under
+    # multiple Language values (e.g. RXD modpack: ~41% of IDs have >1 Language entry due
+    # to UsingReferenceLanguageAsStandIn mechanism in Wwise).
+    _lang_sets = {}   # source_id -> set of language strings (excluding "SFX")
+
+    def _register(source_id, short_name, lang):
+        """Register or update a source_id in the manifest with its language."""
+        if source_id not in manifest:
+            manifest[source_id] = {
+                "friendly_name": os.path.basename(short_name) if short_name else None,
+                "object_path": short_name if short_name else None,
+            }
+            _lang_sets[source_id] = set()
+        # Only update friendly_name/object_path if currently None (keep first non-None)
+        entry = manifest[source_id]
+        if entry["friendly_name"] is None and short_name:
+            entry["friendly_name"] = os.path.basename(short_name)
+        if entry["object_path"] is None and short_name:
+            entry["object_path"] = short_name
+        # Collect language (skip "SFX" — those yield empty list)
+        if lang and lang != "SFX":
+            _lang_sets[source_id].add(lang)
+
     # 1. Parse StreamedFiles
     streamed_files = data.get("SoundBanksInfo", {}).get("StreamedFiles", [])
     for sf in streamed_files:
-        sf_id = sf.get("Id")
-        short_name = sf.get("ShortName")
-        lang = sf.get("Language")
-        if lang == "SFX":
-            lang = None
-            
-        manifest[sf_id] = {
-            "friendly_name": os.path.basename(short_name) if short_name else None,
-            "object_path": short_name if short_name else None,
-            "language": lang
-        }
+        _register(sf.get("Id"), sf.get("ShortName"), sf.get("Language"))
         
     # 2. Parse SoundBanks (embedded files in DIDX, including nested IncludedEvents -> IncludedMemoryFiles)
     soundbanks = data.get("SoundBanksInfo", {}).get("SoundBanks", [])
     for sb in soundbanks:
         lang = sb.get("Language")
-        if lang == "SFX":
-            lang = None
             
         # Top-level memory files
         included_files = sb.get("IncludedMemoryFiles", [])
         for imf in included_files:
-            imf_id = imf.get("Id")
-            short_name = imf.get("ShortName")
-            
-            manifest[imf_id] = {
-                "friendly_name": os.path.basename(short_name) if short_name else None,
-                "object_path": short_name if short_name else None,
-                "language": lang
-            }
+            _register(imf.get("Id"), imf.get("ShortName"), lang)
             
         # Nested event-level memory files (for Voice/Languages)
         included_events = sb.get("IncludedEvents", [])
         for event in included_events:
             event_files = event.get("IncludedMemoryFiles", [])
             for emf in event_files:
-                emf_id = emf.get("Id")
-                short_name = emf.get("ShortName")
-                
-                manifest[emf_id] = {
-                    "friendly_name": os.path.basename(short_name) if short_name else None,
-                    "object_path": short_name if short_name else None,
-                    "language": lang
-                }
+                _register(emf.get("Id"), emf.get("ShortName"), lang)
+
+    # Finalize: convert language sets to sorted lists in manifest
+    for source_id in manifest:
+        manifest[source_id]["language"] = sorted(_lang_sets[source_id])
             
     # Enrich with txtp mappings if available (does not affect orphan generation)
     txtp_mappings = parse_txtp_files(txtp_dir)
