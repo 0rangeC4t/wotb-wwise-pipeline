@@ -86,6 +86,76 @@ def main():
         })
         container_guid = container_res["id"]
 
+        # Try to detect the correct WAAPI property name for MakeUpGain on
+        # MusicPlaylistContainer and set it. We query available property names
+        # with `getPropertyAndReferenceNames` and search for a property that
+        # references "MakeUp". This avoids guessing SDK names across versions.
+        try:
+            props = client.call("ak.wwise.core.object.getPropertyAndReferenceNames", {
+                "object": container_guid
+            })
+            found_prop = None
+
+            def _search_for_makeup(obj):
+                if isinstance(obj, dict):
+                    # prefer explicit name keys if present
+                    name = obj.get("name") or obj.get("property") or obj.get("displayName")
+                    if isinstance(name, str) and "makeup" in name.lower():
+                        return name
+                    # check other string values for hints
+                    for v in obj.values():
+                        if isinstance(v, str) and "makeup" in v.lower():
+                            # try to return a canonical property id if available
+                            return obj.get("name") or obj.get("property") or name
+                    # recurse
+                    for v in obj.values():
+                        res = _search_for_makeup(v)
+                        if res:
+                            return res
+                elif isinstance(obj, list):
+                    for item in obj:
+                        res = _search_for_makeup(item)
+                        if res:
+                            return res
+                return None
+
+            for entry in props.get("return", []):
+                candidate = _search_for_makeup(entry)
+                if candidate:
+                    found_prop = candidate
+                    break
+
+            # fallback to common literal if nothing discovered
+            if not found_prop:
+                possible_fallbacks = ["MakeUpGain", "MakeUp", "MakeUp_Gain"]
+                for pf in possible_fallbacks:
+                    try:
+                        # conservative test: attempt to set then readback
+                        client.call("ak.wwise.core.object.setProperty", {
+                            "object": container_guid,
+                            "property": pf,
+                            "value": -8.0
+                        })
+                        found_prop = pf
+                        break
+                    except Exception:
+                        continue
+
+            if found_prop:
+                try:
+                    client.call("ak.wwise.core.object.setProperty", {
+                        "object": container_guid,
+                        "property": found_prop,
+                        "value": -8.0
+                    })
+                    logging.info(f"Set MakeUpGain via property '{found_prop}' on {container_name}")
+                except Exception as e:
+                    logging.warning(f"Failed to set MakeUpGain on {container_name} using '{found_prop}': {e}")
+            else:
+                logging.warning("Could not discover a WAAPI property name for MakeUpGain on MusicPlaylistContainer; skipping set.")
+        except Exception as e:
+            logging.warning(f"getPropertyAndReferenceNames failed for {container_name}: {e}")
+
         # 6. Create MusicSegments under the MusicPlaylistContainer
         created_guids = {}
         created_guids[container_id] = container_guid
