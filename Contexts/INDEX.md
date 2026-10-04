@@ -32,3 +32,5 @@
 | #28 | Phạm vi tổng quát hoá — dừng ở TestProject | DECISION | 03 |
 | #29 | Tổ chức theo Work Unit/nhóm chức năng | DECISION | 04 |
 | #30 | Ứng viên "gunsound" + câu hỏi mở | OPEN_QUESTION | 04 |
+| #31 | Va chạm Source ID giữa ngôn ngữ RXD (557 ID); sửa #6, #9 | DONE | 01 |
+| #32 | Cấu trúc crewvoice RXD: nam/nữ qua RTPC âm lượng nhạc, 8 mẫu event | DONE | 03 |

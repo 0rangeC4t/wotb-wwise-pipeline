@@ -45,8 +45,8 @@ Quy tắc: orphan >10% là dấu hiệu bug parser, không phải dữ liệu th
 ## Fact #5 [DONE] — `gup` là Language chính hãng
 `gup` (Girls und Panzer) đứng ngang `en`/`ru`/`vi` trong JSON gốc — KHÔNG phải mod, collab chính thức Wargaming. `DP_WoTB_Mod_gup` MD5 trùng 100% `gup` gốc.
 
-## Fact #6 [DONE] — Naming & kiến trúc thư mục
-`pool/<id>.wem` dùng Source ID số làm tên; tên đẹp chỉ trong `manifest.json`. `pool/` giữ SẠCH chỉ `.wem`. `out_wwise/render_pool/` là thư mục ảo cho render, symlink cả `.wem` (từ `pool/`) và `.bnk` (từ input gốc) — cần cho `vgmstream-cli` phân giải subsong nhúng. `generate_txtp.py` trỏ `-gw` vào `render_pool/`, KHÔNG phải `pool/`.
+## Fact #6 [DONE, SỬA 02/10] — Naming & kiến trúc thư mục
+`pool/<id>.wem` dùng Source ID số làm tên; tên đẹp chỉ trong `manifest.json`. `pool/` giữ SẠCH chỉ `.wem`. `out_wwise/render_pool/` là thư mục ảo cho render, symlink cả `.wem` (từ `pool/`) và `.bnk` (từ input gốc) — cần cho `vgmstream-cli` phân giải subsong nhúng. `generate_txtp.py` trỏ `-gw` vào `render_pool/`, KHÔNG phải `pool/`. NHƯNG `pool/<id>.wem` phẳng theo ID KHÔNG đủ khi cùng Source ID có audio khác nhau theo ngôn ngữ (xem Fact #31). Với voice theo ngôn ngữ, decode thẳng từ bank, không đi qua `pool/`.
 
 ## Fact #7 [DONE] — Phạm vi Music Hierarchy
 Chỉ 2/52 bank có Segment/Track/Transition: `music_hangar.bnk` (51 match), `apk.bnk` (17 match). Bank còn lại chỉ `CAkSound` đơn giản.
@@ -54,8 +54,9 @@ Chỉ 2/52 bank có Segment/Track/Transition: `music_hangar.bnk` (51 match), `ap
 ## Fact #8 [DONE] — Wine khả dụng toàn pipeline
 Verify PASS: Activation/UI, CLI headless, `create-new-project`, WAAPI socket, encoder build thật (`.bnk` output >0 byte). Quyết định: dùng Wine cho toàn bộ, không cần máy Windows riêng.
 
-## Fact #9 [DONE] — Trùng ID giữa bank là BÌNH THƯỜNG
+## Fact #9 [DONE, SỬA 02/10] — Trùng ID giữa bank
 92/5633 ID unique carve từ nhiều bank, size byte-for-byte giống hệt → shared asset hợp lệ. Chỉ đáng lo nếu cùng ID khác size (chưa gặp).
+RXD: KHÔNG áp dụng, xem Fact #31 (557 ID cùng ID khác size).
 
 ## Fact #10 [DONE] — Dry-run 934/934 (sửa lại kết luận cũ SAI)
 Sau fix #1: 934/934, 0 MISSING_SOURCE. Kết luận cũ "StreamType 0x02 = thiết kế cố ý" SAI — chỉ do bug #1 thiếu 35 file lúc đó chưa phát hiện.
@@ -95,3 +96,13 @@ Chạy lại đúng script rời (không có `run_pipeline.py`) với `--input`/
 
 ## Checkpoint
 `git commit` sau mỗi phase. `manifest.json`/`inject_state.json` backup riêng, không nằm trong `.gitignore`. Lỗi giữa chừng Phase 4: không xoá `.wproj`, resume qua `inject_state.json`.
+
+## Fact #31 [DONE] — Va chạm Source ID giữa ngôn ngữ (RXD)
+Đọc DIDX của 37 bank (so size): 557/1565 ID có >1 kích thước khác nhau; cả 557 đều nằm trong
+bank ngôn ngữ `rxd_*`. Đây là mức TỐI THIỂU (chưa bắt được khác nội dung cùng size).
+`pool/` chỉ giữ 1 bản/ID: 8/8 mẫu khớp `rxd_us` (cuối thứ tự chữ cái).
+[ASSUMPTION_UNVERIFIED] cơ chế "bản sau ghi đè bản trước" — chưa đọc code ghi `pool/` (không nằm trong carve_core.py).
+Hệ quả: `wav_sid/` (decode từ pool) chỉ đúng 1 ngôn ngữ cho 557 ID này. Phase 4 (`wwise_builder.py`) chưa chạy cho RXD, sẽ ánh xạ sai nếu dùng pool.
+Cách đúng: `vgmstream-cli -S 0 -o "<out>/<lang>/?n.wav" render_pool/<lang>/voiceover_crew.bnk`
+(`?n` = Source ID). Verify: 26 bank, mỗi bản thường 592 stream, `_auto` 600 -> 15496 file, 0 lỗi.
+Không dùng `ls` trong pipe (alias eza --color=always chèn mã màu); dùng `find -print0`.
