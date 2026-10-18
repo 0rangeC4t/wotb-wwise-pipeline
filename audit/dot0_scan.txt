@@ -1,0 +1,13 @@
+WARN  chưa có baseline (agent_kit/silent_baseline.txt): mọi phát hiện đều tính là MỚI
+FAIL  core/index_parser.py:17  empty-return-in-if  (trong parse_didx)
+FAIL  core/index_parser.py:21  empty-return-in-if  (trong parse_didx)
+FAIL  core/index_parser.py:33  empty-return-in-if  (trong parse_akpk)
+FAIL  core/index_parser.py:42  empty-return-in-if  (trong parse_akpk)
+FAIL  scripts/build_clean.py:54  swallowed-exception  (trong main)
+FAIL  scripts/build_music_hangar.py:141  swallowed-exception  (trong main)
+FAIL  scripts/check_segment_sources_durations.py:29  swallowed-exception  (trong get_wav_duration)
+FAIL  scripts/check_wav_durations.py:12  swallowed-exception  (trong get_wav_duration)
+FAIL  scripts/linker.py:27  swallowed-exception  (trong parse_txtp_files)
+FAIL  scripts/reboot_wwise.py:127  hardcoded-path  (trong main)
+FAIL  scripts/test_wwu_edit.py:82  hardcoded-path  (trong main)
+Đã quét 38 file: 0 phát hiện cũ (trong baseline), 11 MỚI.

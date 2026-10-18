@@ -1,0 +1,28 @@
+# Tiến độ audit
+- [xong] repo không chứa file âm thanh (cả lịch sử commit)
+- [xong] đợt 0: quét lỗi câm, 11 phát hiện (audit/dot0_scan.txt)
+- [đang] core/index_parser.py: 4 chỗ return [] gộp nhiều lý do
+- [đang] scripts/run_full_carve.py: `if not index: continue` im lặng
+- [chờ] linker.py:27 except pass; build_music_hangar.py:141; build_clean.py:54
+- [chờ] inject_state.json rỗng 0 byte: hỏi lịch sử file
+- [chờ] 2 hardcode path: reboot_wwise.py:127, test_wwu_edit.py:82
+- [ghi nhận, TB] build_music_hangar:141: comment nói readback nhưng code không có; log báo thành công khi chưa kiểm; giá trị -8.0 gán cứng, chưa rõ nguồn
+- [ghi nhận, thấp-TB] build_clean:54: except pass quá rộng; xóa trực tiếp rồi save; tên apk_bnk_01/02 gợi ý từng bị trùng tên
+- [chờ] xem 2 hàm get_wav_duration + linker.py:27 (đã xem, mức thấp)
+- [ghi nhận] run_full_carve: failed chỉ đếm ngoại lệ; file rỗng đi qua `continue` không đếm; không có mã thoát
+- [hạ mức] inject_state.json: chỉ 1 commit (270df76, Phase 3), nghi file giữ chỗ; kiểm tra trên laptop
+- [đang] build_music_hangar.py:141: cần xem dòng 135-160
+- [ghi nhận, TB] build_music_hangar:141: comment nói readback nhưng code không có; log báo thành công khi chưa kiểm; giá trị -8.0 gán cứng, chưa rõ nguồn
+- [ghi nhận, thấp-TB] build_clean:54: except pass quá rộng; xóa trực tiếp rồi save; tên apk_bnk_01/02 gợi ý từng bị trùng tên
+- [chờ] xem 2 hàm get_wav_duration + linker.py:27 (đã xem, mức thấp)
+- [xong] đợt 0. Cao: index_parser+run_full_carve. TB: build_music_hangar (thiếu readback, -8.0 gán cứng), hardcode reboot_wwise:127 + test_wwu_edit:82, bypassSave. Thấp-TB: build_clean, get_wav_duration x2 (trùng nhau, None im lặng). Thấp: linker:27
+- [kế] đợt sửa theo lô nhỏ, mỗi lô một commit; chưa sửa gì
+- [đang] đợt 1 (lõi Phase 1-2): cần xem carve_core.carve_by_index, đầu run_full_carve (files_to_process có sorted?), linker (3 vị trí ID, language, orphan), nội dung 2 test carve
+- [ghi nhận, CAO] carve_core.carve_by_index: slice mm[offset:offset+fsize] cắt cụt im lặng, không kiểm len==fsize
+- [ghi nhận, TB] os.walk không sorted (run_full_carve, linker:13) -> kết quả phụ thuộc máy; pool/ không dọn trước carve; logs/ cố định, bị xóa mỗi lần
+- [ghi nhận, thấp-TB] linker .get(...,{}) mặc định rỗng: sai file JSON -> manifest rỗng, chưa thấy ngưỡng cảnh báo
+- [xác nhận OK] linker: language là list sorted (Fact #27), 3 vị trí ID (Fact #4)
+- [chờ] nội dung 2 test carve; linker dòng 108-135 (cách lấy carved_ids)
+- [xong] đợt 1. Test carve (78 & 160 + magic RIFF/RIFX) tốt nhưng không so độ dài, không test 4 nhánh return [], cần dữ liệu game nên không chạy trên Termux
+- [ghi nhận, TB] linker: carved_ids lấy từ listdir(pool/) nên file cũ làm lệch orphan; chỉ tính 1 chiều (carved-manifest), không liệt kê "có trong manifest mà không carve" (~158 ID game gốc theo ghi chú: cần giải thích); ngưỡng orphan 10% chỉ có trong ghi chú
+- [kế] đợt 2 (generate_txtp, render) và đợt 3 (wwise_builder) khi có sức; sau đó lô sửa

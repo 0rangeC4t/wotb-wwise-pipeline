@@ -1,0 +1,11 @@
+{
+  "_ghi_chu": "Sao chép thành invariants.json, điền các TODO, rồi COMMIT. Chỉ điền số bạn đã tự xác nhận. Agent không được sửa file này.",
+  "checks": [
+    {"name": "TestProject: số .wem unique trong pool", "group": "TestProject", "type": "count_files", "glob": "TODO_duong_dan/pool/*.wem", "expect": 5640},
+    {"name": "TestProject: số mục trong manifest", "group": "TestProject", "type": "json_len", "file": "TODO_duong_dan/manifest.json", "expect": 5798},
+    {"name": "RXD: số .wem unique trong pool", "group": "RXD", "type": "count_files", "glob": "TODO_duong_dan/pool/*.wem", "expect": 1565},
+    {"name": "RXD: số mục trong manifest", "group": "RXD", "type": "json_len", "file": "TODO_duong_dan/manifest.json", "expect": 7094},
+    {"name": "RXD: số file .txtp", "group": "RXD", "type": "count_files", "glob": "TODO_duong_dan/txtp/**/*.txtp", "expect": 1765},
+    {"name": "RXD: số file wav đã render", "group": "RXD", "type": "count_files", "glob": "TODO_duong_dan/wav/**/*.wav", "expect": 1765}
+  ]
+}
