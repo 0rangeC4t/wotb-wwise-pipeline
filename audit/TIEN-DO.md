@@ -26,3 +26,5 @@
 - [xong] đợt 1. Test carve (78 & 160 + magic RIFF/RIFX) tốt nhưng không so độ dài, không test 4 nhánh return [], cần dữ liệu game nên không chạy trên Termux
 - [ghi nhận, TB] linker: carved_ids lấy từ listdir(pool/) nên file cũ làm lệch orphan; chỉ tính 1 chiều (carved-manifest), không liệt kê "có trong manifest mà không carve" (~158 ID game gốc theo ghi chú: cần giải thích); ngưỡng orphan 10% chỉ có trong ghi chú
 - [kế] đợt 2 (generate_txtp, render) và đợt 3 (wwise_builder) khi có sức; sau đó lô sửa
+- [xong] dọn: 23 file scratch -> archive/scratch_2026-10; giữ lại random_bug_files.txt (wwise_builder.py:64 đọc) và wwu_segment_section.txt (find_line.py ghi ra)
+- [ghi nhận, thấp-TB] wwise_builder.py:64 dùng tên file cố định có ngày (random_container_bug_list_20260802.txt): cần kiểm tra xử lý khi file thiếu
