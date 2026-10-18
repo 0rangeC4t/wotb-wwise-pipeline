@@ -35,3 +35,7 @@ wproj/*/.wsettings
 wproj/ThrowawayProject/
 wproj/*/*.validationcache
 wproj/*/Originals/
+
+# file kết quả chạy thử
+*_out.txt
+wwu_diff*.txt
