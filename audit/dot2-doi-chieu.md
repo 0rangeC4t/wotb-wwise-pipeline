@@ -13,3 +13,9 @@ Chờ: readlink, số wem, số bank voiceover_crew, 2 file danh sách, wwise_bu
 - N6 MED: wwise_builder bỏ qua im lặng mục manifest có friendly_name None và sid không có wav (chờ đếm).
 - N2 gỡ: có 21 voiceover_crew.bnk tương ứng 21 thư mục ngôn ngữ, không có bank ở gốc.
 - pool/: đã chuyển test.wav ra ../wotb-scratch; còn 5641 wem (mốc cũ 5640, chưa rõ nguyên nhân lệch).
+## Cập nhật sau lần đối chiếu 3
+- 158 ID khai báo mà không carve = manifest 5798 - 5640 (đã xác nhận); chưa biết là ID gì.
+- pool/ 5641 wem có 1 orphan (ID không có trong manifest); mốc cũ orphan=0.
+- N6 -> LOW: 0/5798 friendly_name rỗng. Thư mục /home/orange_meow/... không còn; rerun generate_txtp sẽ lỗi to ở symlink hỏng (suy luận, chưa chạy thử).
+- Hai danh sách bug không có dòng crewvoice nào; chưa kết luận vì danh sách có thể tạo từ vòng quét cấp một.
+- Chờ: đếm khớp mẫu bug ở top/crewvoice, chi tiết orphan, mẫu 158 ID.
