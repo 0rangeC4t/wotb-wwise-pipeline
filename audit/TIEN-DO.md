@@ -28,3 +28,5 @@
 - [kế] đợt 2 (generate_txtp, render) và đợt 3 (wwise_builder) khi có sức; sau đó lô sửa
 - [xong] dọn: 23 file scratch -> archive/scratch_2026-10; giữ lại random_bug_files.txt (wwise_builder.py:64 đọc) và wwu_segment_section.txt (find_line.py ghi ra)
 - [ghi nhận, thấp-TB] wwise_builder.py:64 dùng tên file cố định có ngày (random_container_bug_list_20260802.txt): cần kiểm tra xử lý khi file thiếu
+- [dot2] D2-07: 756 file bỏ qua = crewvoice 21 ngôn ngữ x 36; chưa kết luận (Fact #31: crewvoice giải mã từ bank). D2-02: nghi render_pool là bản sao do /mnt/d, chờ đếm. D2-05 -> LOW. Mới: N2 lang=None im lặng (MED), N3 except rộng quanh symlink (LOW)
+- [dot2] xem audit/dot2-doi-chieu.md (đối chiếu Codex với code thật); chờ 5 kết quả
