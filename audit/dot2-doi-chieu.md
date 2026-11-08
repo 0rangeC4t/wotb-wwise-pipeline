@@ -7,3 +7,9 @@ Mới: N1 (TB) symlink/JSON ghi vào input; N3 (thấp) except rộng quanh syml
 N2 chưa xác nhận: không có voiceover_crew.bnk ở gốc input.
 pool/: có test.wav (sai Fact #6), 5641 wem vs mốc 5640.
 Chờ: readlink, số wem, số bank voiceover_crew, 2 file danh sách, wwise_builder dòng 100-125.
+## Cập nhật sau lần đối chiếu 2
+- D2-02 HIGH, đã rõ nguyên nhân: symlink render_pool dùng đường dẫn tuyệt đối /home/orange_meow/wotb-wwise-pipeline/... (readlink) nên hỏng khi project chuyển sang /mnt/d (6957/6957 hỏng).
+- N5 HIGH: wwise_builder nạp danh sách bug từ random_bug_files.txt và random_container_bug_list_20260802.txt (file ngày 2 Aug), chỉ quét lại khi không thấy file.
+- N6 MED: wwise_builder bỏ qua im lặng mục manifest có friendly_name None và sid không có wav (chờ đếm).
+- N2 gỡ: có 21 voiceover_crew.bnk tương ứng 21 thư mục ngôn ngữ, không có bank ở gốc.
+- pool/: đã chuyển test.wav ra ../wotb-scratch; còn 5641 wem (mốc cũ 5640, chưa rõ nguyên nhân lệch).
