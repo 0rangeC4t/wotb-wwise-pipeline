@@ -30,3 +30,4 @@
 - [ghi nhận, thấp-TB] wwise_builder.py:64 dùng tên file cố định có ngày (random_container_bug_list_20260802.txt): cần kiểm tra xử lý khi file thiếu
 - [dot2] D2-07: 756 file bỏ qua = crewvoice 21 ngôn ngữ x 36; chưa kết luận (Fact #31: crewvoice giải mã từ bank). D2-02: nghi render_pool là bản sao do /mnt/d, chờ đếm. D2-05 -> LOW. Mới: N2 lang=None im lặng (MED), N3 except rộng quanh symlink (LOW)
 - [dot2] xem audit/dot2-doi-chieu.md (đối chiếu Codex với code thật); chờ 5 kết quả
+- [xong] đợt 2 (chốt). [kế] đợt 3 (wwise_builder...) bằng Codex; trước khi build crewvoice phải giải 158 ID English(US) và render_pool hỏng

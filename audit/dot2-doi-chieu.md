@@ -19,3 +19,8 @@ Chờ: readlink, số wem, số bank voiceover_crew, 2 file danh sách, wwise_bu
 - N6 -> LOW: 0/5798 friendly_name rỗng. Thư mục /home/orange_meow/... không còn; rerun generate_txtp sẽ lỗi to ở symlink hỏng (suy luận, chưa chạy thử).
 - Hai danh sách bug không có dòng crewvoice nào; chưa kết luận vì danh sách có thể tạo từ vòng quét cấp một.
 - Chờ: đếm khớp mẫu bug ở top/crewvoice, chi tiết orphan, mẫu 158 ID.
+## Chốt đợt 2
+- D2-07 -> HIGH: 756/756 txtp crewvoice khớp mẫu bug nhưng không được quét; 2 danh sách bug có 277 dòng = số khớp ở cấp một, không có crewvoice. Chưa rõ crewvoice có cần bản sửa này không (Fact #31).
+- N5 -> MED: danh sách 277 dòng khớp số hiện tại ở cấp một.
+- pool/: file thừa là verify_907192004.wem (999658 byte, 15 Jul), file test sót; chuyển ra ../wotb-scratch.
+- 158 ID khai báo không carve: mẫu đều là thoại crew English(US); chờ đếm theo ngôn ngữ.
